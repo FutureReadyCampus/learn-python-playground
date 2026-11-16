@@ -2,59 +2,183 @@
 <html lang="ko">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
 <title>Learn Python Playground</title>
 <style>
-  body{margin:0;font:16px system-ui;display:grid;grid-template-columns:200px 1fr 1fr;height:100vh}
-  nav{background:#f4f4f6;padding:12px;overflow:auto}
-  nav button{display:block;width:100%;text-align:left;padding:8px;margin:2px 0;border:0;border-radius:6px;background:none;font:inherit;cursor:pointer}
-  nav button.on{background:#fe8a2b;color:#fff}
-  nav h4{margin:12px 0 4px;color:#666}
-  section{padding:16px;overflow:auto;display:flex;flex-direction:column;gap:8px}
-  textarea{flex:1;font:14px ui-monospace,monospace;min-height:160px;padding:8px}
-  pre{background:#111;color:#8f8;padding:8px;min-height:80px;margin:0;white-space:pre-wrap}
-  .hint{background:#fff7e0;padding:8px;border-radius:6px;display:none}
-  #run{padding:10px;font:inherit;background:#fe8a2b;color:#fff;border:0;border-radius:6px;cursor:pointer}
+  :root{--bg:#16161a;--panel:#1e1e24;--line:#33333c;--fg:#e8e8ee;--dim:#9a9aa8;--acc:#fe8a2b}
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.6 system-ui;background:var(--bg);color:var(--fg);display:grid;grid-template-columns:220px minmax(0,1fr) minmax(0,1fr);height:100vh}
+  nav{background:var(--panel);border-right:1px solid var(--line);padding:12px;overflow:auto}
+  nav h3{margin:0 0 8px;font-size:15px}
+  nav h4{margin:16px 0 4px;color:var(--dim);font-size:13px}
+  nav button{display:block;width:100%;text-align:left;padding:7px 8px;margin:2px 0;border:0;border-radius:6px;background:none;color:var(--fg);font:inherit;font-size:14px;cursor:pointer}
+  nav button:hover{background:#2a2a33}
+  nav button.on{background:var(--acc);color:#111}
+  section{padding:20px;overflow:auto;display:flex;flex-direction:column;gap:10px}
+  section+section{border-left:1px solid var(--line)}
+  h2{margin:0}
+  .tag{color:var(--acc);font-size:13px}
+  .story{background:var(--panel);border-left:3px solid var(--acc);padding:10px 12px;border-radius:4px}
+  .task{background:#1d2a1f;border-left:3px solid #4caf50;padding:10px 12px;border-radius:4px}
+  code{background:#2a2a33;padding:1px 5px;border-radius:4px;font-size:14px}
+  details{background:var(--panel);padding:8px 12px;border-radius:6px}
+  summary{cursor:pointer;color:var(--dim)}
+  textarea{flex:1;min-height:220px;background:#0e0e11;color:var(--fg);border:1px solid var(--line);border-radius:6px;font:14px/1.5 ui-monospace,monospace;padding:10px;tab-size:4;resize:none}
+  pre{background:#000;color:#7CFC9A;padding:10px;min-height:100px;margin:0;border-radius:6px;white-space:pre-wrap}
+  .row{display:flex;gap:8px}
+  button.b{padding:10px 16px;font:inherit;background:var(--acc);color:#111;border:0;border-radius:6px;cursor:pointer}
+  button.b.g{background:#2a2a33;color:var(--fg)}
+  button:disabled{opacity:.5}
+  @media(max-width:900px){body{grid-template-columns:1fr;height:auto}nav,section{border:0}}
 </style>
-<nav id="nav"></nav>
-<section><h2 id="title"></h2><div id="prose"></div><div class="hint" id="hint"></div><button id="hintbtn">힌트</button></section>
-<section><textarea id="code" spellcheck="false"></textarea><button id="run" disabled>로딩 중…</button><pre id="out"></pre></section>
+<nav id="nav"><h3>🐍 Learn Python Playground</h3></nav>
+<section id="lesson"></section>
+<section>
+  <textarea id="code" spellcheck="false"></textarea>
+  <div class="row"><button class="b" id="run" disabled>로딩 중…</button><button class="b g" id="reset">처음 코드로</button></div>
+  <pre id="out"></pre>
+</section>
 <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
 <script>
-// 예시 콘텐츠. 실제 레슨은 Apple 앱 확인 후 교체.
+// 구성은 Apple "Everyone Can Code" 교사용 가이드의 챕터 흐름(일상 비유 → 코딩 → 되돌아보기)을 참고했고,
+// 설명·예제는 Python에 맞게 새로 작성한 것이다.
 const COURSES = [
- {name:"코드 시작하기", pages:[
-  {t:"명령어 (Commands)", p:"파이썬은 위에서 아래로 한 줄씩 실행해요. print()는 화면에 글자를 보여 주는 명령어예요.", c:'print("안녕, 파이썬!")', h:"따옴표 안의 글자를 바꿔 보세요."},
-  {t:"변수 (Variables)", p:"변수는 값에 이름표를 붙이는 거예요.", c:'name = "민지"\nprint("안녕,", name)', h:"name 값을 내 이름으로 바꿔 보세요."}]},
- {name:"Learn to Code 1", pages:[
-  {t:"반복문 (Loops)", p:"같은 일을 여러 번 할 때 for를 써요.", c:'for i in range(3):\n    print("걷기", i)', h:"range 안의 숫자를 바꿔 보세요."},
-  {t:"조건문 (Conditionals)", p:"if는 조건이 참일 때만 실행해요.", c:'gems = 3\nif gems >= 3:\n    print("문이 열렸어요!")\nelse:\n    print("보석이 더 필요해요")', h:"gems를 2로 바꿔 보세요."}]},
- {name:"Learn to Code 2", pages:[
-  {t:"함수 (Functions)", p:"def로 나만의 명령어를 만들어요.", c:'def turn_around():\n    print("돌아서기")\n\nturn_around()\nturn_around()', h:"함수를 한 번 더 호출해 보세요."},
-  {t:"매개변수 (Parameters)", p:"함수에 값을 넘겨 동작을 바꿀 수 있어요.", c:'def walk(steps):\n    for _ in range(steps):\n        print("걷기")\n\nwalk(4)', h:"walk(4)의 숫자를 바꿔 보세요."}]}
+{name:"코드 시작하기", pages:[
+{t:"컴퓨터처럼 생각하기", tag:"Lesson 0 · 시작",
+ story:"친구에게 \"과자 좀 갖다 줘\"라고만 말하면 어떤 과자인지, 어디서 가져올지 친구가 되물어요. 컴퓨터는 되물어 주지 않아요. 적어 준 그대로만 해요.",
+ p:"코드는 <b>컴퓨터에게 주는 정확한 지시문</b>이에요. 파이썬에서 <code>print()</code>는 화면에 글자를 보여 주라는 지시이고, 글자는 따옴표로 감싸요.",
+ c:'print("안녕, 파이썬!")\nprint("나는 컴퓨터에게 말하는 중이야")',
+ task:"두 줄을 내가 하고 싶은 말로 바꿔 보고, 한 줄을 더 추가해 실행해 보세요.",
+ h:"따옴표(\") 안만 바꾸면 돼요. 따옴표를 하나 지우면 어떻게 될까요?",
+ r:"사람끼리의 대화와 컴퓨터에게 하는 지시는 무엇이 다를까요?"},
+{t:"순서가 중요해", tag:"Lesson 0 · 시작",
+ story:"라면을 끓일 때 물을 붓기 전에 면을 먼저 넣으면 어떻게 될까요? 같은 재료라도 순서가 바뀌면 결과가 달라져요.",
+ p:"파이썬은 <b>위에서 아래로, 한 줄씩</b> 차례대로 실행해요. 이런 명령의 나열을 <b>순서(sequence)</b>라고 불러요.",
+ c:'print("1. 물을 끓인다")\nprint("2. 면을 넣는다")\nprint("3. 스프를 넣는다")\nprint("4. 맛있게 먹는다")',
+ task:"줄 순서를 섞어 실행해 보고, 결과가 어색한지 확인한 뒤 다시 바르게 고쳐 보세요.",
+ h:"줄 전체를 잘라 붙이면 위치를 옮길 수 있어요.",
+ r:"하루 일과 중 순서가 바뀌면 곤란한 일을 하나 떠올려 보세요."},
+{t:"패턴을 찾아라", tag:"Lesson 0 · 시작",
+ story:"박수를 3번 칠 때 \"짝, 짝, 짝\"이라고 말하지 \"박수 한 번 치고 또 한 번 치고…\"라고 길게 말하지 않아요. 반복되는 건 줄여서 말해요.",
+ p:"같은 일이 반복되면 <b>패턴</b>이에요. 코드에서는 이걸 <code>for</code> 반복문으로 줄여요. 다음 레슨들에서 자세히 배울 거예요.",
+ c:'# 길게 쓴 버전\nprint("짝")\nprint("짝")\nprint("짝")\n\n# 짧게 쓴 버전\nfor i in range(3):\n    print("짝")',
+ task:"짧은 버전의 3을 5로 바꿔 보세요. 긴 버전은 어떻게 고쳐야 할까요?",
+ h:"range(숫자)의 숫자가 반복 횟수예요. 반복할 줄 앞의 들여쓰기(4칸)를 지우지 마세요.",
+ r:"주변에서 반복되는 패턴을 두 가지 찾아보세요."}
+]},
+{name:"Learn to Code 1", pages:[
+{t:"1. 명령과 순서", tag:"Think Like a Computer",
+ story:"로봇 청소기에게 방을 청소시키려면 \"앞으로, 오른쪽으로 돌기, 앞으로\"처럼 하나하나 정확한 명령이 필요해요.",
+ p:"함수 호출로 만든 <b>명령</b>을 순서대로 늘어놓으면 프로그램이 돼요. 여기서는 거북이 대신 글자로 길을 걸어 볼게요.",
+ c:'def move():\n    print("앞으로 한 칸")\n\ndef turn_left():\n    print("왼쪽으로 돌기")\n\nmove()\nmove()\nturn_left()\nmove()',
+ task:"로봇이 ㄱ자 모양(앞으로 3칸 → 왼쪽으로 돌기 → 앞으로 2칸)으로 가도록 호출을 고쳐 보세요.",
+ h:"move()를 3번, turn_left()를 한 번, move()를 2번 쓰면 돼요.",
+ r:"명령이 하나라도 빠지거나 틀리면 로봇은 어디에 도착할까요?"},
+{t:"2. 디버깅", tag:"Think Like a Detective",
+ story:"탐정은 사건 현장에서 단서를 모으고, 하나씩 의심되는 곳을 지워 가며 범인을 찾아요. 버그(bug, 오류)를 찾는 일도 똑같아요.",
+ p:"<b>디버깅</b>은 코드의 오류를 찾아 고치는 일이에요. 실행했는데 에러가 나거나, 에러는 없는데 결과가 틀리면 버그가 있는 거예요.",
+ c:'# 이 코드에는 버그가 2개 있어요!\nprint("3 + 4 =", 3 + 5)\nprint("안녕 파이썬)\nprint("끝")',
+ task:"결과가 \"3 + 4 = 7\"이 되도록, 그리고 에러가 없도록 고쳐 보세요.",
+ h:"빨간 에러 메시지의 마지막 줄을 읽어 보세요. 한 줄은 계산이, 다른 한 줄은 따옴표가 문제예요.",
+ r:"에러가 났을 때 가장 먼저 해야 할 일은 무엇일까요? 한 번에 하나씩 고치는 이유는요?"},
+{t:"3. 함수와 반복문", tag:"Think Efficiently",
+ story:"춤 동작 \"한 바퀴 돌고 손뼉 치기\"에 이름을 붙여 두면, 안무를 짤 때 이름만 부르면 돼요.",
+ p:"<b>함수</b>(<code>def</code>)는 여러 명령에 이름을 붙인 것이고, <b>for 반복문</b>은 같은 일을 정해진 횟수만큼 하게 해요. 둘을 합치면 코드가 훨씬 짧아져요.",
+ c:'def spin_and_clap():\n    print("빙글")\n    print("짝")\n\nfor i in range(3):\n    spin_and_clap()\nprint("끝!")',
+ task:"함수에 \"점프\" 동작을 한 줄 추가하고, 반복 횟수를 4번으로 바꿔 보세요.",
+ h:"함수 안의 줄은 모두 4칸 들여써야 해요. 반복 횟수는 range()의 숫자예요.",
+ r:"함수로 묶지 않았다면 코드가 몇 줄이나 됐을까요?"},
+{t:"4. 조건문", tag:"Think Logically",
+ story:"\"비가 오면 우산을 챙기고, 아니면 그냥 나간다.\" 상황에 따라 다르게 행동하는 것이 조건이에요.",
+ p:"<code>if</code>는 조건이 참(<code>True</code>)일 때만 실행해요. <code>and</code>, <code>or</code>, <code>not</code>으로 조건을 조합할 수 있어요.",
+ c:'gems = 3\nhas_key = True\n\nif gems >= 3 and has_key:\n    print("문이 열렸어요!")\nelif gems >= 3:\n    print("열쇠가 필요해요")\nelse:\n    print("보석이 더 필요해요")',
+ task:"gems를 2로, has_key를 False로 바꿔 가며 어떤 문장이 나오는지 예상한 뒤 실행해 보세요.",
+ h:"and는 둘 다 참이어야 참이에요. 위에서부터 처음 참인 조건 하나만 실행돼요.",
+ r:"어떤 일상 규칙이 and 또는 or로 표현될 수 있을까요?"},
+{t:"5. while 반복문", tag:"Think Again and Again",
+ story:"\"배가 부를 때까지 먹는다.\" 몇 번 먹을지는 모르지만 조건이 바뀔 때까지 계속해요.",
+ p:"<code>while</code>은 <b>조건이 참인 동안</b> 계속 반복해요. 조건을 바꾸는 코드를 넣지 않으면 영원히 멈추지 않으니 조심하세요!",
+ c:'stairs = 5\nwhile stairs > 0:\n    print("계단 오르기, 남은 계단:", stairs)\n    stairs = stairs - 1\nprint("도착!")',
+ task:"stairs 값을 바꿔 보고, 계단이 2칸씩 줄어들도록 고쳐 보세요.",
+ h:"stairs = stairs - 2 로 바꾸면 돼요. 이 줄을 지우면 무한 반복이 되니 지우지 마세요.",
+ r:"for와 while은 어떤 상황에서 각각 더 어울릴까요?"},
+{t:"6. 알고리즘", tag:"Think the Same Idea",
+ story:"요리 레시피는 누가 따라 해도 같은 결과를 내는 단계별 방법이에요. 그런 정해진 방법이 알고리즘이에요.",
+ p:"<b>알고리즘</b>은 문제를 푸는 단계별 방법이에요. 아래는 점수 중 가장 큰 값을 찾는 알고리즘으로, 하나씩 보며 \"지금까지 최고\"를 갱신해요.",
+ c:'scores = [72, 95, 88, 61]\nbest = scores[0]\n\nfor s in scores:\n    if s > best:\n        best = s\n\nprint("가장 높은 점수:", best)',
+ task:"점수를 바꿔 보고, 가장 낮은 점수를 찾도록 고쳐 보세요.",
+ h:"비교 부호 > 를 < 로 바꾸고 변수 이름도 lowest로 바꿔 보세요.",
+ r:"같은 문제를 푸는 다른 방법이 있을까요? 어떤 방법이 더 좋은지는 어떻게 비교할까요?"}
+]},
+{name:"Learn to Code 2", pages:[
+{t:"7. 변수", tag:"Think Like a NewsBot",
+ story:"뉴스 템플릿은 \"[팀]이 [점수]로 이겼습니다\"처럼 빈칸만 바꿔 기사를 만들어요. 빈칸에 들어갈 값을 담는 상자가 변수예요.",
+ p:"<b>변수</b>는 값에 이름을 붙여 저장하는 상자예요. 값은 나중에 바꿀 수 있고, 문자열 앞에 <code>f</code>를 붙이면 <code>{변수}</code> 자리에 값이 들어가요.",
+ c:'team = "파랑팀"\nscore = 3\nprint(f"{team}이 {score}점으로 이겼습니다!")\n\nscore = score + 2\nprint(f"{team}이 {score}점으로 이겼습니다!")',
+ task:"팀 이름과 점수를 바꾸고, 새 변수 opponent를 만들어 기사에 상대팀도 넣어 보세요.",
+ h:'opponent = "빨강팀" 을 만들고 f-문자열 안에 {opponent}를 쓰면 돼요.',
+ r:"게임 점수 외에 변수로 저장하면 좋은 값은 무엇이 있을까요?"},
+{t:"8. 타입과 객체 만들기", tag:"Think Like an Architect",
+ story:"건축가는 설계도로 같은 모양의 집을 여러 채 지어요. 집마다 색이나 크기만 달라요.",
+ p:"값에는 <b>타입</b>이 있어요: 정수 <code>int</code>, 소수 <code>float</code>, 글자 <code>str</code>, 참/거짓 <code>bool</code>. <code>class</code>는 나만의 타입(설계도)이고, <code>__init__</code>이 새로 만들 때 값을 채우는 <b>초기화</b>예요.",
+ c:'print(type(3), type(3.5), type("글자"), type(True))\n\nclass Character:\n    def __init__(self, name, hp):\n        self.name = name\n        self.hp = hp\n\nhero = Character("용사", 10)\nslime = Character("슬라임", 3)\nprint(hero.name, hero.hp)\nprint(slime.name, slime.hp)',
+ task:"새 캐릭터를 하나 더 만들어 이름과 hp를 출력해 보세요.",
+ h:'dragon = Character("드래곤", 50) 처럼 만들고 print(dragon.name, dragon.hp).',
+ r:"\"3\"과 3은 같을까요? type()으로 확인해 보세요."},
+{t:"9. 매개변수", tag:"Think Specifically",
+ story:"\"걸어\"라고만 하면 몇 걸음인지 몰라요. \"4걸음 걸어\"라고 말하면 정확해져요. 그 4가 매개변수예요.",
+ p:"<b>매개변수</b>는 함수에 건네는 정보예요. 같은 함수로 다른 결과를 낼 수 있고, <code>=</code>로 기본값도 줄 수 있어요.",
+ c:'def walk(steps, direction="앞"):\n    for _ in range(steps):\n        print(direction + "으로 한 걸음")\n\nwalk(2)\nwalk(3, "뒤")',
+ task:"walk를 호출해 오른쪽으로 4걸음 가 보세요.",
+ h:'walk(4, "오른쪽") 처럼 호출하면 돼요.',
+ r:"매개변수가 없던 때와 비교하면 무엇이 편해졌나요?"},
+{t:"10. 리스트(배열)", tag:"Think Organized",
+ story:"장바구니에는 물건을 순서대로 담고, 하나 꺼내고, 더 넣을 수도 있어요. 여러 값을 모아 두는 상자가 리스트예요.",
+ p:"<b>리스트</b>는 여러 값을 순서대로 담는 타입이에요. <code>append</code>로 추가하고, <code>len</code>으로 개수를 세고, <code>[번호]</code>로 꺼내요(번호는 0부터!).",
+ c:'items = ["검", "방패", "물약"]\nitems.append("지도")\n\nprint("개수:", len(items))\nprint("첫 번째:", items[0])\nfor item in items:\n    print("-", item)',
+ task:"아이템을 두 개 더 추가하고, 마지막 아이템을 items[-1]로 출력해 보세요.",
+ h:"print(items[-1]) 은 맨 뒤 값을 꺼내 줘요.",
+ r:"리스트 없이 아이템 10개를 저장하려면 변수가 몇 개 필요할까요?"},
+{t:"마일스톤: 나만의 세계", tag:"Milestone Project",
+ story:"지금까지 배운 것을 모두 써서 나만의 짧은 이야기 세계를 만들어 봐요.",
+ p:"변수·함수·조건문·반복문·리스트를 모두 사용해 보세요. 이야기와 규칙은 마음대로 바꿔도 좋아요.",
+ c:'class Hero:\n    def __init__(self, name):\n        self.name = name\n        self.gems = 0\n\ndef collect(hero, count):\n    hero.gems = hero.gems + count\n    print(f"{hero.name}: 보석 {count}개 획득!")\n\nhero = Hero("민지")\nplaces = ["숲", "동굴", "성"]\n\nfor place in places:\n    print("도착:", place)\n    collect(hero, 2)\n\nif hero.gems >= 6:\n    print("마법의 문이 열렸어요! 🎉")\nelse:\n    print("보석이 부족해요")',
+ task:"① 장소를 하나 추가하고 ② 장소별로 보석 개수를 다르게 하고 ③ 이야기에 한 줄을 더해 보세요.",
+ h:"collect(hero, 3)처럼 숫자를 바꾸거나, places 리스트에 값을 추가해 보세요.",
+ r:"내 세계에서 가장 마음에 드는 부분은 무엇이고, 어떻게 만들었나요?"}
+]}
 ];
 const $=id=>document.getElementById(id);
-let py, cur=[0,0];
+let py, cur, KEY="lpp:";
 function show(ci,pi){
-  cur=[ci,pi]; const pg=COURSES[ci].pages[pi];
-  $("title").textContent=pg.t; $("prose").textContent=pg.p; $("code").value=pg.c;
-  $("hint").textContent=pg.h; $("hint").style.display="none"; $("out").textContent="";
+  cur=[ci,pi]; const g=COURSES[ci].pages[pi];
+  $("lesson").innerHTML=`<div class="tag">${COURSES[ci].name} · ${g.tag}</div><h2>${g.t}</h2>
+   <div class="story">🌍 ${g.story}</div><div>${g.p}</div>
+   <div class="task">✏️ <b>해 보기</b><br>${g.task}</div>
+   <details><summary>힌트</summary>${g.h}</details>
+   <details><summary>되돌아보기</summary>${g.r}</details>`;
+  $("code").value=localStorage[KEY+ci+","+pi]??g.c; $("out").textContent="";
   nav.querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.k==ci+","+pi));
+  location.hash=ci+"-"+pi;
 }
 COURSES.forEach((c,ci)=>{
   nav.insertAdjacentHTML("beforeend",`<h4>${c.name}</h4>`);
-  c.pages.forEach((pg,pi)=>{
-    const b=document.createElement("button"); b.textContent=pg.t; b.dataset.k=ci+","+pi;
+  c.pages.forEach((g,pi)=>{
+    const b=document.createElement("button"); b.textContent=g.t; b.dataset.k=ci+","+pi;
     b.onclick=()=>show(ci,pi); nav.append(b);
   });
 });
-$("hintbtn").onclick=()=>$("hint").style.display="block";
+$("code").oninput=()=>localStorage[KEY+cur]=$("code").value;
+$("reset").onclick=()=>{delete localStorage[KEY+cur];show(...cur)};
+$("code").onkeydown=e=>{if(e.key==="Tab"){e.preventDefault();document.execCommand("insertText",false,"    ")}};
 $("run").onclick=async()=>{
   let out="";
-  py.setStdout({batched:s=>out+=s+"\n"});
-  try{await py.runPythonAsync($("code").value)}catch(e){out+=String(e.message).split("\n").slice(-2).join("\n")}
-  $("out").textContent=out;
+  py.setStdout({batched:s=>out+=s+"\n"}); py.setStderr({batched:s=>out+=s+"\n"});
+  try{await py.runPythonAsync($("code").value)}catch(e){out+="⚠️ "+String(e.message).trim().split("\n").slice(-2).join("\n")}
+  $("out").textContent=out||"(출력 없음)";
 };
-show(0,0);
+const [a,b]=(location.hash.slice(1)||"0-0").split("-").map(Number);
+show(COURSES[a]?.pages[b]?a:0, COURSES[a]?.pages[b]?b:0);
 loadPyodide().then(p=>{py=p;$("run").disabled=false;$("run").textContent="▶ 실행"});
 </script>
 </html>
