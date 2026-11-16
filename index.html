@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Learn Python Playground</title>
+<style>
+  body{margin:0;font:16px system-ui;display:grid;grid-template-columns:200px 1fr 1fr;height:100vh}
+  nav{background:#f4f4f6;padding:12px;overflow:auto}
+  nav button{display:block;width:100%;text-align:left;padding:8px;margin:2px 0;border:0;border-radius:6px;background:none;font:inherit;cursor:pointer}
+  nav button.on{background:#fe8a2b;color:#fff}
+  nav h4{margin:12px 0 4px;color:#666}
+  section{padding:16px;overflow:auto;display:flex;flex-direction:column;gap:8px}
+  textarea{flex:1;font:14px ui-monospace,monospace;min-height:160px;padding:8px}
+  pre{background:#111;color:#8f8;padding:8px;min-height:80px;margin:0;white-space:pre-wrap}
+  .hint{background:#fff7e0;padding:8px;border-radius:6px;display:none}
+  #run{padding:10px;font:inherit;background:#fe8a2b;color:#fff;border:0;border-radius:6px;cursor:pointer}
+</style>
+<nav id="nav"></nav>
+<section><h2 id="title"></h2><div id="prose"></div><div class="hint" id="hint"></div><button id="hintbtn">힌트</button></section>
+<section><textarea id="code" spellcheck="false"></textarea><button id="run" disabled>로딩 중…</button><pre id="out"></pre></section>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<script>
+// 예시 콘텐츠. 실제 레슨은 Apple 앱 확인 후 교체.
+const COURSES = [
+ {name:"코드 시작하기", pages:[
+  {t:"명령어 (Commands)", p:"파이썬은 위에서 아래로 한 줄씩 실행해요. print()는 화면에 글자를 보여 주는 명령어예요.", c:'print("안녕, 파이썬!")', h:"따옴표 안의 글자를 바꿔 보세요."},
+  {t:"변수 (Variables)", p:"변수는 값에 이름표를 붙이는 거예요.", c:'name = "민지"\nprint("안녕,", name)', h:"name 값을 내 이름으로 바꿔 보세요."}]},
+ {name:"Learn to Code 1", pages:[
+  {t:"반복문 (Loops)", p:"같은 일을 여러 번 할 때 for를 써요.", c:'for i in range(3):\n    print("걷기", i)', h:"range 안의 숫자를 바꿔 보세요."},
+  {t:"조건문 (Conditionals)", p:"if는 조건이 참일 때만 실행해요.", c:'gems = 3\nif gems >= 3:\n    print("문이 열렸어요!")\nelse:\n    print("보석이 더 필요해요")', h:"gems를 2로 바꿔 보세요."}]},
+ {name:"Learn to Code 2", pages:[
+  {t:"함수 (Functions)", p:"def로 나만의 명령어를 만들어요.", c:'def turn_around():\n    print("돌아서기")\n\nturn_around()\nturn_around()', h:"함수를 한 번 더 호출해 보세요."},
+  {t:"매개변수 (Parameters)", p:"함수에 값을 넘겨 동작을 바꿀 수 있어요.", c:'def walk(steps):\n    for _ in range(steps):\n        print("걷기")\n\nwalk(4)', h:"walk(4)의 숫자를 바꿔 보세요."}]}
+];
+const $=id=>document.getElementById(id);
+let py, cur=[0,0];
+function show(ci,pi){
+  cur=[ci,pi]; const pg=COURSES[ci].pages[pi];
+  $("title").textContent=pg.t; $("prose").textContent=pg.p; $("code").value=pg.c;
+  $("hint").textContent=pg.h; $("hint").style.display="none"; $("out").textContent="";
+  nav.querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.k==ci+","+pi));
+}
+COURSES.forEach((c,ci)=>{
+  nav.insertAdjacentHTML("beforeend",`<h4>${c.name}</h4>`);
+  c.pages.forEach((pg,pi)=>{
+    const b=document.createElement("button"); b.textContent=pg.t; b.dataset.k=ci+","+pi;
+    b.onclick=()=>show(ci,pi); nav.append(b);
+  });
+});
+$("hintbtn").onclick=()=>$("hint").style.display="block";
+$("run").onclick=async()=>{
+  let out="";
+  py.setStdout({batched:s=>out+=s+"\n"});
+  try{await py.runPythonAsync($("code").value)}catch(e){out+=String(e.message).split("\n").slice(-2).join("\n")}
+  $("out").textContent=out;
+};
+show(0,0);
+loadPyodide().then(p=>{py=p;$("run").disabled=false;$("run").textContent="▶ 실행"});
+</script>
+</html>
