@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="fr-t fr-d">
+  <title id="fr-t">요리법에 이름 붙이기</title>
+  <desc id="fr-d">왼쪽에 세 줄짜리 요리법 카드가 있고 위에 달걀말이라는 이름표가 붙어요. 오른쪽 말풍선으로 이름을 부르면 카드의 세 줄이 차례로 밝아지고 접시에 달걀말이가 놓여요.</desc>
+  <style>
+    .fr-card{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .fr-mark{fill:var(--warn);opacity:0;transition:opacity .5s}
+    .fr-line.on .fr-mark{opacity:.35}
+    .fr-num{fill:var(--dim);font-size:24px;font-weight:800}
+    .fr-txt{fill:var(--tx);font-size:26px;font-weight:700}
+    .fr-tagbox{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .fr-tagtx{fill:var(--tx);font-size:30px;font-weight:800;text-anchor:middle}
+    .fr-bub{fill:var(--panel);stroke:var(--warn);stroke-width:3}
+    .fr-bubtx{fill:var(--tx);font-size:30px;font-weight:800;text-anchor:middle}
+    .fr-plate{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .fr-roll{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    #fr-card,#fr-tag,#fr-call,#fr-dish{transition:opacity .5s}
+    @media (prefers-reduced-motion:reduce){#fr-card,#fr-tag,#fr-call,#fr-dish,.fr-mark{transition:none}}
+  </style>
+  <g id="fr-card">
+    <rect class="fr-card" x="80" y="170" width="340" height="270" rx="14"/>
+    <g id="fr-l1" class="fr-line">
+      <rect class="fr-mark" x="100" y="200" width="300" height="56" rx="10"/>
+      <text class="fr-num" x="118" y="237">1</text><text class="fr-txt" x="154" y="237">달걀 깨기</text>
+    </g>
+    <g id="fr-l2" class="fr-line">
+      <rect class="fr-mark" x="100" y="276" width="300" height="56" rx="10"/>
+      <text class="fr-num" x="118" y="313">2</text><text class="fr-txt" x="154" y="313">휘휘 젓기</text>
+    </g>
+    <g id="fr-l3" class="fr-line">
+      <rect class="fr-mark" x="100" y="352" width="300" height="56" rx="10"/>
+      <text class="fr-num" x="118" y="389">3</text><text class="fr-txt" x="154" y="389">돌돌 말기</text>
+    </g>
+  </g>
+  <g id="fr-tag">
+    <rect class="fr-tagbox" x="150" y="122" width="200" height="60" rx="30"/>
+    <text class="fr-tagtx" x="250" y="163">달걀말이</text>
+  </g>
+  <g id="fr-call">
+    <path class="fr-bub" d="M560 140 H860 Q880 140 880 160 V220 Q880 240 860 240 H620 L580 270 L590 240 H560 Q540 240 540 220 V160 Q540 140 560 140 Z"/>
+    <text class="fr-bubtx" x="710" y="202">달걀말이!</text>
+  </g>
+  <g id="fr-dish">
+    <ellipse class="fr-plate" cx="710" cy="400" rx="150" ry="40"/>
+    <rect class="fr-roll" x="610" y="350" width="60" height="50" rx="14"/>
+    <rect class="fr-roll" x="680" y="350" width="60" height="50" rx="14"/>
+    <rect class="fr-roll" x="750" y="350" width="60" height="50" rx="14"/>
+  </g>
+</svg>

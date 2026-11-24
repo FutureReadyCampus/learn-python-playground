@@ -1,0 +1,570 @@
+{
+ "unit": "B5",
+ "title": "조건 묶기",
+ "term": "논리 연산자(logical operator) · 조건을 엮는 말",
+ "takeaway": "조건 여러 개를 묶어 한 번에 물어봐요.",
+ "slides": [
+  {
+   "text": "놀이공원 입구에서는 무엇을 확인할까요?",
+   "scene": {
+    "svg": "svg/logic-ticket.svg",
+    "alt": "입구 위 확인판에 표 있음, 문 열림 등 두 개가 있고, 둘 다 켜지면 표를 든 동그라미가 문을 지나 들어가는 장면",
+    "steps": [
+     {
+      "cap": "표도 있고 문도 열려야 들어가요",
+      "show": [
+       "lg-board",
+       "lg-gate",
+       "lg-walker"
+      ]
+     },
+     {
+      "cap": "표가 있어요. 하나만 맞았어요",
+      "on": [
+       "lg-chk1"
+      ]
+     },
+     {
+      "cap": "문도 열렸어요. 둘 다 맞아요",
+      "on": [
+       "lg-chk2",
+       "lg-door"
+      ]
+     },
+     {
+      "cap": "둘 다 맞아서 들어가요",
+      "move": {
+       "lg-walker": [
+        860,
+        380
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "text": "표가 있어도 문이 닫혀 있으면 못 들어가요. **둘 다** 맞아야 해요."
+  },
+  {
+   "text": "방금 한 일을 컴퓨터가 읽는 코드처럼 써 볼까요?",
+   "scene": {
+    "svg": "svg/logic-ticket.svg",
+    "alt": "왼쪽 코드가 한 줄씩 강조되면서 표 있음과 문 열림 등이 켜지고, 둘 다 참인지 확인한 뒤 들어가는 장면",
+    "code": [
+     "표 = True",
+     "문_열림 = True",
+     "if 표 and 문_열림:",
+     "    들어가기()"
+    ],
+    "steps": [
+     {
+      "cap": "컴퓨터처럼 한 줄씩 읽어 볼까요?",
+      "show": [
+       "lg-board",
+       "lg-gate",
+       "lg-walker"
+      ]
+     },
+     {
+      "cap": "표가 있어요. 표는 참이에요",
+      "line": 1,
+      "on": [
+       "lg-chk1"
+      ],
+      "vars": {
+       "표": "True"
+      }
+     },
+     {
+      "cap": "문이 열렸어요. 문_열림도 참이에요",
+      "line": 2,
+      "on": [
+       "lg-chk2",
+       "lg-door"
+      ],
+      "vars": {
+       "문_열림": "True"
+      }
+     },
+     {
+      "cap": "if 줄: 둘 다 참인가요? 네!",
+      "line": 3
+     },
+     {
+      "cap": "참이라 문을 지나 들어가요",
+      "line": 4,
+      "move": {
+       "lg-walker": [
+        860,
+        380
+       ]
+      }
+     }
+    ]
+   },
+   "note": "`True`는 참, `False`는 거짓이에요."
+  },
+  {
+   "text": "`and`처럼 조건을 엮는 말을 **논리 연산자**라고 해요.",
+   "bubble": "논리 연산자(logical operator) · 조건을 엮는 말",
+   "code": [
+    "is_on_gem() and is_blocked()",
+    "is_on_gem() or is_on_closed_switch()"
+   ],
+   "note": "`and`는 둘 다 참, `or`는 하나만 참이어도 돼요. 카드나 현금처럼요."
+  },
+  {
+   "text": "이제 진짜 코드로 Byte를 움직여 봐요.",
+   "scene": {
+    "svg": "svg/logic-byte.svg",
+    "alt": "왼쪽 코드가 한 줄씩 강조되면서 Byte가 세 칸을 걷고, 보석도 있고 앞도 막힌 벽 앞 칸에서만 보석을 줍는 장면",
+    "code": [
+     "for _ in range(3):",
+     "    move_forward()",
+     "    if is_on_gem() and is_blocked():",
+     "        collect_gem()"
+    ],
+    "world": {
+     "H": [
+      "1111"
+     ],
+     "O": [
+      ">g.g"
+     ]
+    },
+    "steps": [
+     {
+      "cap": "두 조건을 and로 묶었어요"
+     },
+     {
+      "cap": "for 줄: 몇 번째인지 확인해요",
+      "line": 1
+     },
+     {
+      "cap": "1칸 앞으로 가요",
+      "line": 2,
+      "move": {
+       "lb-bot": [
+        380,
+        370
+       ]
+      },
+      "text": {
+       "lb-v1": "?",
+       "lb-v2": "?",
+       "lb-res": "둘 다 참일까요?"
+      }
+     },
+     {
+      "cap": "보석은 있지만 앞이 열렸어요",
+      "line": 3,
+      "text": {
+       "lb-v1": "참",
+       "lb-v2": "거짓",
+       "lb-res": "건너뛰어요"
+      }
+     },
+     {
+      "cap": "for 줄: 몇 번째인지 확인해요",
+      "line": 1
+     },
+     {
+      "cap": "2칸 앞으로 가요",
+      "line": 2,
+      "move": {
+       "lb-bot": [
+        505,
+        370
+       ]
+      },
+      "text": {
+       "lb-v1": "?",
+       "lb-v2": "?",
+       "lb-res": "둘 다 참일까요?"
+      }
+     },
+     {
+      "cap": "보석이 없어요. 건너뛰어요",
+      "line": 3,
+      "text": {
+       "lb-v1": "거짓",
+       "lb-res": "건너뛰어요"
+      }
+     },
+     {
+      "cap": "for 줄: 몇 번째인지 확인해요",
+      "line": 1
+     },
+     {
+      "cap": "3칸 앞으로 가요. 벽 앞이에요",
+      "line": 2,
+      "move": {
+       "lb-bot": [
+        630,
+        370
+       ]
+      },
+      "text": {
+       "lb-v1": "?",
+       "lb-v2": "?",
+       "lb-res": "둘 다 참일까요?"
+      }
+     },
+     {
+      "cap": "보석도 있고 막혔어요. 둘 다 참!",
+      "line": 3,
+      "text": {
+       "lb-v1": "참",
+       "lb-v2": "참",
+       "lb-res": "주워요!"
+      }
+     },
+     {
+      "cap": "보석을 주워요",
+      "line": 4,
+      "hide": [
+       "lb-g3"
+      ]
+     },
+     {
+      "cap": "세 번 다 했으니 끝나요",
+      "line": 1
+     }
+    ],
+    "part": [
+     0,
+     7
+    ]
+   },
+   "note": "`and`는 앞이 거짓이면 뒤는 묻지도 않아요."
+  },
+  {
+   "text": "이어서 한 줄씩 봐요 (2/2)",
+   "scene": {
+    "svg": "svg/logic-byte.svg",
+    "alt": "왼쪽 코드가 한 줄씩 강조되면서 Byte가 세 칸을 걷고, 보석도 있고 앞도 막힌 벽 앞 칸에서만 보석을 줍는 장면",
+    "code": [
+     "for _ in range(3):",
+     "    move_forward()",
+     "    if is_on_gem() and is_blocked():",
+     "        collect_gem()"
+    ],
+    "world": {
+     "H": [
+      "1111"
+     ],
+     "O": [
+      ">g.g"
+     ]
+    },
+    "steps": [
+     {
+      "cap": "두 조건을 and로 묶었어요"
+     },
+     {
+      "cap": "for 줄: 몇 번째인지 확인해요",
+      "line": 1
+     },
+     {
+      "cap": "1칸 앞으로 가요",
+      "line": 2,
+      "move": {
+       "lb-bot": [
+        380,
+        370
+       ]
+      },
+      "text": {
+       "lb-v1": "?",
+       "lb-v2": "?",
+       "lb-res": "둘 다 참일까요?"
+      }
+     },
+     {
+      "cap": "보석은 있지만 앞이 열렸어요",
+      "line": 3,
+      "text": {
+       "lb-v1": "참",
+       "lb-v2": "거짓",
+       "lb-res": "건너뛰어요"
+      }
+     },
+     {
+      "cap": "for 줄: 몇 번째인지 확인해요",
+      "line": 1
+     },
+     {
+      "cap": "2칸 앞으로 가요",
+      "line": 2,
+      "move": {
+       "lb-bot": [
+        505,
+        370
+       ]
+      },
+      "text": {
+       "lb-v1": "?",
+       "lb-v2": "?",
+       "lb-res": "둘 다 참일까요?"
+      }
+     },
+     {
+      "cap": "보석이 없어요. 건너뛰어요",
+      "line": 3,
+      "text": {
+       "lb-v1": "거짓",
+       "lb-res": "건너뛰어요"
+      }
+     },
+     {
+      "cap": "for 줄: 몇 번째인지 확인해요",
+      "line": 1
+     },
+     {
+      "cap": "3칸 앞으로 가요. 벽 앞이에요",
+      "line": 2,
+      "move": {
+       "lb-bot": [
+        630,
+        370
+       ]
+      },
+      "text": {
+       "lb-v1": "?",
+       "lb-v2": "?",
+       "lb-res": "둘 다 참일까요?"
+      }
+     },
+     {
+      "cap": "보석도 있고 막혔어요. 둘 다 참!",
+      "line": 3,
+      "text": {
+       "lb-v1": "참",
+       "lb-v2": "참",
+       "lb-res": "주워요!"
+      }
+     },
+     {
+      "cap": "보석을 주워요",
+      "line": 4,
+      "hide": [
+       "lb-g3"
+      ]
+     },
+     {
+      "cap": "세 번 다 했으니 끝나요",
+      "line": 1
+     }
+    ],
+    "part": [
+     7,
+     12
+    ]
+   }
+  },
+  {
+   "text": "비가 **안** 오면 산책하죠? `not`은 참과 거짓을 뒤집어요.",
+   "code": [
+    "if not is_blocked():",
+    "    move_forward()"
+   ],
+   "note": "막히지 않았을 때만 걸어요. 막혔으면 거짓이 돼서 건너뛰어요."
+  },
+  {
+   "quiz": {
+    "q": "`and`를 `or`로 바꿨어요. 보석을 몇 개 주울까요?",
+    "code": [
+     "for _ in range(3):",
+     "    move_forward()",
+     "    if is_on_gem() or is_blocked():",
+     "        collect_gem()"
+    ],
+    "choices": [
+     "1개",
+     "2개",
+     "3개"
+    ],
+    "answer": 1,
+    "why": "`or`는 하나만 참이어도 돼요. 보석이 있는 두 칸에서 모두 주워요.",
+    "verify": {
+     "H": [
+      "1111"
+     ],
+     "O": [
+      ">g.g"
+     ],
+     "measure": "collected"
+    }
+   }
+  },
+  {
+   "quiz": {
+    "q": "보석 위인데 앞이 열려 있어요. 보석을 몇 개 주울까요?",
+    "code": [
+     "move_forward()",
+     "if is_on_gem() and is_blocked():",
+     "    collect_gem()"
+    ],
+    "choices": [
+     "0개",
+     "1개"
+    ],
+    "answer": 0,
+    "why": "`and`는 둘 다 참이어야 해요. 앞이 열려 있어서 건너뛰어요.",
+    "verify": {
+     "H": [
+      "111"
+     ],
+     "O": [
+      ">g."
+     ],
+     "measure": "collected"
+    }
+   }
+  },
+  {
+   "quiz": {
+    "q": "'비가 **안** 와요'를 코드로 쓸 때 쓰는 말은 무엇일까요?",
+    "choices": [
+     "and",
+     "or",
+     "not"
+    ],
+    "answer": 2,
+    "why": "`not`은 참과 거짓을 뒤집어요. 비가 오면 안 오는 것으로 바꿔요."
+   }
+  },
+  {
+   "text": "이제 조건을 묶어 퍼즐을 풀어 봐요!"
+  }
+ ],
+ "outro": {
+  "title": "정리",
+  "slides": [
+   {
+    "text": "이 유닛에서 배운 것 (1/2): and와 or",
+    "bubble": "and는 둘 다 참, or는 하나만 참이어도 돼요",
+    "note": "조건 여러 개를 한 번에 물어봐요",
+    "code": [
+     "if is_on_gem() and is_blocked():",
+     "    collect_gem()"
+    ]
+   },
+   {
+    "text": "이 유닛에서 배운 것 (2/2): not",
+    "bubble": "not은 참과 거짓을 뒤집어요",
+    "note": "'아니면'을 코드로 쓸 때 써요",
+    "code": [
+     "if not is_blocked():",
+     "    move_forward()"
+    ]
+   },
+   {
+    "text": "면접 질문: and, or, not은 어떻게 다른가요?",
+    "bubble": "and는 둘 다 참, or는 하나만 참, not은 참거짓 뒤집기예요",
+    "note": "예: 보석 위 and 앞이 막힘이면, 둘 다 맞을 때만 참이에요"
+   },
+   {
+    "text": "면접 질문: and, or, not의 우선순위는요?",
+    "bubble": "not이 먼저, 그다음 and, 마지막으로 or 순서예요",
+    "note": "헷갈리면 괄호로 묶어요. 예: (A or B) and C"
+   },
+   {
+    "text": "면접 질문: =와 ==는 어떻게 다른가요?",
+    "bubble": "=는 값을 넣고, ==는 두 값이 같은지 비교해요",
+    "note": "변수는 다음 유닛 이후에 배워요. 지금은 구분만 기억해요"
+   },
+   {
+    "quiz": {
+     "q": "이 코드로 보석을 몇 개 주울까요?",
+     "choices": [
+      "1개",
+      "2개",
+      "3개"
+     ],
+     "answer": 1,
+     "why": "보석이 있는 두 칸은 스위치가 없어서 두 개를 주워요.",
+     "code": [
+      "for _ in range(3):",
+      "    move_forward()",
+      "    if is_on_gem() and not is_on_closed_switch():",
+      "        collect_gem()"
+     ],
+     "verify": {
+      "H": [
+       "1111"
+      ],
+      "O": [
+       ">g.g"
+      ],
+      "measure": "collected"
+     }
+    }
+   },
+   {
+    "quiz": {
+     "q": "`참 and 거짓`의 결과는 무엇일까요?",
+     "choices": [
+      "참",
+      "거짓"
+     ],
+     "answer": 1,
+     "why": "and는 둘 다 참이어야 참이에요."
+    }
+   },
+   {
+    "quiz": {
+     "q": "`not 참`의 결과는 무엇일까요?",
+     "choices": [
+      "거짓",
+      "참"
+     ],
+     "answer": 0,
+     "why": "not은 참을 거짓으로 뒤집어요."
+    }
+   },
+   {
+    "quiz": {
+     "q": "이 코드로 보석을 몇 개 주울까요?",
+     "choices": [
+      "2개",
+      "1개",
+      "0개"
+     ],
+     "answer": 0,
+     "why": "or는 하나만 참이어도 돼서 보석 있는 두 칸에서 주워요.",
+     "code": [
+      "for _ in range(3):",
+      "    move_forward()",
+      "    if is_on_gem() or is_on_closed_switch():",
+      "        collect_gem()"
+     ],
+     "verify": {
+      "H": [
+       "1111"
+      ],
+      "O": [
+       ">g.g"
+      ],
+      "measure": "collected"
+     }
+    }
+   },
+   {
+    "quiz": {
+     "q": "`참 or 거짓 and 거짓`의 결과는? (and가 먼저예요)",
+     "choices": [
+      "거짓",
+      "참"
+     ],
+     "answer": 1,
+     "why": "and가 먼저라 거짓, 그다음 참 or 거짓은 참이에요."
+    }
+   },
+   {
+    "text": "정리 끝! 조건을 묶고 뒤집는 법을 익혔어요."
+   }
+  ]
+ }
+}

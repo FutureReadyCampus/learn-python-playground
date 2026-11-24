@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="b10t-t b10t-d">
+  <title id="b10t-t">막혀서 오류가 나면 오른쪽으로 도는 Byte</title>
+  <desc id="b10t-d">Byte가 꺾인 길을 오른쪽으로 걸어요. 길 끝에서 앞으로 가려다 막혀 쿵 하고 오류가 나요. 그 오류를 받아 오른쪽으로 돌고, 아래 칸으로 걸어가 보석을 주워요.</desc>
+  <style>
+    .b10t-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .b10t-wall{fill:none;stroke:var(--dim);stroke-width:3;stroke-dasharray:8 8}
+    .b10t-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .b10t-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .b10t-eye{fill:var(--acc)}
+    .b10t-tip{fill:var(--warn)}
+    .b10t-line{stroke:var(--tx);stroke-width:3}
+    #b10t-bump{fill:var(--bad);font-size:34px;font-weight:800;text-anchor:middle}
+    .b10t-label{fill:var(--dim);font-size:20px;text-anchor:end}
+    #b10t-dir{fill:var(--acc);font-size:40px;font-weight:800}
+  </style>
+  <text class="b10t-label" x="440" y="132">보는 쪽</text>
+  <text id="b10t-dir" x="452" y="136">→</text>
+  <rect class="b10t-tile" x="332" y="182" width="96" height="96" rx="10"/>
+  <rect class="b10t-tile" x="442" y="182" width="96" height="96" rx="10"/>
+  <rect class="b10t-tile" x="552" y="182" width="96" height="96" rx="10"/>
+  <rect class="b10t-tile" x="552" y="292" width="96" height="96" rx="10"/>
+  <rect class="b10t-wall" x="662" y="182" width="96" height="96" rx="10"/>
+  <text id="b10t-bump" x="710" y="242">쿵!</text>
+  <g id="b10t-gem"><path class="b10t-gem" d="M600 358 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="b10t-bot" style="transform:translate(380px,264px)">
+    <line class="b10t-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="b10t-tip" cx="0" cy="-88" r="6"/>
+    <rect class="b10t-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="b10t-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+</svg>

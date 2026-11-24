@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="oc-t oc-d">
+  <title id="oc-t">Expert()로 도우미 둘을 만들고 하나만 움직이기</title>
+  <desc id="oc-d">왼쪽 위에 점선으로 그린 Expert 틀이 있고 Byte가 그 아래에 서 있어요. first = Expert()가 실행되면 first 이름표가 붙은 객체 카드와 도우미가 생기고, second = Expert()로 하나가 더 생겨요. first.move_forward()를 하면 first만 한 칸 걸어가고 카드의 column 값이 0에서 1로 바뀌어요. second는 그대로예요.</desc>
+  <style>
+    .oc-card{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .oc-ctitle{fill:var(--dim);font-size:20px;font-weight:700}
+    .oc-attr{fill:var(--tx);font-family:'JetBrains Mono',monospace;font-size:22px}
+    .oc-tag{fill:var(--panel);stroke:var(--warn);stroke-width:3}
+    .oc-hole{fill:var(--warn)}
+    .oc-tagtx{fill:var(--tx);font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700}
+    .oc-string{stroke:var(--warn);stroke-width:3;fill:none}
+    .oc-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .oc-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .oc-eye{fill:var(--acc)}
+    .oc-tip{fill:var(--warn)}
+    .oc-line{stroke:var(--tx);stroke-width:3}
+    .oc-cap{fill:var(--ok);stroke:var(--tx);stroke-width:3}
+    .oc-name{fill:var(--tx);font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;text-anchor:middle}
+    .oc-lbl{fill:var(--dim);font-size:18px;text-anchor:middle}
+    .oc-mold{fill:none;stroke:var(--dim);stroke-width:3;stroke-dasharray:8 6}
+    .oc-mlbl{fill:var(--dim);font-size:20px;font-weight:700;text-anchor:middle}
+  </style>
+
+  <g>
+    <rect class="oc-mold" x="186" y="96" width="52" height="74" rx="20"/>
+    <rect class="oc-mold" x="195" y="110" width="34" height="14" rx="6"/>
+    <line class="oc-mold" x1="212" y1="96" x2="212" y2="80"/>
+    <text class="oc-mlbl" x="212" y="206">Expert 틀</text>
+  </g>
+  <g>
+    <rect class="oc-tile" x="70" y="370" width="84" height="44" rx="10"/>
+    <line class="oc-line" x1="112" y1="300" x2="112" y2="286"/><circle class="oc-tip" cx="112" cy="282" r="6"/>
+    <rect class="oc-body" x="88" y="300" width="48" height="66" rx="20"/>
+    <rect class="oc-eye" x="97" y="314" width="30" height="12" rx="6"/>
+    <text class="oc-lbl" x="112" y="438">Byte</text>
+  </g>
+
+  <g id="oc-card1">
+    <path class="oc-string" d="M540 102 V118"/>
+    <rect class="oc-tag" x="490" y="66" width="100" height="36" rx="8"/><circle class="oc-hole" cx="504" cy="84" r="5"/>
+    <text class="oc-tagtx" x="516" y="92">first</text>
+    <rect class="oc-card" x="480" y="118" width="210" height="110" rx="14"/>
+    <text class="oc-ctitle" x="500" y="150">Expert 카드</text>
+    <text id="oc-col1" class="oc-attr" x="500" y="186">column: 0</text>
+    <text class="oc-attr" x="500" y="216">row: 0</text>
+  </g>
+  <g id="oc-card2">
+    <path class="oc-string" d="M780 102 V118"/>
+    <rect class="oc-tag" x="726" y="66" width="112" height="36" rx="8"/><circle class="oc-hole" cx="740" cy="84" r="5"/>
+    <text class="oc-tagtx" x="750" y="92">second</text>
+    <rect class="oc-card" x="720" y="118" width="210" height="110" rx="14"/>
+    <text class="oc-ctitle" x="740" y="150">Expert 카드</text>
+    <text class="oc-attr" x="740" y="186">column: 3</text>
+    <text class="oc-attr" x="740" y="216">row: 0</text>
+  </g>
+
+  <g>
+    <rect class="oc-tile" x="470" y="370" width="84" height="44" rx="10"/>
+    <rect class="oc-tile" x="562" y="370" width="84" height="44" rx="10"/>
+    <rect class="oc-tile" x="654" y="370" width="84" height="44" rx="10"/>
+    <rect class="oc-tile" x="746" y="370" width="84" height="44" rx="10"/>
+    <rect class="oc-tile" x="838" y="370" width="84" height="44" rx="10"/>
+  </g>
+  <g id="oc-h1" style="transform:translate(512px,372px)">
+    <line class="oc-line" x1="0" y1="-70" x2="0" y2="-80"/><rect class="oc-cap" x="-14" y="-92" width="28" height="14" rx="4"/>
+    <rect class="oc-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="oc-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+    <text class="oc-name" y="66">first</text>
+  </g>
+  <g id="oc-h2" transform="translate(788 372)">
+    <line class="oc-line" x1="0" y1="-70" x2="0" y2="-80"/><rect class="oc-cap" x="-14" y="-92" width="28" height="14" rx="4"/>
+    <rect class="oc-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="oc-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+    <text class="oc-name" y="66">second</text>
+  </g>
+</svg>

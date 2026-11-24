@@ -1,0 +1,360 @@
+{
+  "unit": "T6",
+  "title": "객체와 속성",
+  "term": "속성(attribute) · 물건이 가진 상태",
+  "takeaway": "물건은 자기 상태를 갖고 있고, 점(.)으로 그 상태를 읽고 바꿔요.",
+  "slides": [
+    {
+      "text": "방문에 '열림' 카드를 걸어 둔 적 있나요?",
+      "scene": {
+        "svg": "svg/t6-doors.svg",
+        "alt": "문 두 개에 상태 카드가 하나씩 걸려 있고, 문 1만 닫히며 그 카드가 '열림: 아니요'로 바뀌는 장면",
+        "steps": [
+          {
+            "cap": "문마다 상태 카드가 하나씩 있어요"
+          },
+          {
+            "cap": "문 1을 닫고 카드를 바꿔요",
+            "on": [
+              "t6d-d1"
+            ],
+            "text": {
+              "t6d-c1txt": "열림: 아니요"
+            }
+          },
+          {
+            "cap": "문 2의 카드는 그대로예요",
+            "on": [
+              "t6d-c2"
+            ]
+          },
+          {
+            "cap": "카드를 보면 문의 상태를 알아요",
+            "on": [
+              "t6d-c1"
+            ],
+            "show": [
+              "t6d-tip"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "text": "문마다 카드가 **따로** 있어요. 한 장을 바꿔도 다른 카드는 그대로예요."
+    },
+    {
+      "text": "카드를 바꾸는 일을 코드처럼 써 볼까요?",
+      "scene": {
+        "svg": "svg/t6-doors.svg",
+        "alt": "왼쪽 코드가 한 줄씩 강조되며 문마다 카드가 걸리고, 문 1의 카드만 아니요로 바뀌는 장면",
+        "code": [
+          "문1.열림 = True",
+          "문2.열림 = True",
+          "문1.열림 = False"
+        ],
+        "steps": [
+          {
+            "cap": "컴퓨터처럼 한 줄씩 읽어 볼까요?"
+          },
+          {
+            "cap": "문 1에 \"열림: 예\" 카드를 걸어요",
+            "line": 1,
+            "show": [
+              "t6d-c1"
+            ],
+            "vars": {
+              "문1.열림": "True"
+            }
+          },
+          {
+            "cap": "문 2에도 카드를 걸어요",
+            "line": 2,
+            "show": [
+              "t6d-c2"
+            ],
+            "vars": {
+              "문2.열림": "True"
+            }
+          },
+          {
+            "cap": "문 1을 닫고 카드를 \"아니요\"로",
+            "line": 3,
+            "on": [
+              "t6d-d1"
+            ],
+            "text": {
+              "t6d-c1txt": "열림: 아니요"
+            },
+            "vars": {
+              "문1.열림": "False"
+            }
+          },
+          {
+            "cap": "문 2의 카드는 그대로예요",
+            "on": [
+              "t6d-c2"
+            ],
+            "show": [
+              "t6d-tip"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "text": "포털도 이런 카드를 갖고 있어요. 켜져 있는지 적혀 있죠.",
+      "bubble": "속성(attribute) · 물건이 가진 상태",
+      "code": "portal_a.is_active = False",
+      "note": "점(.) 앞은 물건 이름, 점 뒤는 상태 이름이에요."
+    },
+    {
+      "text": "이제 진짜 코드로 포털을 끄고 걸어가요.",
+      "scene": {
+        "svg": "svg/t6-portal.svg",
+        "alt": "왼쪽 코드가 한 줄씩 강조되며 포털 A가 꺼지고, Byte가 그 위를 걸어 지나가 보석을 줍는 장면",
+        "code": [
+          "portal_a.is_active = False",
+          "move_forward()",
+          "move_forward()",
+          "move_forward()",
+          "move_forward()",
+          "collect_gem()"
+        ],
+        "world": {
+          "H": [
+            "1111111"
+          ],
+          "O": [
+            ">.a.g.b"
+          ]
+        },
+        "steps": [
+          {
+            "cap": "포털 A가 켜져 있으면 순간이동해요"
+          },
+          {
+            "cap": "포털 A의 카드를 \"아니요\"로 바꿔요",
+            "line": 1,
+            "on": [
+              "t6p-pa",
+              "t6p-ca"
+            ],
+            "text": {
+              "t6p-st": "켜짐: 아니요"
+            },
+            "vars": {
+              "portal_a.is_active": "False"
+            }
+          },
+          {
+            "cap": "1칸 앞으로 가요",
+            "line": 2,
+            "move": {
+              "t6p-bot": [
+                280,
+                322
+              ]
+            }
+          },
+          {
+            "cap": "꺼진 포털은 그냥 밟고 지나가요",
+            "line": 3,
+            "move": {
+              "t6p-bot": [
+                380,
+                322
+              ]
+            }
+          },
+          {
+            "cap": "또 1칸 앞으로 가요",
+            "line": 4,
+            "move": {
+              "t6p-bot": [
+                480,
+                322
+              ]
+            }
+          },
+          {
+            "cap": "보석 칸에 도착해요",
+            "line": 5,
+            "move": {
+              "t6p-bot": [
+                580,
+                322
+              ]
+            }
+          },
+          {
+            "cap": "보석을 주워요",
+            "line": 6,
+            "hide": [
+              "t6p-gem"
+            ]
+          }
+        ]
+      },
+      "note": "`False`는 \"아니요\"예요. 포털 B의 카드는 그대로 \"예\"예요."
+    },
+    {
+      "quiz": {
+        "q": "포털을 끄고 네 칸 가서 주워요. 보석을 몇 개 주울까요?",
+        "code": [
+          "portal_a.is_active = False",
+          "move_forward()",
+          "move_forward()",
+          "move_forward()",
+          "move_forward()",
+          "collect_gem()"
+        ],
+        "choices": [
+          "0개",
+          "1개"
+        ],
+        "answer": 1,
+        "why": "포털이 꺼져서 순간이동을 안 해요. 네 칸 걸어 보석 위에 서요.",
+        "verify": {
+          "H": [
+            "1111111"
+          ],
+          "O": [
+            ">.a.g.b"
+          ],
+          "measure": "collected"
+        }
+      }
+    },
+    {
+      "quiz": {
+        "q": "이 줄을 실행한 뒤 `portal_b.is_active`는 무엇일까요?",
+        "code": "portal_a.is_active = False",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": 0,
+        "why": "카드는 포털마다 따로예요. `portal_a`만 바뀌고 `portal_b`는 그대로예요."
+      }
+    },
+    {
+      "quiz": {
+        "q": "속성은 무엇일까요?",
+        "choices": [
+          "물건의 이름",
+          "물건이 가진 색깔만",
+          "물건이 가진 상태"
+        ],
+        "answer": 2,
+        "why": "속성은 물건이 가진 상태예요. 예를 들면 켜짐이나 꺼짐이에요."
+      }
+    },
+    {
+      "quiz": {
+        "q": "`portal_a.is_active = False`에서 속성 이름은 무엇일까요?",
+        "choices": [
+          "portal_a",
+          "is_active",
+          "False"
+        ],
+        "answer": 1,
+        "why": "점(.) 뒤의 `is_active`가 속성 이름이에요."
+      }
+    },
+    {
+      "quiz": {
+        "q": "`portal_a.is_active = True`는 포털을 켜는 줄일까요?",
+        "choices": [
+          "네, 켜요",
+          "아니요, 꺼요"
+        ],
+        "answer": 0,
+        "why": "`True`는 켜져 있다는 뜻이에요."
+      }
+    },
+    {
+      "text": "이제 포털의 상태를 바꿔서 길을 열어 봐요!"
+    }
+  ],
+  "outro": {
+    "title": "정리",
+    "slides": [
+      {
+        "text": "이 유닛에서 배운 것: 속성은 물건이 가진 상태예요.",
+        "bubble": "점(.)으로 속성을 읽고 바꿔요",
+        "note": "예: 포털이 켜져 있는지 is_active예요.",
+        "code": "portal_a.is_active = False"
+      },
+      {
+        "text": "이 유닛에서 배운 것: 물건마다 속성이 따로 있어요.",
+        "bubble": "한 포털을 바꿔도 다른 포털은 그대로",
+        "note": "상태를 바꾸면 길이 열리기도 해요."
+      },
+      {
+        "text": "면접 질문: 속성이란 무엇인가요?",
+        "bubble": "객체가 가진 상태나 정보를 말해요.",
+        "note": "예: portal_a.is_active 는 포털의 켜짐 상태예요."
+      },
+      {
+        "text": "면접 질문: 속성은 어떻게 읽고 바꾸나요?",
+        "bubble": "객체 이름 뒤에 점(.)을 찍고 속성 이름을 써요.",
+        "note": "예: portal_a.is_active = False 로 포털을 꺼요."
+      },
+      {
+        "quiz": {
+          "q": "portal_a.is_active 에서 is_active는?",
+          "choices": [
+            "속성",
+            "반복문",
+            "숫자"
+          ],
+          "answer": 0,
+          "why": "is_active는 포털이 가진 속성이에요."
+        }
+      },
+      {
+        "quiz": {
+          "q": "점(.)은 무엇을 가리킬 때 쓸까요?",
+          "choices": [
+            "객체의 속성",
+            "빈칸",
+            "주석"
+          ],
+          "answer": 0,
+          "why": "점으로 객체 안의 속성에 접근해요."
+        }
+      },
+      {
+        "quiz": {
+          "q": "portal_a의 속성을 바꾸면 portal_b는?",
+          "choices": [
+            "같이 바뀌어요",
+            "그대로예요",
+            "사라져요"
+          ],
+          "answer": 1,
+          "why": "객체마다 속성이 따로 있어요."
+        }
+      },
+      {
+        "quiz": {
+          "q": "속성에 False를 넣으면 포털은?",
+          "choices": [
+            "꺼져요",
+            "켜져요",
+            "두 배가 돼요"
+          ],
+          "answer": 0,
+          "why": "False는 거짓이라 꺼진 상태가 돼요.",
+          "code": [
+            "portal_a.is_active = False"
+          ]
+        }
+      },
+      {
+        "text": "속성은 물건의 상태이고, 점으로 만나요."
+      }
+    ]
+  }
+}

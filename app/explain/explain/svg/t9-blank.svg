@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t9b-t t9b-d">
+  <title id="t9b-t">빈칸이 있는 요리법</title>
+  <desc id="t9b-d">라면 요리법 카드에 물 몇 컵을 부을지 빈칸이 있어요. 빈칸에 2를 넣으면 컵으로 물을 두 번, 3을 넣으면 세 번 냄비에 부어요. 냄비에 부은 컵 수가 적혀요.</desc>
+  <style>
+    .t9b-paper{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .t9b-head{fill:var(--acc);font-size:30px;font-weight:800;text-anchor:middle}
+    .t9b-row{fill:var(--tx);font-size:30px;font-weight:700}
+    .t9b-box rect{fill:var(--panel);stroke:var(--warn);stroke-width:3;stroke-dasharray:8 6}
+    .t9b-box.on rect{stroke-width:6;stroke-dasharray:none}
+    #t9b-num{fill:var(--warn);font-size:34px;font-weight:800;text-anchor:middle}
+    .t9b-cup{fill:var(--acc);stroke:var(--tx);stroke-width:3}
+    .t9b-pot{fill:var(--panel);stroke:var(--tx);stroke-width:3}
+    .t9b-water{fill:var(--acc);opacity:.35}
+    .t9b-lbl{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:middle}
+    #t9b-cnt{fill:var(--tx);font-size:30px;font-weight:800;text-anchor:middle}
+  </style>
+  <rect class="t9b-paper" x="60" y="140" width="400" height="230" rx="14"/>
+  <text class="t9b-head" x="260" y="196">라면 끓이기</text>
+  <text class="t9b-row" x="96" y="290">물</text>
+  <g id="t9b-box" class="t9b-box">
+    <rect x="146" y="246" width="70" height="62" rx="10"/>
+    <text id="t9b-num" x="181" y="290">?</text>
+  </g>
+  <text class="t9b-row" x="230" y="290">컵 붓기</text>
+  <g id="t9b-cup" style="transform:translate(760px,130px)">
+    <path class="t9b-cup" d="M-25 -32 H25 L17 32 H-17 Z"/>
+  </g>
+  <path class="t9b-pot" d="M540 260 H810 V370 Q810 400 780 400 H570 Q540 400 540 370 Z"/>
+  <rect class="t9b-water" x="550" y="320" width="250" height="70" rx="12"/>
+  <rect class="t9b-pot" x="510" y="270" width="30" height="16" rx="6"/>
+  <rect class="t9b-pot" x="810" y="270" width="30" height="16" rx="6"/>
+  <text id="t9b-cnt" x="675" y="364">0컵</text>
+  <text id="t9b-same" class="t9b-lbl" x="260" y="420">요리법은 하나, 숫자만 바꿔요</text>
+</svg>

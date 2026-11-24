@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="om-t om-d">
+  <title id="om-t">붕어빵 틀에서 하나씩 찍어 내기</title>
+  <desc id="om-d">왼쪽에 붕어빵 틀이 있어요. 틀에서 붕어빵이 하나 찍혀 나와 '하나' 이름표가 붙고, 또 하나가 찍혀 나와 '둘' 이름표가 붙어요. '하나'를 부르면 그 붕어빵만 오른쪽 접시로 옮겨 가고 '둘'은 그대로 있어요.</desc>
+  <style>
+    .om-mold{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .om-hole{fill:var(--panel);stroke:var(--line);stroke-width:3;stroke-dasharray:8 6}
+    .om-handle{fill:none;stroke:var(--line);stroke-width:8;stroke-linecap:round}
+    .om-lbl{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:middle}
+    .om-fish{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .om-tagbox{fill:var(--panel2);stroke:var(--warn);stroke-width:4}
+    .om-tagtx{fill:var(--tx);font-size:24px;font-weight:800;text-anchor:middle}
+    .om-string{stroke:var(--warn);stroke-width:3;fill:none}
+    .om-plate{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+  </style>
+  <g id="om-moldg">
+    <path class="om-handle" d="M50 300 H100"/>
+    <rect class="om-mold" x="100" y="220" width="240" height="160" rx="24"/>
+    <path class="om-hole" d="M140 300 C160 255 250 255 275 300 L315 270 V330 L275 300 C250 345 160 345 140 300 Z"/>
+    <text class="om-lbl" x="220" y="420">틀</text>
+    <ellipse class="om-plate" cx="790" cy="250" rx="130" ry="26"/>
+    <text class="om-lbl" x="790" y="320">접시</text>
+  </g>
+  <g id="om-bread" style="transform:translate(510px,200px)">
+    <path class="om-fish" d="M-80 0 C-60 -45 30 -45 55 0 L95 -30 V30 L55 0 C30 45 -60 45 -80 0 Z"/>
+    <g id="om-tag">
+      <path class="om-string" d="M0 -34 V-70"/>
+      <rect class="om-tagbox" x="-52" y="-120" width="104" height="50" rx="10"/>
+      <text class="om-tagtx" x="0" y="-86">하나</text>
+    </g>
+  </g>
+  <g id="om-bread2" style="transform:translate(510px,410px)">
+    <path class="om-fish" d="M-80 0 C-60 -45 30 -45 55 0 L95 -30 V30 L55 0 C30 45 -60 45 -80 0 Z"/>
+    <g id="om-tag2">
+      <path class="om-string" d="M0 -34 V-70"/>
+      <rect class="om-tagbox" x="-52" y="-120" width="104" height="50" rx="10"/>
+      <text class="om-tagtx" x="0" y="-86">둘</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="wseat-t wseat-d">
+  <title id="wseat-t">좌석표에서 자리 찾아 의자 놓기</title>
+  <desc id="wseat-d">스크린 앞에 의자 다섯 자리가 한 줄로 있고 위에 열 번호 0부터 4가 적혀 있어요. 열 2와 열 3 자리가 비어 있다가 의자가 하나씩 놓이고, 표시가 왼쪽 끝 자리에서 오른쪽 끝 별 자리까지 옮겨 가요.</desc>
+  <style>
+    .wseat-screen{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .wseat-lab{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:middle}
+    .wseat-col{fill:var(--dim);font-size:24px;font-weight:800;text-anchor:middle;transition:fill .5s}
+    .wseat-col.on{fill:var(--warn)}
+    .wseat-chair{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .wseat-new .wseat-chair{stroke:var(--warn)}
+    .wseat-gap{fill:none;stroke:var(--dim);stroke-width:3;stroke-dasharray:10 8}
+    .wseat-star{fill:var(--ok);stroke:var(--tx);stroke-width:3}
+    .wseat-tok{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .wseat-new{transition:opacity .5s}
+    #wseat-board{transition:opacity .5s}
+    #wseat-token{transition:transform 1.2s ease,opacity .5s}
+    @media (prefers-reduced-motion:reduce){#wseat-board,#wseat-token,.wseat-new,.wseat-col{transition:none}}
+  </style>
+  <g id="wseat-board">
+    <rect class="wseat-screen" x="200" y="122" width="560" height="26" rx="8"/>
+    <text class="wseat-lab" x="480" y="178">스크린</text>
+    <text id="wseat-c0" class="wseat-col" x="160" y="226">열 0</text>
+    <text id="wseat-c1" class="wseat-col" x="320" y="226">열 1</text>
+    <text id="wseat-c2" class="wseat-col" x="480" y="226">열 2</text>
+    <text id="wseat-c3" class="wseat-col" x="640" y="226">열 3</text>
+    <text id="wseat-c4" class="wseat-col" x="800" y="226">열 4</text>
+    <text class="wseat-lab" x="52" y="330">줄 0</text>
+    <g transform="translate(160 0)"><rect class="wseat-chair" x="-56" y="250" width="112" height="50" rx="12"/><rect class="wseat-chair" x="-56" y="300" width="112" height="60" rx="12"/></g>
+    <g transform="translate(320 0)"><rect class="wseat-chair" x="-56" y="250" width="112" height="50" rx="12"/><rect class="wseat-chair" x="-56" y="300" width="112" height="60" rx="12"/></g>
+    <rect class="wseat-gap" x="424" y="250" width="112" height="110" rx="12"/>
+    <rect class="wseat-gap" x="584" y="250" width="112" height="110" rx="12"/>
+    <g transform="translate(800 0)"><rect class="wseat-chair" x="-56" y="250" width="112" height="50" rx="12"/><rect class="wseat-chair" x="-56" y="300" width="112" height="60" rx="12"/></g>
+    <path class="wseat-star" d="M800 388 L809 408 L830 410 L814 424 L819 446 L800 435 L781 446 L786 424 L770 410 L791 408 Z"/>
+  </g>
+  <g id="wseat-s2" class="wseat-new" transform="translate(480 0)"><rect class="wseat-chair" x="-56" y="250" width="112" height="50" rx="12"/><rect class="wseat-chair" x="-56" y="300" width="112" height="60" rx="12"/></g>
+  <g id="wseat-s3" class="wseat-new" transform="translate(640 0)"><rect class="wseat-chair" x="-56" y="250" width="112" height="50" rx="12"/><rect class="wseat-chair" x="-56" y="300" width="112" height="60" rx="12"/></g>
+  <g id="wseat-token" style="transform:translate(160px,330px)">
+    <circle class="wseat-tok" cx="0" cy="0" r="22"/>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="b1f-t b1f-d">
+  <title id="b1f-t">고친 코드로 모퉁이 돌아 보석 줍기</title>
+  <desc id="b1f-d">ㄱ자 길이에요. Byte가 동쪽으로 두 칸 가서 오른쪽으로 돌아 남쪽을 보고, 한 칸 내려가 보석을 주워요. Byte 옆의 작은 화살표가 보는 쪽이에요.</desc>
+  <style>
+    .b1f-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .b1f-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .b1f-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .b1f-eye{fill:var(--acc)}
+    .b1f-tip{fill:var(--warn)}
+    .b1f-line{stroke:var(--tx);stroke-width:3}
+    .b1f-dir{fill:var(--acc)}
+    .b1f-okt{fill:var(--ok);font-size:28px;font-weight:800;text-anchor:middle}
+  </style>
+  <rect class="b1f-tile" x="322" y="172" width="96" height="96" rx="12"/>
+  <rect class="b1f-tile" x="432" y="172" width="96" height="96" rx="12"/>
+  <rect class="b1f-tile" x="542" y="172" width="96" height="96" rx="12"/>
+  <rect class="b1f-tile" x="542" y="282" width="96" height="96" rx="12"/>
+  <g id="b1f-gem"><path class="b1f-gem" d="M590 350 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="b1f-bot" style="transform:translate(370px,250px)">
+    <line class="b1f-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="b1f-tip" cx="0" cy="-88" r="6"/>
+    <rect class="b1f-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="b1f-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+    <path id="b1f-e" class="b1f-dir" d="M30 -46 L44 -37 L30 -28 Z"/>
+    <path id="b1f-s" class="b1f-dir" d="M-9 2 L0 16 L9 2 Z"/>
+  </g>
+  <text id="b1f-ok" class="b1f-okt" x="480" y="120">보석에 도착!</text>
+</svg>

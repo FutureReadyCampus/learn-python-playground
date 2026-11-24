@@ -1,0 +1,708 @@
+{
+  "unit": "B9",
+  "title": "break와 continue",
+  "term": "break와 continue · 반복을 끝내기와 건너뛰기",
+  "takeaway": "continue는 이번 차례만 넘기고, break는 반복을 바로 끝내요.",
+  "slides": [
+    {
+      "text": "잃어버린 열쇠를 서랍에서 찾아요. 어떻게 찾을까요?",
+      "scene": {
+        "svg": "svg/b9-drawers.svg",
+        "alt": "손 표시가 서랍을 하나씩 열어 빈 서랍은 넘기고, 세 번째 서랍에서 열쇠를 찾자 그만 찾는 장면",
+        "steps": [
+          {
+            "cap": "서랍 네 개 중 하나에 열쇠가 있어요"
+          },
+          {
+            "cap": "1번 서랍은 비었어요. 다음!",
+            "move": {
+              "b9d-hand": [
+                180,
+                170
+              ]
+            },
+            "on": [
+              "b9d-d1"
+            ]
+          },
+          {
+            "cap": "2번 서랍도 비었어요. 다음!",
+            "move": {
+              "b9d-hand": [
+                380,
+                170
+              ]
+            },
+            "on": [
+              "b9d-d2"
+            ]
+          },
+          {
+            "cap": "3번 서랍에 열쇠가 있어요!",
+            "move": {
+              "b9d-hand": [
+                580,
+                170
+              ]
+            },
+            "on": [
+              "b9d-d3"
+            ]
+          },
+          {
+            "cap": "찾았으니 4번은 열지 않아요",
+            "show": [
+              "b9d-stop"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "text": "빈 서랍은 **넘기고**, 열쇠를 찾으면 **그만** 찾아요. 남은 서랍은 열 필요가 없어요."
+    },
+    {
+      "text": "서랍 찾기를 코드처럼 써 볼까요?",
+      "scene": {
+        "svg": "svg/b9-drawers.svg",
+        "alt": "왼쪽 일상 코드가 한 줄씩 강조되면서 빈 서랍은 continue로 넘기고 열쇠를 찾으면 break로 멈추는 장면",
+        "code": [
+          "서랍들 = [\"빈\", \"빈\", \"열쇠\", \"빈\"]",
+          "for 안 in 서랍들:",
+          "    if 안 == \"빈\":",
+          "        continue",
+          "    열쇠_꺼내기()",
+          "    break"
+        ],
+        "steps": [
+          {
+            "cap": "컴퓨터처럼 한 줄씩 읽어 볼까요?"
+          },
+          {
+            "cap": "서랍마다 든 것을 적어 둬요",
+            "line": 1,
+            "vars": {
+              "서랍들": "['빈', '빈', '열쇠', '빈']"
+            }
+          },
+          {
+            "cap": "1번 서랍을 열어요",
+            "line": 2,
+            "vars": {
+              "안": "빈"
+            },
+            "move": {
+              "b9d-hand": [
+                180,
+                170
+              ]
+            }
+          },
+          {
+            "cap": "비었나? 네",
+            "line": 3,
+            "on": [
+              "b9d-d1"
+            ]
+          },
+          {
+            "cap": "continue: 다음 서랍으로 넘어가요",
+            "line": 4
+          },
+          {
+            "cap": "2번 서랍을 열어요",
+            "line": 2,
+            "move": {
+              "b9d-hand": [
+                380,
+                170
+              ]
+            }
+          },
+          {
+            "cap": "비었나? 네",
+            "line": 3,
+            "on": [
+              "b9d-d2"
+            ]
+          },
+          {
+            "cap": "continue: 다음 서랍으로 넘어가요",
+            "line": 4
+          },
+          {
+            "cap": "3번 서랍을 열어요",
+            "line": 2,
+            "vars": {
+              "안": "열쇠"
+            },
+            "move": {
+              "b9d-hand": [
+                580,
+                170
+              ]
+            }
+          },
+          {
+            "cap": "비었나? 아니요, 열쇠예요",
+            "line": 3,
+            "on": [
+              "b9d-d3"
+            ]
+          },
+          {
+            "cap": "열쇠를 꺼내요",
+            "line": 5
+          },
+          {
+            "cap": "break: 찾았으니 반복을 끝내요",
+            "line": 6,
+            "show": [
+              "b9d-stop"
+            ]
+          }
+        ],
+        "part": [
+          0,
+          5
+        ]
+      }
+    },
+    {
+      "text": "이어서 한 줄씩 봐요 (2/2)",
+      "scene": {
+        "svg": "svg/b9-drawers.svg",
+        "alt": "왼쪽 일상 코드가 한 줄씩 강조되면서 빈 서랍은 continue로 넘기고 열쇠를 찾으면 break로 멈추는 장면",
+        "code": [
+          "서랍들 = [\"빈\", \"빈\", \"열쇠\", \"빈\"]",
+          "for 안 in 서랍들:",
+          "    if 안 == \"빈\":",
+          "        continue",
+          "    열쇠_꺼내기()",
+          "    break"
+        ],
+        "steps": [
+          {
+            "cap": "컴퓨터처럼 한 줄씩 읽어 볼까요?"
+          },
+          {
+            "cap": "서랍마다 든 것을 적어 둬요",
+            "line": 1,
+            "vars": {
+              "서랍들": "['빈', '빈', '열쇠', '빈']"
+            }
+          },
+          {
+            "cap": "1번 서랍을 열어요",
+            "line": 2,
+            "vars": {
+              "안": "빈"
+            },
+            "move": {
+              "b9d-hand": [
+                180,
+                170
+              ]
+            }
+          },
+          {
+            "cap": "비었나? 네",
+            "line": 3,
+            "on": [
+              "b9d-d1"
+            ]
+          },
+          {
+            "cap": "continue: 다음 서랍으로 넘어가요",
+            "line": 4
+          },
+          {
+            "cap": "2번 서랍을 열어요",
+            "line": 2,
+            "move": {
+              "b9d-hand": [
+                380,
+                170
+              ]
+            }
+          },
+          {
+            "cap": "비었나? 네",
+            "line": 3,
+            "on": [
+              "b9d-d2"
+            ]
+          },
+          {
+            "cap": "continue: 다음 서랍으로 넘어가요",
+            "line": 4
+          },
+          {
+            "cap": "3번 서랍을 열어요",
+            "line": 2,
+            "vars": {
+              "안": "열쇠"
+            },
+            "move": {
+              "b9d-hand": [
+                580,
+                170
+              ]
+            }
+          },
+          {
+            "cap": "비었나? 아니요, 열쇠예요",
+            "line": 3,
+            "on": [
+              "b9d-d3"
+            ]
+          },
+          {
+            "cap": "열쇠를 꺼내요",
+            "line": 5
+          },
+          {
+            "cap": "break: 찾았으니 반복을 끝내요",
+            "line": 6,
+            "show": [
+              "b9d-stop"
+            ]
+          }
+        ],
+        "part": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "text": "**continue**는 이번 차례를 넘기고, **break**는 반복을 끝내요.",
+      "bubble": "break · 반복을 바로 끝내기",
+      "code": [
+        "for _ in range(4):",
+        "    if 끝났다:",
+        "        break"
+      ],
+      "note": "continue를 만나면 아래 줄을 건너뛰고 반복의 다음 차례로 가요."
+    },
+    {
+      "text": "이제 진짜 코드로 Byte가 보석을 찾아요.",
+      "scene": {
+        "svg": "svg/b9-loop.svg",
+        "alt": "왼쪽 코드가 한 줄씩 강조되면서 Byte가 빈 칸 두 곳을 건너뛰고 세 번째 칸에서 보석을 주운 뒤 멈추는 장면",
+        "code": [
+          "for _ in range(4):",
+          "    move_forward()",
+          "    if not is_on_gem():",
+          "        continue",
+          "    collect_gem()",
+          "    break"
+        ],
+        "world": {
+          "H": [
+            "11111"
+          ],
+          "O": [
+            ">..g."
+          ]
+        },
+        "steps": [
+          {
+            "cap": "이번엔 진짜 코드로 Byte를 움직여요"
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 1
+          },
+          {
+            "cap": "1번 칸으로 가요",
+            "line": 2,
+            "move": {
+              "b9l-bot": [
+                604,
+                332
+              ]
+            }
+          },
+          {
+            "cap": "보석이 없나? 네, 없어요",
+            "line": 3
+          },
+          {
+            "cap": "continue: 아래 줄은 건너뛰어요",
+            "line": 4,
+            "on": [
+              "b9l-k1"
+            ]
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 1
+          },
+          {
+            "cap": "2번 칸으로 가요",
+            "line": 2,
+            "move": {
+              "b9l-bot": [
+                696,
+                332
+              ]
+            }
+          },
+          {
+            "cap": "보석이 없나? 네, 없어요",
+            "line": 3
+          },
+          {
+            "cap": "continue: 아래 줄은 건너뛰어요",
+            "line": 4,
+            "on": [
+              "b9l-k2"
+            ]
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 1
+          },
+          {
+            "cap": "3번 칸으로 가요",
+            "line": 2,
+            "move": {
+              "b9l-bot": [
+                788,
+                332
+              ]
+            }
+          },
+          {
+            "cap": "보석이 없나? 아니요, 있어요",
+            "line": 3
+          },
+          {
+            "cap": "보석을 주워요",
+            "line": 5,
+            "hide": [
+              "b9l-gem"
+            ]
+          },
+          {
+            "cap": "break: 4번 칸에는 가지 않아요",
+            "line": 6,
+            "show": [
+              "b9l-stop"
+            ]
+          }
+        ],
+        "part": [
+          0,
+          5
+        ]
+      }
+    },
+    {
+      "text": "이어서 한 줄씩 봐요 (2/2)",
+      "scene": {
+        "svg": "svg/b9-loop.svg",
+        "alt": "왼쪽 코드가 한 줄씩 강조되면서 Byte가 빈 칸 두 곳을 건너뛰고 세 번째 칸에서 보석을 주운 뒤 멈추는 장면",
+        "code": [
+          "for _ in range(4):",
+          "    move_forward()",
+          "    if not is_on_gem():",
+          "        continue",
+          "    collect_gem()",
+          "    break"
+        ],
+        "world": {
+          "H": [
+            "11111"
+          ],
+          "O": [
+            ">..g."
+          ]
+        },
+        "steps": [
+          {
+            "cap": "이번엔 진짜 코드로 Byte를 움직여요"
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 1
+          },
+          {
+            "cap": "1번 칸으로 가요",
+            "line": 2,
+            "move": {
+              "b9l-bot": [
+                604,
+                332
+              ]
+            }
+          },
+          {
+            "cap": "보석이 없나? 네, 없어요",
+            "line": 3
+          },
+          {
+            "cap": "continue: 아래 줄은 건너뛰어요",
+            "line": 4,
+            "on": [
+              "b9l-k1"
+            ]
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 1
+          },
+          {
+            "cap": "2번 칸으로 가요",
+            "line": 2,
+            "move": {
+              "b9l-bot": [
+                696,
+                332
+              ]
+            }
+          },
+          {
+            "cap": "보석이 없나? 네, 없어요",
+            "line": 3
+          },
+          {
+            "cap": "continue: 아래 줄은 건너뛰어요",
+            "line": 4,
+            "on": [
+              "b9l-k2"
+            ]
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 1
+          },
+          {
+            "cap": "3번 칸으로 가요",
+            "line": 2,
+            "move": {
+              "b9l-bot": [
+                788,
+                332
+              ]
+            }
+          },
+          {
+            "cap": "보석이 없나? 아니요, 있어요",
+            "line": 3
+          },
+          {
+            "cap": "보석을 주워요",
+            "line": 5,
+            "hide": [
+              "b9l-gem"
+            ]
+          },
+          {
+            "cap": "break: 4번 칸에는 가지 않아요",
+            "line": 6,
+            "show": [
+              "b9l-stop"
+            ]
+          }
+        ],
+        "part": [
+          5,
+          14
+        ]
+      }
+    },
+    {
+      "text": "끝이 언제인지 모르면 `while True:`와 break를 함께 써요.",
+      "code": [
+        "while True:",
+        "    move_forward()",
+        "    if is_on_gem():",
+        "        break"
+      ],
+      "note": "while True:는 혼자서는 멈추지 않아요. break가 꼭 있어야 해요."
+    },
+    {
+      "quiz": {
+        "q": "반복을 **아예 끝내는** 말은 무엇일까요?",
+        "choices": [
+          "break",
+          "continue"
+        ],
+        "answer": 0,
+        "why": "break는 반복을 끝내고, continue는 이번 차례만 넘겨요."
+      }
+    },
+    {
+      "quiz": {
+        "q": "이 코드를 실행하면 보석을 몇 개 주울까요?",
+        "code": [
+          "for _ in range(4):",
+          "    move_forward()",
+          "    collect_gem()",
+          "    break"
+        ],
+        "choices": [
+          "1개",
+          "2개",
+          "4개"
+        ],
+        "answer": 0,
+        "why": "첫 번째 차례에서 보석을 줍자마자 break로 반복이 끝나요.",
+        "verify": {
+          "H": [
+            "11111"
+          ],
+          "O": [
+            ">gggg"
+          ],
+          "measure": "collected"
+        }
+      }
+    },
+    {
+      "quiz": {
+        "q": "이 코드를 실행하면 보석을 몇 개 주울까요?",
+        "code": [
+          "for _ in range(4):",
+          "    move_forward()",
+          "    if not is_on_gem():",
+          "        continue",
+          "    collect_gem()"
+        ],
+        "choices": [
+          "1개",
+          "2개",
+          "4개"
+        ],
+        "answer": 1,
+        "why": "보석이 없는 칸은 continue로 넘기고, 보석 칸 두 곳에서는 주워요.",
+        "verify": {
+          "H": [
+            "11111"
+          ],
+          "O": [
+            ">.g.g"
+          ],
+          "measure": "collected"
+        }
+      }
+    },
+    {
+      "text": "이제 건너뛰고 멈추는 반복으로 퍼즐을 풀어 봐요!"
+    }
+  ],
+  "outro": {
+    "title": "정리",
+    "slides": [
+      {
+        "text": "이 유닛에서 배운 것: continue는 건너뛰고 break는 끝내요.",
+        "bubble": "continue는 이번 차례만, break는 반복 전체를 끝내요.",
+        "code": [
+          "for _ in range(4):",
+          "    move_forward()",
+          "    break"
+        ],
+        "note": "반복 안에서 상황에 따라 흐름을 바꿀 때 써요."
+      },
+      {
+        "text": "면접 질문: break와 continue의 차이는요?",
+        "bubble": "break는 반복을 끝내고, continue는 이번 차례만 넘겨요.",
+        "note": "예: 찾으면 break, 건너뛸 칸이면 continue를 써요."
+      },
+      {
+        "quiz": {
+          "q": "반복을 통째로 끝내는 것은?",
+          "choices": [
+            "continue",
+            "break",
+            "print"
+          ],
+          "answer": 1,
+          "why": "break는 반복 자체를 끝내요."
+        }
+      },
+      {
+        "quiz": {
+          "q": "이 코드를 실행하면 보석을 몇 개 주울까요?",
+          "choices": [
+            "0개",
+            "2개",
+            "4개"
+          ],
+          "answer": 0,
+          "why": "continue에서 다음 차례로 넘어가 collect_gem은 못 만나요.",
+          "code": [
+            "for _ in range(4):",
+            "    move_forward()",
+            "    continue",
+            "    collect_gem()"
+          ],
+          "verify": {
+            "H": [
+              "11111"
+            ],
+            "O": [
+              ">gggg"
+            ],
+            "measure": "collected"
+          }
+        }
+      },
+      {
+        "text": "면접 질문: 중첩 반복에서 break는 어디까지 끝내나요?",
+        "bubble": "break는 자기가 속한 안쪽 반복만 끝내요.",
+        "note": "바깥 반복은 계속 돌아요. 안쪽을 빠져나올 때 써요.",
+        "code": [
+          "for _ in range(2):",
+          "    for _ in range(3):",
+          "        break"
+        ]
+      },
+      {
+        "quiz": {
+          "q": "이 코드를 실행하면 보석을 몇 개 주울까요?",
+          "choices": [
+            "1개",
+            "2개",
+            "6개"
+          ],
+          "answer": 1,
+          "why": "안쪽은 한 번 돌고 끝나지만 바깥이 두 번 돌아 2개예요.",
+          "code": [
+            "for _ in range(2):",
+            "    for _ in range(3):",
+            "        move_forward()",
+            "        collect_gem()",
+            "        break"
+          ],
+          "verify": {
+            "H": [
+              "11111"
+            ],
+            "O": [
+              ">gggg"
+            ],
+            "measure": "collected"
+          }
+        }
+      },
+      {
+        "quiz": {
+          "q": "continue 뒤에 있는 줄은 그 차례에 실행될까요?",
+          "choices": [
+            "실행된다",
+            "실행되지 않는다",
+            "오류가 난다"
+          ],
+          "answer": 1,
+          "why": "continue를 만나면 남은 줄을 건너뛰어요."
+        }
+      },
+      {
+        "text": "건너뛰기는 continue, 끝내기는 break. 구분해 쓰면 돼요!"
+      }
+    ]
+  }
+}

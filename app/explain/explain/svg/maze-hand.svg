@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="mh-t mh-d">
+  <title id="mh-t">오른손을 벽에 대고 미로 걷기</title>
+  <desc id="mh-d">작은 미로 공원과 규칙 카드가 있어요. 말이 칸마다 규칙 카드를 보고, 오른쪽이 비면 돌아서 걷고, 앞이 열리면 걷고, 막히면 왼쪽으로 돌아요. 지나간 칸은 밝아지고 마지막에 출구 깃발에 닿아요.</desc>
+  <style>
+    .mh-hedge{fill:var(--ok);opacity:.35;stroke:var(--line);stroke-width:3}
+    .mh-path{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .mh-cell.on .mh-path{fill:var(--warn);opacity:.45}
+    .mh-pole{stroke:var(--tx);stroke-width:3}
+    .mh-flag{fill:var(--line);stroke:var(--tx);stroke-width:3}
+    #mh-exit.on .mh-flag{fill:var(--warn)}
+    .mh-piece{fill:var(--acc);stroke:var(--tx);stroke-width:3}
+    #mh-dir{fill:var(--warn);font-size:30px;font-weight:800;text-anchor:middle}
+    .mh-card{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .mh-head{fill:var(--dim);font-size:22px;font-weight:800;text-anchor:middle}
+    .mh-rb{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .mh-rt{fill:var(--tx);font-size:20px;font-weight:700}
+    .mh-pk{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+  </style>
+  <g id="mh-maze">
+    <rect class="mh-hedge" x="150" y="120" width="330" height="330" rx="8"/>
+    <g id="mh-c1" class="mh-cell"><rect class="mh-path" x="150" y="120" width="110" height="110"/></g>
+    <g id="mh-c2" class="mh-cell"><rect class="mh-path" x="260" y="120" width="110" height="110"/></g>
+    <g id="mh-c3" class="mh-cell"><rect class="mh-path" x="260" y="230" width="110" height="110"/></g>
+    <g id="mh-c4" class="mh-cell"><rect class="mh-path" x="260" y="340" width="110" height="110"/></g>
+    <g id="mh-c5" class="mh-cell"><rect class="mh-path" x="370" y="340" width="110" height="110"/></g>
+    <g id="mh-exit">
+      <line class="mh-pole" x1="462" y1="440" x2="462" y2="356"/>
+      <path class="mh-flag" d="M462 358 L440 370 L462 382 Z"/>
+    </g>
+    <g id="mh-me" style="transform:translate(205px,180px)">
+      <path class="mh-piece" d="M-22 32 H22 L12 -2 H-12 Z"/>
+      <circle class="mh-piece" cx="0" cy="-16" r="16"/>
+      <text id="mh-dir" x="36" y="-14">→</text>
+    </g>
+  </g>
+  <g id="mh-rules">
+    <rect class="mh-card" x="560" y="150" width="290" height="270" rx="16"/>
+    <text class="mh-head" x="705" y="188">규칙</text>
+    <g id="mh-r1"><rect class="mh-rb" x="578" y="206" width="254" height="56" rx="10"/><text class="mh-rt" x="594" y="241">① 오른쪽이 비면 돌기</text></g>
+    <g id="mh-r2"><rect class="mh-rb" x="578" y="274" width="254" height="56" rx="10"/><text class="mh-rt" x="594" y="309">② 앞이 열리면 걷기</text></g>
+    <g id="mh-r3"><rect class="mh-rb" x="578" y="342" width="254" height="56" rx="10"/><text class="mh-rt" x="594" y="377">③ 막히면 왼쪽 돌기</text></g>
+  </g>
+  <g id="mh-pick" style="transform:translate(0px,302px)">
+    <path class="mh-pk" d="M842 0 L872 -16 V16 Z"/>
+  </g>
+</svg>

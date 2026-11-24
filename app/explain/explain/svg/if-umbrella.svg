@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="iu-t iu-d">
+  <title id="iu-t">하늘 보고 우산 챙기기</title>
+  <desc id="iu-d">문이 세 개 나란히 있고 문마다 위에 하늘 창이 있어요. 첫째와 셋째 하늘에는 비가 오고 둘째는 맑아요. 화살표가 왼쪽부터 하늘을 하나씩 살피고, 비가 오는 문 앞에만 우산이 생겨요.</desc>
+  <style>
+    .iu-sky{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .iu-cloud{fill:var(--dim)}
+    .iu-rain{stroke:var(--acc);stroke-width:4;stroke-linecap:round}
+    .iu-sun{fill:var(--warn)}
+    .iu-ray{stroke:var(--warn);stroke-width:4;stroke-linecap:round}
+    .iu-door{fill:var(--panel);stroke:var(--line);stroke-width:3;transition:stroke .5s}
+    .iu-knob{fill:var(--dim)}
+    .iu-day{fill:var(--dim);font-size:24px;font-weight:800;text-anchor:middle}
+    .iu-umb{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .iu-pole{fill:none;stroke:var(--tx);stroke-width:4;stroke-linecap:round}
+    .iu-go{fill:none;stroke:var(--ok);stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+    .iu-gotx{fill:var(--ok);font-size:22px;font-weight:800;text-anchor:middle}
+    .iu-res{opacity:0;transition:opacity .6s}
+    .iu-d.on .iu-res{opacity:1}
+    .iu-d.on .iu-door{stroke:var(--warn)}
+    .iu-hat{opacity:0}
+    .iu-arrow{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    #iu-eye{transition:transform .9s ease,opacity .5s}
+    #iu-days{transition:opacity .5s}
+    @media (prefers-reduced-motion:reduce){#iu-eye,#iu-days,.iu-res,.iu-door{transition:none}}
+  </style>
+  <g id="iu-days">
+    <g id="iu-d1" class="iu-d" transform="translate(200 -40)">
+      <rect class="iu-sky" x="-90" y="170" width="180" height="100" rx="12"/>
+      <ellipse class="iu-cloud" cx="0" cy="205" rx="48" ry="20"/>
+      <path class="iu-rain" d="M-24 236 l-6 18 M0 236 l-6 18 M24 236 l-6 18"/>
+      <rect class="iu-door" x="-60" y="290" width="120" height="150" rx="8"/>
+      <circle class="iu-knob" cx="38" cy="368" r="6"/>
+      <g class="iu-res">
+        <path class="iu-umb" d="M-70 360 A50 44 0 0 1 30 360 Z" transform="translate(20 0)"/>
+        <path class="iu-pole" d="M0 360 V420 q0 12 -12 12"/>
+      </g>
+      <text class="iu-day" y="470">월</text>
+    </g>
+    <g id="iu-d2" class="iu-d" transform="translate(480 -40)">
+      <rect class="iu-sky" x="-90" y="170" width="180" height="100" rx="12"/>
+      <circle class="iu-sun" cx="0" cy="220" r="22"/>
+      <path class="iu-ray" d="M0 184 v-6 M0 256 v6 M-36 220 h-6 M36 220 h6"/>
+      <rect class="iu-door" x="-60" y="290" width="120" height="150" rx="8"/>
+      <circle class="iu-knob" cx="38" cy="368" r="6"/>
+      <g class="iu-res">
+        <path class="iu-go" d="M-26 368 l18 18 l34 -38"/>
+        <text id="iu-gotx" class="iu-gotx" y="420">그냥</text>
+      </g>
+      <g id="iu-hat" class="iu-hat"><path class="iu-umb" d="M-22 336 V314 Q0 296 22 314 V336 Z"/><path class="iu-pole" d="M-38 338 H38"/></g>
+      <text class="iu-day" y="470">화</text>
+    </g>
+    <g id="iu-d3" class="iu-d" transform="translate(760 -40)">
+      <rect class="iu-sky" x="-90" y="170" width="180" height="100" rx="12"/>
+      <ellipse class="iu-cloud" cx="0" cy="205" rx="48" ry="20"/>
+      <path class="iu-rain" d="M-24 236 l-6 18 M0 236 l-6 18 M24 236 l-6 18"/>
+      <rect class="iu-door" x="-60" y="290" width="120" height="150" rx="8"/>
+      <circle class="iu-knob" cx="38" cy="368" r="6"/>
+      <g class="iu-res">
+        <path class="iu-umb" d="M-70 360 A50 44 0 0 1 30 360 Z" transform="translate(20 0)"/>
+        <path class="iu-pole" d="M0 360 V420 q0 12 -12 12"/>
+      </g>
+      <text class="iu-day" y="470">수</text>
+    </g>
+  </g>
+  <g id="iu-eye" style="transform:translate(60px,88px)">
+    <path class="iu-arrow" d="M-18 0 H18 V14 H30 L0 38 L-30 14 H-18 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t8s-t t8s-d">
+  <title id="t8s-t">한 변 걷기를 세 번 부르기</title>
+  <desc id="t8s-d">네모난 길의 세 모서리에 보석이 있어요. Byte가 한 변을 걷고 보석을 줍고 오른쪽으로 도는 일을 세 번 해서 보석 세 개를 모두 주워요. Byte 옆의 작은 화살표가 보는 쪽이에요.</desc>
+  <style>
+    .t8s-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .t8s-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .t8s-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .t8s-eye{fill:var(--acc)}
+    .t8s-tip{fill:var(--warn)}
+    .t8s-line{stroke:var(--tx);stroke-width:3}
+    .t8s-dir{fill:var(--acc)}
+    #t8s-cnt{fill:var(--tx);font-size:26px;font-weight:800;text-anchor:middle}
+  </style>
+  <rect class="t8s-tile" x="316" y="82" width="76" height="76" rx="10"/>
+  <rect class="t8s-tile" x="400" y="82" width="76" height="76" rx="10"/>
+  <rect class="t8s-tile" x="484" y="82" width="76" height="76" rx="10"/>
+  <rect class="t8s-tile" x="568" y="82" width="76" height="76" rx="10"/>
+  <rect class="t8s-tile" x="316" y="166" width="76" height="76" rx="10"/>
+  <rect class="t8s-tile" x="568" y="166" width="76" height="76" rx="10"/>
+  <rect class="t8s-tile" x="316" y="250" width="76" height="76" rx="10"/>
+  <rect class="t8s-tile" x="568" y="250" width="76" height="76" rx="10"/>
+  <rect class="t8s-tile" x="316" y="334" width="76" height="76" rx="10"/>
+  <rect class="t8s-tile" x="400" y="334" width="76" height="76" rx="10"/>
+  <rect class="t8s-tile" x="484" y="334" width="76" height="76" rx="10"/>
+  <rect class="t8s-tile" x="568" y="334" width="76" height="76" rx="10"/>
+  <g id="t8s-g1"><path class="t8s-gem" d="M606 136 l14 -16 -14 -16 -14 16z"/></g>
+  <g id="t8s-g2"><path class="t8s-gem" d="M606 388 l14 -16 -14 -16 -14 16z"/></g>
+  <g id="t8s-g3"><path class="t8s-gem" d="M354 388 l14 -16 -14 -16 -14 16z"/></g>
+  <text id="t8s-cnt" x="480" y="254">한 변 0번</text>
+  <g id="t8s-bot" style="transform:translate(354px,142px)">
+    <g transform="scale(.7)">
+      <line class="t8s-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="t8s-tip" cx="0" cy="-88" r="6"/>
+      <rect class="t8s-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+      <rect class="t8s-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+      <path id="t8s-e" class="t8s-dir" d="M30 -46 L46 -37 L30 -28 Z"/>
+      <path id="t8s-s" class="t8s-dir" d="M-10 2 L0 18 L10 2 Z"/>
+      <path id="t8s-w" class="t8s-dir" d="M-30 -46 L-46 -37 L-30 -28 Z"/>
+      <path id="t8s-n" class="t8s-dir" d="M-10 -96 L0 -112 L10 -96 Z"/>
+    </g>
+  </g>
+</svg>

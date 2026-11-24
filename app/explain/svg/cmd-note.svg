@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="cn-t cn-d">
+  <title id="cn-t">심부름 쪽지대로 하기</title>
+  <desc id="cn-d">왼쪽에 세 줄짜리 심부름 쪽지가 있고, 오른쪽에 길 세 칸이 있어요. 표시가 쪽지를 위에서부터 한 줄씩 따라 하며 두 칸을 걸어 가게에서 우유를 담아요.</desc>
+  <style>
+    .cn-paper{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .cn-head{fill:var(--tx);font-size:28px;font-weight:800;text-anchor:middle}
+    .cn-mark{fill:var(--warn);opacity:0;transition:opacity .5s}
+    .cn-line.on .cn-mark{opacity:.35}
+    .cn-num{fill:var(--dim);font-size:24px;font-weight:800}
+    .cn-txt{fill:var(--tx);font-size:26px;font-weight:700}
+    .cn-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .cn-step{fill:var(--dim);font-size:20px;font-weight:700;text-anchor:middle}
+    .cn-roof{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .cn-shop{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .cn-milkbox{fill:var(--panel);stroke:var(--acc);stroke-width:3}
+    .cn-body{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .cn-carry{opacity:0;transition:opacity .5s}
+    .cn-who.on .cn-carry{opacity:1}
+    #cn-who{transition:transform .9s ease,opacity .5s}
+    #cn-note,#cn-road,#cn-milk{transition:opacity .5s}
+    @media (prefers-reduced-motion:reduce){#cn-who,#cn-note,#cn-road,#cn-milk,.cn-mark,.cn-carry{transition:none}}
+  </style>
+  <g id="cn-note">
+    <rect class="cn-paper" x="70" y="140" width="330" height="300" rx="14"/>
+    <text class="cn-head" x="235" y="188">심부름 쪽지</text>
+    <g id="cn-l1" class="cn-line">
+      <rect class="cn-mark" x="90" y="214" width="290" height="50" rx="10"/>
+      <text class="cn-num" x="108" y="248">1</text><text class="cn-txt" x="144" y="248">한 칸 가기</text>
+    </g>
+    <g id="cn-l2" class="cn-line">
+      <rect class="cn-mark" x="90" y="290" width="290" height="50" rx="10"/>
+      <text class="cn-num" x="108" y="324">2</text><text class="cn-txt" x="144" y="324">한 칸 가기</text>
+    </g>
+    <g id="cn-l3" class="cn-line">
+      <rect class="cn-mark" x="90" y="366" width="290" height="50" rx="10"/>
+      <text class="cn-num" x="108" y="400">3</text><text class="cn-txt" x="144" y="400">우유 담기</text>
+    </g>
+  </g>
+  <g id="cn-road">
+    <rect class="cn-tile" x="500" y="380" width="120" height="50" rx="10"/>
+    <rect class="cn-tile" x="640" y="380" width="120" height="50" rx="10"/>
+    <rect class="cn-tile" x="780" y="380" width="120" height="50" rx="10"/>
+    <text class="cn-step" x="560" y="460">출발</text>
+    <text class="cn-step" x="840" y="460">가게</text>
+    <path class="cn-roof" d="M780 230 H900 L880 196 H800 Z"/>
+    <rect class="cn-shop" x="790" y="230" width="100" height="140" rx="6"/>
+  </g>
+  <g id="cn-milk">
+    <rect class="cn-milkbox" x="822" y="300" width="36" height="56" rx="4"/>
+    <path class="cn-milkbox" d="M822 300 L840 282 L858 300 Z"/>
+  </g>
+  <g id="cn-who" class="cn-who" style="transform:translate(560px,330px)">
+    <circle class="cn-body" cx="0" cy="-42" r="18"/>
+    <rect class="cn-body" x="-24" y="-20" width="48" height="60" rx="16"/>
+    <g class="cn-carry">
+      <rect class="cn-milkbox" x="20" y="-6" width="26" height="40" rx="4"/>
+    </g>
+  </g>
+</svg>

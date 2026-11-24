@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="iv-t iv-d">
+  <title id="iv-t">컵 세 개와 물통 채우기</title>
+  <desc id="iv-d">컵 세 개가 한 줄로 놓여 있고 물주전자가 컵마다 물을 따라요. 오른쪽 물통에는 가득 찰 때까지 물을 계속 부어요.</desc>
+  <style>
+    .iv-cup{fill:var(--panel2);stroke:var(--line);stroke-width:3;transition:stroke .5s}
+    .iv-water{fill:var(--acc);opacity:0;transition:opacity .6s}
+    .iv-c.on .iv-water{opacity:.85}
+    .iv-c.on .iv-cup{stroke:var(--acc)}
+    .iv-num{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:middle}
+    .iv-bucket{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .iv-lv{fill:var(--acc);opacity:.85}
+    .iv-mark{stroke:var(--warn);stroke-width:4;stroke-dasharray:10 8}
+    .iv-jug{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .iv-handle{fill:none;stroke:var(--tx);stroke-width:3}
+    .iv-drop{fill:var(--acc)}
+    #iv-jug{transition:transform .9s ease,opacity .5s}
+    #iv-count{fill:var(--tx);font-size:36px;font-weight:800;text-anchor:middle}
+    #iv-cups,#iv-bk{transition:opacity .5s}
+    @media (prefers-reduced-motion:reduce){#iv-jug,#iv-cups,#iv-bk,.iv-water,.iv-cup{transition:none}}
+  </style>
+  <g id="iv-cups">
+    <g id="iv-c1" class="iv-c" transform="translate(130 380)">
+      <path class="iv-cup" d="M-44 -70 H44 L34 40 H-34 Z"/>
+      <path class="iv-water" d="M-38 -34 H38 L33 40 H-33 Z"/>
+      <text class="iv-num" y="80">1</text>
+    </g>
+    <g id="iv-c2" class="iv-c" transform="translate(290 380)">
+      <path class="iv-cup" d="M-44 -70 H44 L34 40 H-34 Z"/>
+      <path class="iv-water" d="M-38 -34 H38 L33 40 H-33 Z"/>
+      <text class="iv-num" y="80">2</text>
+    </g>
+    <g id="iv-c3" class="iv-c" transform="translate(450 380)">
+      <path class="iv-cup" d="M-44 -70 H44 L34 40 H-34 Z"/>
+      <path class="iv-water" d="M-38 -34 H38 L33 40 H-33 Z"/>
+      <text class="iv-num" y="80">3</text>
+    </g>
+  </g>
+  <g id="iv-bk">
+    <rect class="iv-bucket" x="640" y="270" width="160" height="170" rx="14"/>
+    <line class="iv-mark" x1="640" y1="300" x2="800" y2="300"/>
+    <g id="iv-b1"><rect class="iv-lv" x="646" y="384" width="148" height="50" rx="6"/></g>
+    <g id="iv-b2"><rect class="iv-lv" x="646" y="332" width="148" height="50" rx="6"/></g>
+    <g id="iv-b3"><rect class="iv-lv" x="646" y="302" width="148" height="28" rx="6"/></g>
+  </g>
+  <g id="iv-jug" style="transform:translate(60px,180px)">
+    <rect class="iv-jug" x="-34" y="-26" width="68" height="52" rx="10"/>
+    <path class="iv-jug" d="M34 -10 L72 -36 L78 -26 L40 8 Z"/>
+    <path class="iv-handle" d="M-34 -10 C-62 -10 -62 20 -34 20"/>
+    <circle class="iv-drop" cx="86" cy="2" r="6"/><circle class="iv-drop" cx="90" cy="30" r="6"/>
+  </g>
+  <text id="iv-count" x="480" y="140"></text>
+</svg>

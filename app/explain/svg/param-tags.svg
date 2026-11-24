@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="pt-t pt-d">
+  <title id="pt-t">distance 이름표가 붙는 대로 걷는 Byte</title>
+  <desc id="pt-d">위에 distance 이름표와 값 동그라미가 있어요. 처음 부를 때 값이 3이 되어 Byte가 세 칸을 걷고, 다음에 2가 되어 두 칸 더 걸어 끝 칸의 보석을 주워요.</desc>
+  <style>
+    .pt-tag{fill:var(--panel);stroke:var(--warn);stroke-width:3;transition:stroke-width .4s}
+    #pt-tag.on .pt-tag{stroke-width:5}
+    .pt-hole{fill:var(--warn)}
+    .pt-tagtx{fill:var(--tx);font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700}
+    .pt-arrow{stroke:var(--warn);stroke-width:3;fill:none}
+    .pt-head{fill:var(--warn)}
+    .pt-valbg{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    #pt-val{fill:var(--tx);font-size:36px;font-weight:800;text-anchor:middle}
+    .pt-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .pt-num{fill:var(--dim);font-size:18px;text-anchor:middle}
+    .pt-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .pt-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .pt-eye{fill:var(--acc)}
+    .pt-tip{fill:var(--warn)}
+    .pt-line{stroke:var(--tx);stroke-width:3}
+    #pt-bot{transition:transform 1.2s ease}
+    @media (prefers-reduced-motion:reduce){#pt-bot,.pt-tag{transition:none}}
+  </style>
+  <g transform="translate(-220 0)">
+
+  <g id="pt-tag">
+    <rect class="pt-tag" x="520" y="104" width="170" height="48" rx="10"/>
+    <circle class="pt-hole" cx="538" cy="128" r="6"/>
+    <text class="pt-tagtx" x="554" y="137">distance</text>
+  </g>
+  <path class="pt-arrow" d="M690 128 H768"/><path class="pt-head" d="M782 128 l-16 -9 v18 z"/>
+  <circle class="pt-valbg" cx="826" cy="128" r="40"/>
+  <text id="pt-val" x="826" y="141">?</text>
+
+  <g>
+    <rect class="pt-tile" x="490" y="360" width="70" height="44" rx="10"/>
+    <rect class="pt-tile" x="566" y="360" width="70" height="44" rx="10"/>
+    <rect class="pt-tile" x="642" y="360" width="70" height="44" rx="10"/>
+    <rect class="pt-tile" x="718" y="360" width="70" height="44" rx="10"/>
+    <rect class="pt-tile" x="794" y="360" width="70" height="44" rx="10"/>
+    <rect class="pt-tile" x="870" y="360" width="70" height="44" rx="10"/>
+    <text class="pt-num" x="601" y="430">1</text><text class="pt-num" x="677" y="430">2</text><text class="pt-num" x="753" y="430">3</text>
+    <text class="pt-num" x="829" y="430">4</text><text class="pt-num" x="905" y="430">5</text>
+  </g>
+  <g id="pt-gem"><path class="pt-gem" d="M905 340 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="pt-bot" style="transform:translate(525px,362px)">
+    <line class="pt-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="pt-tip" cx="0" cy="-88" r="6"/>
+    <rect class="pt-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="pt-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+</g>
+</svg>

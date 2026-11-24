@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="pr-t pr-d">
+  <title id="pr-t">빈칸이 있는 요리법</title>
+  <desc id="pr-d">요리법 카드에 '물 □컵' 빈칸이 있어요. 빈칸에 3을 넣어 부르면 컵 세 개에 물이 차고, 다음에 2를 넣어 부르면 두 컵이 더 차요.</desc>
+  <style>
+    .pr-card{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .pr-head{fill:var(--tx);font-size:28px;font-weight:800}
+    .pr-line{fill:var(--tx);font-size:30px;font-weight:700}
+    .pr-box{fill:var(--panel2);stroke:var(--warn);stroke-width:4;stroke-dasharray:8 6;transition:stroke-dasharray .4s}
+    #pr-blankbox.on .pr-box{stroke-dasharray:none}
+    .pr-blank{fill:var(--warn);font-size:34px;font-weight:800;text-anchor:middle}
+    .pr-cup{fill:none;stroke:var(--line);stroke-width:3}
+    .pr-water{fill:var(--acc);opacity:0;transition:opacity .6s}
+    .pr-c.on .pr-water{opacity:1}
+    .pr-num{fill:var(--dim);font-size:20px;font-weight:700;text-anchor:middle}
+    #pr-card,#pr-cups{transition:opacity .5s}
+    @media (prefers-reduced-motion:reduce){#pr-card,#pr-cups,.pr-water,.pr-box{transition:none}}
+  </style>
+  <g id="pr-card">
+    <rect class="pr-card" x="70" y="150" width="340" height="220" rx="16"/>
+    <text class="pr-head" x="100" y="200">국 끓이기</text>
+    <text class="pr-line" x="100" y="290">물</text>
+    <g id="pr-blankbox"><rect class="pr-box" x="150" y="245" width="70" height="62" rx="8"/></g>
+    <text id="pr-blank" class="pr-blank" x="185" y="289">?</text>
+    <text class="pr-line" x="236" y="290">컵 넣기</text>
+  </g>
+  <g id="pr-cups">
+    <g id="pr-c1" class="pr-c"><path class="pr-water" d="M484 300 H536 L530 360 H490 Z"/><path class="pr-cup" d="M475 270 H545 L532 365 H488 Z"/><text class="pr-num" x="510" y="400">1</text></g>
+    <g id="pr-c2" class="pr-c"><path class="pr-water" d="M574 300 H626 L620 360 H580 Z"/><path class="pr-cup" d="M565 270 H635 L622 365 H578 Z"/><text class="pr-num" x="600" y="400">2</text></g>
+    <g id="pr-c3" class="pr-c"><path class="pr-water" d="M664 300 H716 L710 360 H670 Z"/><path class="pr-cup" d="M655 270 H725 L712 365 H668 Z"/><text class="pr-num" x="690" y="400">3</text></g>
+    <g id="pr-c4" class="pr-c"><path class="pr-water" d="M754 300 H806 L800 360 H760 Z"/><path class="pr-cup" d="M745 270 H815 L802 365 H758 Z"/><text class="pr-num" x="780" y="400">4</text></g>
+    <g id="pr-c5" class="pr-c"><path class="pr-water" d="M844 300 H896 L890 360 H850 Z"/><path class="pr-cup" d="M835 270 H905 L892 365 H848 Z"/><text class="pr-num" x="870" y="400">5</text></g>
+  </g>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="ft-t ft-d">
+  <title id="ft-t">Byte가 반복문으로 보석 네 개 줍기</title>
+  <desc id="ft-d">Byte가 네 칸을 차례로 걸으며 보석을 줍습니다. 반복 안의 두 줄이 한 번 실행될 때마다 보석이 하나씩 사라지고, 몇 번째인지 숫자가 바뀝니다.</desc>
+  <style>
+    .ft-panel{fill:var(--code);stroke:var(--line);stroke-width:3}
+    .ft-code{fill:var(--tx);font-family:'JetBrains Mono',monospace;font-size:22px}
+    .ft-kw{fill:var(--acc)}
+    .ft-hl{fill:var(--acc);opacity:.28}
+    #ft-hl{transition:transform .8s ease,opacity .5s}
+    .ft-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .ft-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .ft-g{transition:opacity .6s}
+    .ft-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .ft-eye{fill:var(--acc)}
+    .ft-tip{fill:var(--warn)}
+    .ft-line{stroke:var(--tx);stroke-width:3}
+    #ft-bot{transition:transform 1s ease}
+    #ft-count{fill:var(--tx);font-size:30px;font-weight:800;text-anchor:middle}
+    .ft-num{fill:var(--dim);font-size:18px;text-anchor:middle}
+    @media (prefers-reduced-motion:reduce){#ft-hl,#ft-bot,.ft-g{transition:none}}
+  </style>
+  <g transform="translate(-220 0)">
+  <text id="ft-count" x="690" y="190">0번째</text>
+  <g>
+    <rect class="ft-tile" x="460" y="320" width="84" height="50" rx="10"/>
+    <rect class="ft-tile" x="560" y="320" width="84" height="50" rx="10"/>
+    <rect class="ft-tile" x="660" y="320" width="84" height="50" rx="10"/>
+    <rect class="ft-tile" x="760" y="320" width="84" height="50" rx="10"/>
+    <rect class="ft-tile" x="860" y="320" width="84" height="50" rx="10"/>
+    <text class="ft-num" x="602" y="398">1</text><text class="ft-num" x="702" y="398">2</text><text class="ft-num" x="802" y="398">3</text><text class="ft-num" x="902" y="398">4</text>
+  </g>
+  <g id="ft-g1" class="ft-g"><path class="ft-gem" d="M602 300 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="ft-g2" class="ft-g"><path class="ft-gem" d="M702 300 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="ft-g3" class="ft-g"><path class="ft-gem" d="M802 300 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="ft-g4" class="ft-g"><path class="ft-gem" d="M902 300 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="ft-bot" style="transform:translate(502px,322px)">
+    <line class="ft-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="ft-tip" cx="0" cy="-88" r="6"/>
+    <rect class="ft-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="ft-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+  </g>
+</svg>

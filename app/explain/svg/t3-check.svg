@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t3c-t t3c-d">
+  <title id="t3c-t">칸마다 발밑을 살펴보고 보석이 있을 때만 줍기</title>
+  <desc id="t3c-d">칸 네 개 중 두 번째와 네 번째 칸에만 보석이 있어요. Byte가 한 칸씩 가며 발밑을 살펴서, 보석이 있으면 줍고 없으면 그냥 지나가요.</desc>
+  <style>
+    .t3c-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .t3c-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .t3c-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .t3c-eye{fill:var(--acc)}
+    .t3c-tip{fill:var(--warn)}
+    .t3c-line{stroke:var(--tx);stroke-width:3}
+    .t3c-bub{fill:var(--panel2);stroke:var(--acc);stroke-width:3}
+    #t3c-ask{fill:var(--tx);font-size:26px;font-weight:800;text-anchor:middle}
+  </style>
+  <g transform="translate(-230 0)">
+  <rect class="t3c-bub" x="560" y="150" width="300" height="70" rx="20"/>
+  <text id="t3c-ask" x="710" y="195">발밑을 살펴봐요</text>
+  <rect class="t3c-tile" x="480" y="320" width="100" height="50" rx="10"/>
+  <rect class="t3c-tile" x="600" y="320" width="100" height="50" rx="10"/>
+  <rect class="t3c-tile" x="720" y="320" width="100" height="50" rx="10"/>
+  <rect class="t3c-tile" x="840" y="320" width="100" height="50" rx="10"/>
+  <g id="t3c-g1"><path class="t3c-gem" d="M650 300 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="t3c-g3"><path class="t3c-gem" d="M890 300 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="t3c-bot" style="transform:translate(530px,322px)">
+    <line class="t3c-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="t3c-tip" cx="0" cy="-88" r="6"/>
+    <rect class="t3c-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="t3c-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+  </g>
+</svg>

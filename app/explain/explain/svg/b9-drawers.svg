@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="b9d-t b9d-d">
+  <title id="b9d-t">서랍을 하나씩 열어 열쇠 찾기</title>
+  <desc id="b9d-d">서랍 네 개가 한 줄로 있어요. 손 표시가 왼쪽 서랍부터 하나씩 열어 봐요. 빈 서랍 두 개는 건너뛰고, 세 번째 서랍에서 열쇠를 찾으면 그만 찾아요. 네 번째 서랍은 열지 않아요.</desc>
+  <style>
+    .b9d-chest{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .b9d-front{fill:var(--panel2);stroke:var(--line);stroke-width:3;transition:stroke .5s}
+    .b9d-knob{fill:var(--line)}
+    .b9d-in{opacity:0;transition:opacity .5s}
+    .b9d-g.on .b9d-in{opacity:1}
+    .b9d-g.on .b9d-front{stroke:var(--warn)}
+    .b9d-empty{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:middle}
+    .b9d-key{fill:none;stroke:var(--warn);stroke-width:6;stroke-linecap:round}
+    .b9d-num{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:middle}
+    .b9d-hand{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    #b9d-hand{transition:transform .9s ease,opacity .5s}
+    #b9d-row{transition:opacity .5s}
+    #b9d-stop{fill:var(--warn);font-size:40px;font-weight:800;text-anchor:middle;transition:opacity .5s}
+    @media (prefers-reduced-motion:reduce){#b9d-hand,#b9d-row,#b9d-stop,.b9d-in,.b9d-front{transition:none}}
+  </style>
+  <g id="b9d-row">
+    <rect class="b9d-chest" x="70" y="200" width="820" height="200" rx="14"/>
+    <g id="b9d-d1" class="b9d-g" transform="translate(180 300)">
+      <rect class="b9d-front" x="-86" y="-70" width="172" height="140" rx="10"/>
+      <circle class="b9d-knob" cx="0" cy="40" r="9"/>
+      <text class="b9d-empty b9d-in" y="0">비었어요</text>
+      <text class="b9d-num" y="130">1</text>
+    </g>
+    <g id="b9d-d2" class="b9d-g" transform="translate(380 300)">
+      <rect class="b9d-front" x="-86" y="-70" width="172" height="140" rx="10"/>
+      <circle class="b9d-knob" cx="0" cy="40" r="9"/>
+      <text class="b9d-empty b9d-in" y="0">비었어요</text>
+      <text class="b9d-num" y="130">2</text>
+    </g>
+    <g id="b9d-d3" class="b9d-g" transform="translate(580 300)">
+      <rect class="b9d-front" x="-86" y="-70" width="172" height="140" rx="10"/>
+      <circle class="b9d-knob" cx="0" cy="40" r="9"/>
+      <g class="b9d-in">
+        <circle class="b9d-key" cx="-34" cy="-10" r="18"/>
+        <path class="b9d-key" d="M-16 -10 H44 M30 -10 V6 M44 -10 V6"/>
+      </g>
+      <text class="b9d-num" y="130">3</text>
+    </g>
+    <g id="b9d-d4" class="b9d-g" transform="translate(780 300)">
+      <rect class="b9d-front" x="-86" y="-70" width="172" height="140" rx="10"/>
+      <circle class="b9d-knob" cx="0" cy="40" r="9"/>
+      <text class="b9d-num" y="130">4</text>
+    </g>
+  </g>
+  <g id="b9d-hand" style="transform:translate(40px,170px)">
+    <path class="b9d-hand" d="M-22 -34 H22 V0 L0 24 L-22 0 Z"/>
+  </g>
+  <text id="b9d-stop" x="780" y="160">그만!</text>
+</svg>

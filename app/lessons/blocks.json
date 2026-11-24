@@ -1,0 +1,34 @@
+{
+  "move":  {"c": "move", "tpl": "move_forward()", "k": "앞으로 한 칸", "gate": "move"},
+  "left":  {"c": "turn", "tpl": "turn_left()", "k": "왼쪽으로 돌기", "gate": "left"},
+  "right": {"c": "turn", "tpl": "turn_right()", "k": "오른쪽으로 돌기", "gate": "right"},
+  "gem":   {"c": "gem", "tpl": "collect_gem()", "k": "보석 줍기", "gate": "gem"},
+  "sw":    {"c": "sw", "tpl": "toggle_switch()", "k": "스위치 누르기", "gate": "sw"},
+
+  "for":   {"c": "loop", "tpl": "for _ in range({0}):", "chips": [["3", "2", "4", "5", "6", "7", "8", "9"]], "body": 1, "k": "N번 반복", "gate": "for"},
+  "while": {"c": "loop", "tpl": "while {0}:", "chips": [["not is_blocked()", "is_blocked()"]], "body": 1, "k": "조건이 참인 동안", "gate": "while"},
+  "if":    {"c": "cond", "tpl": "if {0}:", "chips": [["is_on_gem()", "is_on_closed_switch()", "is_blocked()", "not is_blocked()"]], "body": 1, "k": "조건이 참이면", "gate": "if"},
+  "ifelse": {"c": "cond", "tpl": "if {0}:", "chips": [["is_on_gem()", "is_on_closed_switch()", "is_blocked()", "not is_blocked()"]], "body": 1, "orelse": 1, "k": "참이면 / 아니면", "gate": "if"},
+
+  "setcount": {"c": "var", "tpl": "count = 0", "k": "count를 0으로 시작", "gate": "var"},
+  "incr":     {"c": "var", "tpl": "count += 1", "k": "count를 1 늘리기", "gate": "var"},
+  "whilecount": {"c": "loop", "tpl": "while count < {0}:", "chips": [["3", "2", "4", "5", "6", "7"]], "body": 1, "k": "count가 작은 동안", "gate": "while"},
+
+  "portal": {"c": "obj", "tpl": "portal_a.is_active = {0}", "chips": [["False", "True"]], "k": "포털 켜고 끄기", "gate": null},
+  "helper": {"c": "obj", "tpl": "helper = Expert()", "k": "도우미 부르기", "gate": null},
+  "h_move": {"c": "obj", "tpl": "helper.move_forward()", "k": "도우미: 앞으로", "gate": null},
+  "h_left": {"c": "obj", "tpl": "helper.turn_left()", "k": "도우미: 왼쪽으로 돌기", "gate": null},
+  "h_right": {"c": "obj", "tpl": "helper.turn_right()", "k": "도우미: 오른쪽으로 돌기", "gate": null},
+  "h_gem":  {"c": "obj", "tpl": "helper.collect_gem()", "k": "도우미: 보석 줍기", "gate": null},
+  "h_sw":   {"c": "obj", "tpl": "helper.toggle_switch()", "k": "도우미: 스위치 누르기", "gate": null},
+  "h_up":   {"c": "obj", "tpl": "helper.turn_lock_up()", "k": "도우미: 발판 올리기", "gate": null},
+  "h_down": {"c": "obj", "tpl": "helper.turn_lock_down()", "k": "도우미: 발판 내리기", "gate": null},
+
+  "def":   {"c": "fn", "tpl": "def step():", "body": 1, "k": "step 만들기", "gate": "def"},
+  "call":  {"c": "fn", "tpl": "step()", "k": "step 부르기", "gate": "def"},
+  "defp":  {"c": "fn", "tpl": "def go(distance):", "body": 1, "k": "go(distance) 만들기", "gate": "def"},
+  "fordist": {"c": "loop", "tpl": "for _ in range(distance):", "body": 1, "k": "distance번 반복", "gate": "for"},
+  "callp": {"c": "fn", "tpl": "go({0})", "chips": [["3", "1", "2", "4", "5"]], "k": "go 부르기", "gate": "def"},
+
+  "place": {"c": "obj", "tpl": "world.place(Gem(), at_column={0}, row={1})", "chips": [["0", "1", "2", "3", "4"], ["0", "1", "2", "3", "4"]], "k": "보석 놓기", "gate": null}
+}

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="dtg-t dtg-d">
+  <title id="dtg-t">이름표 상자를 한 쌍씩 열며 걷는 Byte</title>
+  <desc id="dtg-d">왼쪽에 steps 이름표가 붙은 상자가 있어요. 처음엔 east 2 한 쌍만 있다가 south 1 쌍이 더해져요. 화살표가 지금 꺼낸 쌍을 가리키고, 오른쪽 길에서 Byte가 그 숫자만큼 걷고 오른쪽으로 돌아 끝 칸의 보석을 주워요.</desc>
+  <style>
+    .dtg-box{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .dtg-tag{fill:var(--panel);stroke:var(--warn);stroke-width:3}
+    .dtg-hole{fill:var(--warn)}
+    .dtg-tagtx{fill:var(--tx);font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700}
+    .dtg-pair rect{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .dtg-pair.on rect{stroke:var(--warn);stroke-width:5}
+    .dtg-key{fill:var(--acc);font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700}
+    .dtg-val{fill:var(--tx);font-size:34px;font-weight:800;text-anchor:middle}
+    .dtg-sep{stroke:var(--line);stroke-width:3}
+    .dtg-head{fill:var(--warn)}
+    .dtg-arrow{stroke:var(--warn);stroke-width:4}
+    .dtg-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .dtg-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .dtg-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .dtg-eye{fill:var(--acc)}
+    .dtg-tip{fill:var(--warn)}
+    .dtg-line{stroke:var(--tx);stroke-width:3}
+  </style>
+  <rect class="dtg-tag" x="120" y="96" width="110" height="44" rx="10"/>
+  <circle class="dtg-hole" cx="137" cy="118" r="6"/>
+  <text class="dtg-tagtx" x="150" y="127">steps</text>
+  <rect class="dtg-box" x="100" y="150" width="340" height="190" rx="16"/>
+  <g id="dtg-p1" class="dtg-pair"><rect x="140" y="170" width="260" height="64" rx="10"/><text class="dtg-key" x="160" y="212">east</text><line class="dtg-sep" x1="300" y1="178" x2="300" y2="226"/><text class="dtg-val" x="350" y="214">2</text></g>
+  <g id="dtg-p2" class="dtg-pair"><rect x="140" y="254" width="260" height="64" rx="10"/><text class="dtg-key" x="160" y="296">south</text><line class="dtg-sep" x1="300" y1="262" x2="300" y2="310"/><text class="dtg-val" x="350" y="298">1</text></g>
+  <g id="dtg-ptr" style="transform:translate(70px,202px)"><path class="dtg-head" d="M24 0 l-22 -14 v28 z"/><line class="dtg-arrow" x1="-14" y1="0" x2="4" y2="0"/></g>
+  <g>
+    <rect class="dtg-tile" x="560" y="150" width="100" height="100" rx="12"/>
+    <rect class="dtg-tile" x="670" y="150" width="100" height="100" rx="12"/>
+    <rect class="dtg-tile" x="780" y="150" width="100" height="100" rx="12"/>
+    <rect class="dtg-tile" x="780" y="260" width="100" height="100" rx="12"/>
+  </g>
+  <g id="dtg-gem"><path class="dtg-gem" d="M830 330 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="dtg-bot" style="transform:translate(610px,230px)">
+    <line class="dtg-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="dtg-tip" cx="0" cy="-88" r="6"/>
+    <rect class="dtg-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="dtg-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+</svg>

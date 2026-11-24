@@ -1,0 +1,554 @@
+{
+  "unit": "P2",
+  "title": "객체와 속성",
+  "term": "속성(attribute) · 물건이 가진 상태",
+  "takeaway": "물건은 자기 상태를 갖고 있고, 점(.)으로 그 상태를 읽고 바꿔요.",
+  "slides": [
+    {
+      "text": "이 문이 열렸는지 어떻게 알 수 있을까요?",
+      "scene": {
+        "svg": "svg/obj-doorcard.svg",
+        "alt": "문 두 개에 '열림: 예' 카드가 하나씩 붙어 있고, 첫 문의 카드만 '아니요'로 바뀌어 닫히자 말이 그 앞을 지나 가운데 열쇠를 줍는 장면",
+        "steps": [
+          {
+            "cap": "문마다 상태 카드가 한 장씩 있어요",
+            "show": [
+              "od-hall",
+              "od-walk"
+            ]
+          },
+          {
+            "cap": "첫 문 카드를 '아니요'로 바꿔요",
+            "text": {
+              "od-c1": "열림: 아니요"
+            },
+            "on": [
+              "od-door1"
+            ]
+          },
+          {
+            "cap": "닫힌 문 앞을 그냥 지나가요",
+            "move": {
+              "od-walk": [
+                370,
+                396
+              ]
+            }
+          },
+          {
+            "cap": "가운데에서 열쇠를 주워요",
+            "move": {
+              "od-walk": [
+                440,
+                396
+              ]
+            },
+            "on": [
+              "od-key"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "text": "문마다 **자기 카드**가 있어요. 한 장을 바꿔도 다른 문은 그대로예요."
+    },
+    {
+      "text": "방금 한 일을 코드처럼 써 볼까요?",
+      "scene": {
+        "svg": "svg/obj-doorcard.svg",
+        "alt": "왼쪽 일상 코드가 한 줄씩 강조되면서 첫 문의 카드만 '아니요'로 바뀌고, 말이 닫힌 문을 지나 열쇠를 줍는 장면",
+        "code": [
+          "첫_문.열림 = False",
+          "앞으로_걷기()",
+          "앞으로_걷기()",
+          "열쇠_줍기()"
+        ],
+        "steps": [
+          {
+            "cap": "문마다 카드가 한 장씩 있어요"
+          },
+          {
+            "cap": "첫 문 카드만 '아니요'로 바꿔요",
+            "line": 1,
+            "text": {
+              "od-c1": "열림: 아니요"
+            },
+            "on": [
+              "od-door1"
+            ],
+            "vars": {
+              "첫_문.열림": "False"
+            }
+          },
+          {
+            "cap": "닫힌 문 앞을 그냥 지나가요",
+            "line": 2,
+            "move": {
+              "od-walk": [
+                370,
+                396
+              ]
+            }
+          },
+          {
+            "cap": "한 걸음 더 가요",
+            "line": 3,
+            "move": {
+              "od-walk": [
+                440,
+                396
+              ]
+            }
+          },
+          {
+            "cap": "열쇠를 주워요",
+            "line": 4,
+            "on": [
+              "od-key"
+            ]
+          },
+          {
+            "cap": "둘째 문 카드는 '예' 그대로예요"
+          }
+        ]
+      }
+    },
+    {
+      "text": "`portal_a` 같은 물건은 **객체**, 그 상태는 **속성**이에요.",
+      "bubble": "속성(attribute) · 물건이 가진 상태",
+      "code": [
+        "portal_a.is_active = False",
+        "portal_a.is_active = True"
+      ],
+      "note": "점(.) 뒤에 속성 이름을 써요. True는 켜짐, False는 꺼짐이에요."
+    },
+    {
+      "text": "이제 진짜 코드로 포털 하나를 꺼 봐요.",
+      "scene": {
+        "svg": "svg/obj-portalcard.svg",
+        "alt": "portal_a 카드의 is_active만 False로 바뀌어 꺼지고, Byte가 꺼진 포털을 지나 보석을 줍는 동안 portal_b 카드는 True로 남는 장면",
+        "code": [
+          "portal_a.is_active = False",
+          "for _ in range(5):",
+          "    move_forward()",
+          "collect_gem()"
+        ],
+        "world": {
+          "H": [
+            "11111111"
+          ],
+          "O": [
+            ">..a.g.b"
+          ]
+        },
+        "steps": [
+          {
+            "cap": "포털마다 카드가 한 장씩 있어요"
+          },
+          {
+            "cap": "portal_a 카드만 False로 바꿔요",
+            "line": 1,
+            "text": {
+              "pc-va": "is_active: False"
+            },
+            "on": [
+              "pc-a"
+            ],
+            "vars": {
+              "portal_a.is_active": "False"
+            }
+          },
+          {
+            "cap": "for 줄: 1번째예요",
+            "line": 2
+          },
+          {
+            "cap": "한 칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pc-bot": [
+                200,
+                342
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: 2번째예요",
+            "line": 2
+          },
+          {
+            "cap": "한 칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pc-bot": [
+                310,
+                342
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: 3번째예요",
+            "line": 2
+          },
+          {
+            "cap": "꺼진 portal_a는 그냥 칸이에요",
+            "line": 3,
+            "move": {
+              "pc-bot": [
+                420,
+                342
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: 4번째예요",
+            "line": 2
+          },
+          {
+            "cap": "한 칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pc-bot": [
+                530,
+                342
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: 5번째예요",
+            "line": 2
+          },
+          {
+            "cap": "한 칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pc-bot": [
+                640,
+                342
+              ]
+            }
+          },
+          {
+            "cap": "다섯 번 다 했으니 반복이 끝나요",
+            "line": 2
+          },
+          {
+            "cap": "보석을 주워요",
+            "line": 4,
+            "hide": [
+              "pc-gem"
+            ]
+          },
+          {
+            "cap": "portal_b 카드는 그대로 True예요",
+            "on": [
+              "pc-b"
+            ]
+          }
+        ],
+        "part": [
+          0,
+          8
+        ]
+      }
+    },
+    {
+      "text": "이어서 한 줄씩 봐요 (2/2)",
+      "scene": {
+        "svg": "svg/obj-portalcard.svg",
+        "alt": "portal_a 카드의 is_active만 False로 바뀌어 꺼지고, Byte가 꺼진 포털을 지나 보석을 줍는 동안 portal_b 카드는 True로 남는 장면",
+        "code": [
+          "portal_a.is_active = False",
+          "for _ in range(5):",
+          "    move_forward()",
+          "collect_gem()"
+        ],
+        "world": {
+          "H": [
+            "11111111"
+          ],
+          "O": [
+            ">..a.g.b"
+          ]
+        },
+        "steps": [
+          {
+            "cap": "포털마다 카드가 한 장씩 있어요"
+          },
+          {
+            "cap": "portal_a 카드만 False로 바꿔요",
+            "line": 1,
+            "text": {
+              "pc-va": "is_active: False"
+            },
+            "on": [
+              "pc-a"
+            ],
+            "vars": {
+              "portal_a.is_active": "False"
+            }
+          },
+          {
+            "cap": "for 줄: 1번째예요",
+            "line": 2
+          },
+          {
+            "cap": "한 칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pc-bot": [
+                200,
+                342
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: 2번째예요",
+            "line": 2
+          },
+          {
+            "cap": "한 칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pc-bot": [
+                310,
+                342
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: 3번째예요",
+            "line": 2
+          },
+          {
+            "cap": "꺼진 portal_a는 그냥 칸이에요",
+            "line": 3,
+            "move": {
+              "pc-bot": [
+                420,
+                342
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: 4번째예요",
+            "line": 2
+          },
+          {
+            "cap": "한 칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pc-bot": [
+                530,
+                342
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: 5번째예요",
+            "line": 2
+          },
+          {
+            "cap": "한 칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pc-bot": [
+                640,
+                342
+              ]
+            }
+          },
+          {
+            "cap": "다섯 번 다 했으니 반복이 끝나요",
+            "line": 2
+          },
+          {
+            "cap": "보석을 주워요",
+            "line": 4,
+            "hide": [
+              "pc-gem"
+            ]
+          },
+          {
+            "cap": "portal_b 카드는 그대로 True예요",
+            "on": [
+              "pc-b"
+            ]
+          }
+        ],
+        "part": [
+          8,
+          15
+        ]
+      }
+    },
+    {
+      "text": "포털이 두 개면 카드도 **두 장**이에요.",
+      "code": [
+        "portal_a.is_active = False",
+        "portal_b.is_active"
+      ],
+      "note": "portal_a를 바꿔도 portal_b는 그대로 True예요."
+    },
+    {
+      "quiz": {
+        "q": "이 줄을 실행한 뒤 `portal_b.is_active`는 무엇일까요?",
+        "code": "portal_a.is_active = False",
+        "choices": [
+          "`True`",
+          "`False`"
+        ],
+        "answer": 0,
+        "why": "바꾼 건 portal_a 카드뿐이에요. portal_b 카드는 그대로 True예요."
+      }
+    },
+    {
+      "quiz": {
+        "q": "포털을 끄고 걸어가요. 보석을 몇 개 주울까요?",
+        "code": [
+          "portal_a.is_active = False",
+          "for _ in range(4):",
+          "    move_forward()",
+          "    if is_on_gem():",
+          "        collect_gem()"
+        ],
+        "choices": [
+          "1개",
+          "2개",
+          "3개"
+        ],
+        "answer": 1,
+        "why": "꺼진 포털은 그냥 칸이에요. 네 칸을 걸으며 보석 두 개를 주워요.",
+        "verify": {
+          "H": [
+            "111111"
+          ],
+          "O": [
+            ">gag.b"
+          ],
+          "measure": "collected"
+        }
+      }
+    },
+    {
+      "quiz": {
+        "q": "`portal_a.is_active`에서 `is_active`는 무엇일까요?",
+        "choices": [
+          "객체",
+          "속성",
+          "반복문"
+        ],
+        "answer": 1,
+        "why": "`portal_a`는 객체이고, 점 뒤의 `is_active`는 그 객체의 속성이에요."
+      }
+    },
+    {
+      "text": "이제 점(.)으로 포털 상태를 바꿔 봐요!"
+    }
+  ],
+  "outro": {
+    "title": "정리",
+    "slides": [
+      {
+        "text": "이 유닛에서 배운 것: 객체는 **속성**으로 상태를 가져요.",
+        "bubble": "속성 · 객체가 가진 상태",
+        "code": [
+          "portal_a.is_active = False",
+          "portal_a.is_active"
+        ],
+        "note": "점(.) 뒤에 속성 이름을 써서 읽고 바꿔요."
+      },
+      {
+        "text": "이 유닛에서 배운 것: 객체가 둘이면 속성도 **따로**예요.",
+        "bubble": "한 객체를 바꿔도 다른 객체는 그대로",
+        "code": [
+          "portal_a.is_active = False",
+          "portal_b.is_active"
+        ],
+        "note": "portal_a를 꺼도 portal_b는 켜진 채예요."
+      },
+      {
+        "text": "면접 질문: 속성이란 무엇인가요?",
+        "bubble": "객체가 가진 상태(값)예요. 객체.속성 으로 접근해요.",
+        "note": "예: portal_a.is_active는 켜짐 여부. 상태를 저장할 때 써요.",
+        "code": "portal_a.is_active"
+      },
+      {
+        "text": "면접 질문: 속성을 읽고 바꾸는 방법은?",
+        "bubble": "점(.)으로 읽고, 점 뒤에 =로 값을 대입해 바꿔요.",
+        "note": "예: 읽기 portal_a.is_active, 바꾸기 ... = False. 상태 제어에 써요.",
+        "code": [
+          "portal_a.is_active = False"
+        ]
+      },
+      {
+        "quiz": {
+          "q": "`portal_a.is_active`에서 `is_active`는?",
+          "choices": [
+            "객체",
+            "속성",
+            "함수 이름"
+          ],
+          "answer": 1,
+          "why": "점 앞은 객체, 점 뒤는 그 객체의 속성이에요."
+        }
+      },
+      {
+        "quiz": {
+          "q": "A 포털을 끄면 `portal_b.is_active`는?",
+          "choices": [
+            "`True`",
+            "`False`"
+          ],
+          "answer": 0,
+          "why": "속성은 객체마다 따로예요. portal_b는 그대로예요.",
+          "code": "portal_a.is_active = False"
+        }
+      },
+      {
+        "quiz": {
+          "q": "포털을 끄고 걸어요. 보석을 몇 개 주울까요?",
+          "choices": [
+            "1개",
+            "2개",
+            "3개"
+          ],
+          "answer": 1,
+          "why": "꺼진 포털이 있어도 보석은 놓인 곳에서 주워요. 두 개예요.",
+          "code": [
+            "portal_a.is_active = False",
+            "for _ in range(4):",
+            "    move_forward()",
+            "    if is_on_gem():",
+            "        collect_gem()"
+          ],
+          "verify": {
+            "H": [
+              "111111"
+            ],
+            "O": [
+              ">gag.b"
+            ],
+            "measure": "collected"
+          }
+        }
+      },
+      {
+        "quiz": {
+          "q": "속성을 바꾸는 올바른 줄은?",
+          "choices": [
+            "portal_a.is_active = False",
+            "portal_a = is_active.False",
+            "is_active(portal_a)"
+          ],
+          "answer": 0,
+          "why": "객체.속성 = 값 형태로 대입해요."
+        }
+      },
+      {
+        "text": "객체와 속성, 이제 점(.)이 낯설지 않죠? 정리를 마쳤어요!"
+      }
+    ]
+  }
+}

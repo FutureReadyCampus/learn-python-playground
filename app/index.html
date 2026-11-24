@@ -1,0 +1,85 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>파이썬 퍼즐</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Batang:wght@700&family=Gaegu:wght@700&family=Song+Myung&family=Black+Han+Sans&family=Do+Hyeon&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/app.css">
+
+<div id="app">
+  <aside id="side" aria-label="레슨 목록"><div class="sh"><b>파이썬 퍼즐</b><small>살펴보기 → 입문편 → 활용편</small></div><nav id="sl"></nav></aside>
+  <section id="stage" aria-label="3D 퍼즐 무대">
+    <canvas id="gl"></canvas>
+    <div class="hud">
+      <div class="ctl">
+        <button class="ic sm" id="adm" aria-label="관리자 모드"><svg width="14" height="14" viewBox="0 0 16 16"><circle cx="5.5" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 8H14M12 8v2.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+        <button class="ic" id="skin" aria-label="테마와 캐릭터 바꾸기">꾸미기</button>
+        <button class="ic" id="spd" aria-label="재생 속도">1x</button>
+        <button class="ic" id="rst" aria-label="처음 위치로"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M13 8a5 5 0 1 1-1.6-3.7M13 2.5v3h-3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </div>
+    <div id="goal">
+      <small id="g-n"></small>
+      <h1 id="g-t"></h1>
+      <p id="g-d"></p>
+      <div id="hud2"><span id="g-p"></span><button id="hintb">힌트</button></div>
+      <p id="hint" hidden></p>
+    </div>
+    <div id="skinp" hidden><b>테마</b><div class="opts" id="o-theme"></div><b>캐릭터</b><div class="opts" id="o-char"></div><b>계절 · 날씨</b><div class="opts" id="o-wx"></div>
+      <label class="rnd"><input type="checkbox" id="rnd">다음 레슨마다 테마 바꾸기</label><button class="opt" id="shuf">지금 랜덤으로 바꾸기</button></div>
+    <div id="admp" hidden><b>관리자 모드</b><div class="row2"><input id="pw" type="password" inputmode="numeric" placeholder="비밀번호" autocomplete="off" aria-label="관리자 비밀번호"><button class="opt" id="pwok">확인</button></div><small id="pwmsg"></small></div>
+    <div id="spin">드래그하면 섬이 돌아가요</div>
+    <div id="ctrl"><button class="go" id="run"></button><span id="rc"><button class="gh" id="pz" title="일시정지 / 재생">❚❚ 일시정지</button><button class="gh" id="stp" title="한 줄씩 실행" aria-pressed="false">한 줄씩 ○</button><button class="go" id="nx" hidden title="다음 줄 (Space · → · F10)">다음 줄 ▶|</button><button class="gh" id="auto" hidden>자동으로 계속</button></span></div>
+    <div id="more"><button id="morebtn" aria-label="더보기" aria-haspopup="menu" aria-expanded="false" title="더보기">⋯</button><div id="moremenu" role="menu" hidden><button class="gh" id="clr" role="menuitem">비우기</button><button class="gh" id="sol" role="menuitem">정답 보기</button></div></div>
+    <div id="toast" role="status"></div>
+    <div id="nogl" hidden>이 환경에서는 WebGL을 쓸 수 없어요. 블록 코딩은 그대로 동작해요.</div>
+    <div id="win" hidden>
+      <div class="card" role="dialog" aria-labelledby="w-t">
+        <h2 id="w-t">성공!</h2>
+        <p id="w-c"></p>
+        <p id="w-term"></p>
+        <pre id="w-code"></pre>
+        <div class="row"><button class="btn" id="again">다시 보기</button><button class="btn main" id="next">다음 레슨</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="exv" hidden aria-label="유닛 소개">
+    <div class="xv-top"><button class="ic tg" id="xv-sbt" aria-label="레슨 목록 보이기/숨기기"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="1.5" y="2.5" width="13" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 2.5v11" stroke="currentColor" stroke-width="1.5"/></svg></button><b id="xv-unit"></b></div>
+    <div class="xv-body">
+      <h2 id="xv-text"></h2>
+      <figure id="xv-stage" hidden>
+        <div id="xv-dbg" aria-label="코드를 한 줄씩 실행하는 모습"><div class="dbg-h"><i></i>한 줄씩 실행 중</div><ol id="xv-lines"></ol><div id="xv-vars" hidden></div></div>
+        <div id="xv-view"><div id="xv-scene" role="img"></div><b id="xv-badge"></b></div>
+        <figcaption><p id="xv-cap" aria-live="polite"></p><div class="xv-pbar"><button id="xv-pp" aria-label="일시정지">❚❚</button><div id="xv-prog" role="progressbar" aria-label="그림 진행, 누르면 그 단계로 가요"><i id="xv-fill"></i><span id="xv-ticks"></span></div></div></figcaption>
+      </figure>
+      <div id="xv-call" hidden><p id="xv-bubble" class="bub down"></p><pre id="xv-code"></pre><p id="xv-note" class="bub up"></p></div>
+      <div id="xv-quiz" hidden></div>
+    </div>
+    <nav class="xv-nav" aria-label="쪽 이동"><button id="xv-prev" aria-label="이전 장">‹</button><button id="xv-n"></button><button id="xv-next" aria-label="다음 장">›</button></nav>
+  </section>
+  <section id="editor" aria-label="파이썬 코드 편집기">
+    <div class="bar">
+      <button class="ic tg" id="sbt" aria-label="레슨 목록 보이기/숨기기" title="레슨 목록"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="1.75" y="2.75" width="12.5" height="10.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 3v10" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <b class="et">코드</b>
+      <span id="cnt"></span>
+    </div>
+    <div id="linfo"><p class="lg"><b>목표</b> <span id="li-goal"></span></p><p id="li-desc"></p><ol id="li-steps"></ol></div>
+    <div class="work"><div id="ed"><div id="gut" aria-hidden="true"></div><div class="cw"><div id="hlp" aria-hidden="true"></div><textarea id="ta" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off" aria-label="파이썬 코드"></textarea></div></div>
+    </div>
+    <pre id="out" aria-label="실행 결과" hidden></pre>
+    <div id="snippets" hidden><p>코드 상용구 <small>누르면 코드에 들어가요</small></p><div id="pal" aria-label="코드 상용구"></div></div>
+  </section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<script>
+// 레슨 JSON과 블록 정의를 먼저 읽고, 그다음 js/ 파일을 순서대로 실행해요 (파일끼리 전역 변수를 공유하는 일반 스크립트)
+(async()=>{
+  const get=async p=>(await fetch(p,{cache:'no-cache'})).json();   // 고친 레슨이 바로 보이도록 캐시를 매번 확인
+  window.BLOCKS=await get('lessons/blocks.json');
+  window.LESSONS=Object.fromEntries(await Promise.all(['tour','basics','practice'].map(async n=>[n,await get('lessons/'+n+'.json')])));
+  for(const f of ['view','lessons','themes','ground','scene','main','explain'])
+    await new Promise((ok,no)=>{const s=document.createElement('script');s.src='js/'+f+'.js?v='+Date.now();s.onload=ok;s.onerror=no;document.body.append(s)});
+})();
+</script>

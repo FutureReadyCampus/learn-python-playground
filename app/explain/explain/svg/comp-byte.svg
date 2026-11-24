@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="cb-t cb-d">
+  <title id="cb-t">빈칸 번호만 골라 다리 놓기</title>
+  <desc id="cb-d">칸 번호 0부터 4까지 중에서 홀수인 1과 3만 남고 나머지는 걸러져요. 남은 1번, 3번 빈칸에 블록이 놓이고 Byte가 끝까지 걸어 보석을 주워요.</desc>
+  <style>
+    .cb-chip{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .cb-c.on .cb-chip{stroke:var(--ok);fill:var(--panel)}
+    .cb-cn{fill:var(--tx);font-size:28px;font-weight:800;text-anchor:middle}
+    .cb-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .cb-gap{fill:none;stroke:var(--dim);stroke-width:3;stroke-dasharray:8 8}
+    .cb-blk{fill:var(--acc);stroke:var(--tx);stroke-width:3}
+    .cb-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .cb-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .cb-eye{fill:var(--acc)}
+    .cb-tip{fill:var(--warn)}
+    .cb-line{stroke:var(--tx);stroke-width:3}
+    .cb-lab{fill:var(--dim);font-size:20px;font-weight:700;text-anchor:middle}
+    #cb-pick{fill:var(--ok);font-size:24px;font-weight:800;text-anchor:middle}
+  </style>
+  <g id="cb-c0" class="cb-c"><rect class="cb-chip" x="245" y="80" width="50" height="50" rx="12"/><text class="cb-cn" x="270" y="116">0</text></g>
+  <g id="cb-c1" class="cb-c"><rect class="cb-chip" x="345" y="80" width="50" height="50" rx="12"/><text class="cb-cn" x="370" y="116">1</text></g>
+  <g id="cb-c2" class="cb-c"><rect class="cb-chip" x="445" y="80" width="50" height="50" rx="12"/><text class="cb-cn" x="470" y="116">2</text></g>
+  <g id="cb-c3" class="cb-c"><rect class="cb-chip" x="545" y="80" width="50" height="50" rx="12"/><text class="cb-cn" x="570" y="116">3</text></g>
+  <g id="cb-c4" class="cb-c"><rect class="cb-chip" x="645" y="80" width="50" height="50" rx="12"/><text class="cb-cn" x="670" y="116">4</text></g>
+  <text id="cb-pick" x="470" y="180">고른 칸: 1, 3</text>
+  <rect class="cb-tile" x="225" y="330" width="90" height="50" rx="10"/>
+  <rect class="cb-gap" x="325" y="330" width="90" height="50" rx="10"/>
+  <rect class="cb-tile" x="425" y="330" width="90" height="50" rx="10"/>
+  <rect class="cb-gap" x="525" y="330" width="90" height="50" rx="10"/>
+  <rect class="cb-tile" x="625" y="330" width="90" height="50" rx="10"/>
+  <rect id="cb-b1" class="cb-blk" x="325" y="330" width="90" height="50" rx="10"/>
+  <rect id="cb-b3" class="cb-blk" x="525" y="330" width="90" height="50" rx="10"/>
+  <text class="cb-lab" x="270" y="408">0</text><text class="cb-lab" x="370" y="408">1</text><text class="cb-lab" x="470" y="408">2</text><text class="cb-lab" x="570" y="408">3</text><text class="cb-lab" x="670" y="408">4</text>
+  <g id="cb-gem"><path class="cb-gem" d="M670 312 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="cb-bot" style="transform:translate(270px,332px)">
+    <line class="cb-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="cb-tip" cx="0" cy="-88" r="6"/>
+    <rect class="cb-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="cb-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+</svg>

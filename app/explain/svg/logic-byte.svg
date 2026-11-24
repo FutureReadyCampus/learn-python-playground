@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="lb-t lb-d">
+  <title id="lb-t">Byte가 두 조건을 함께 확인하기</title>
+  <desc id="lb-d">위의 판에 보석 위인지, 앞이 막혔는지 두 가지의 참 거짓이 나와요. 아래에서 Byte가 칸마다 걸으며 두 가지를 물어요. 첫 보석 칸은 앞이 열려서 건너뛰고, 벽 앞 보석 칸에서는 둘 다 참이라 보석을 주워요.</desc>
+  <style>
+    .lb-board{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .lb-lbl{fill:var(--tx);font-size:24px;font-weight:700}
+    .lb-val{fill:var(--acc);font-size:26px;font-weight:800;text-anchor:middle}
+    .lb-and{fill:var(--warn);font-size:20px;font-weight:800}
+    #lb-res{fill:var(--ok);font-size:28px;font-weight:800;text-anchor:middle}
+    .lb-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .lb-wall{fill:var(--line);stroke:var(--tx);stroke-width:3}
+    .lb-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .lb-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .lb-eye{fill:var(--acc)}
+    .lb-tip{fill:var(--warn)}
+    .lb-line{stroke:var(--tx);stroke-width:3}
+  </style>
+  <rect class="lb-board" x="290" y="60" width="380" height="210" rx="16"/>
+  <text class="lb-lbl" x="320" y="112">보석 위인가요?</text>
+  <text id="lb-v1" class="lb-val" x="600" y="112">?</text>
+  <text class="lb-and" x="320" y="146">그리고</text>
+  <text class="lb-lbl" x="320" y="182">앞이 막혔나요?</text>
+  <text id="lb-v2" class="lb-val" x="600" y="182">?</text>
+  <text id="lb-res" x="480" y="244">둘 다 참일까요?</text>
+  <rect class="lb-tile" x="200" y="370" width="110" height="56" rx="10"/>
+  <rect class="lb-tile" x="325" y="370" width="110" height="56" rx="10"/>
+  <rect class="lb-tile" x="450" y="370" width="110" height="56" rx="10"/>
+  <rect class="lb-tile" x="575" y="370" width="110" height="56" rx="10"/>
+  <rect class="lb-wall" x="700" y="290" width="44" height="136" rx="6"/>
+  <g id="lb-bot" style="transform:translate(255px,370px)">
+    <line class="lb-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="lb-tip" cx="0" cy="-88" r="6"/>
+    <rect class="lb-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="lb-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+  <path id="lb-g1" class="lb-gem" d="M380 414 l16 -16 -16 -16 -16 16z"/>
+  <path id="lb-g3" class="lb-gem" d="M630 414 l16 -16 -16 -16 -16 16z"/>
+</svg>

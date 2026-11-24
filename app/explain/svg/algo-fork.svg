@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="af-t af-d">
+  <title id="af-t">갈림길에서 무엇을 먼저 볼까</title>
+  <desc id="af-d">세 칸짜리 길 가운데에서 아래로 옆길이 나 있고, 옆길 끝에 보석이 있어요. Byte가 오른쪽을 먼저 확인해서 옆길로 꺾어 보석을 주워요. 앞을 먼저 보면 곧장 지나쳐 버리는 점선 화살표도 나와요.</desc>
+  <style>
+    .af-path{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .af-hedge{fill:var(--ok);opacity:.3;stroke:var(--line);stroke-width:3}
+    .af-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .af-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .af-eye{fill:var(--acc)}
+    .af-tip{fill:var(--warn)}
+    .af-line{stroke:var(--tx);stroke-width:3}
+    .af-lbl{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:end}
+    #af-face{fill:var(--warn);font-size:30px;font-weight:800}
+    .af-miss{opacity:0}
+    #af-miss.on{opacity:1}
+    .af-ml{fill:none;stroke:var(--bad);stroke-width:5;stroke-dasharray:12 10;stroke-linecap:round}
+    .af-mh{fill:var(--bad)}
+    .af-mt{fill:var(--bad);font-size:20px;font-weight:700;text-anchor:middle}
+  </style>
+  <rect class="af-path" x="315" y="130" width="110" height="110"/>
+  <rect class="af-path" x="425" y="130" width="110" height="110"/>
+  <rect class="af-path" x="535" y="130" width="110" height="110"/>
+  <rect class="af-hedge" x="315" y="240" width="110" height="110"/>
+  <rect class="af-path" x="425" y="240" width="110" height="110"/>
+  <rect class="af-hedge" x="535" y="240" width="110" height="110"/>
+  <g id="af-gem"><path class="af-gem" d="M480 318 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="af-miss" class="af-miss">
+    <path class="af-ml" d="M480 112 H650"/>
+    <path class="af-mh" d="M650 98 L676 112 L650 126 Z"/>
+    <text class="af-mt" x="580" y="96">앞 먼저면 지나쳐요</text>
+  </g>
+  <g id="af-bot" style="transform:translate(370px,232px)">
+    <line class="af-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="af-tip" cx="0" cy="-88" r="6"/>
+    <rect class="af-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="af-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+  <text class="af-lbl" x="490" y="420">보는 쪽</text>
+  <text id="af-face" x="504" y="422">→</text>
+</svg>

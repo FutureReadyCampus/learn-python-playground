@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t6p-t t6p-d">
+  <title id="t6p-t">포털 카드를 바꾸고 걸어가기</title>
+  <desc id="t6p-d">일곱 칸 길에 Byte, 포털 A, 보석, 포털 B가 있어요. 포털마다 상태 카드가 붙어 있어요. 포털 A의 카드를 꺼짐으로 바꾸면 Byte가 순간이동 없이 그 위를 지나 보석을 주워요.</desc>
+  <style>
+    .t6p-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .t6p-ring{fill:none;stroke:var(--acc);stroke-width:5}
+    .t6p-core{fill:var(--acc);opacity:.35}
+    .t6p-pa.on .t6p-ring{stroke:var(--dim);stroke-dasharray:6 6}
+    .t6p-pa.on .t6p-core{opacity:0}
+    .t6p-card rect{fill:var(--panel2);stroke:var(--acc);stroke-width:3}
+    .t6p-card.on rect{stroke:var(--dim)}
+    .t6p-ctxt{fill:var(--tx);font-size:22px;font-weight:800;text-anchor:middle}
+    .t6p-lbl{fill:var(--dim);font-size:20px;font-weight:700;text-anchor:middle}
+    .t6p-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .t6p-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .t6p-eye{fill:var(--acc)}
+    .t6p-tip{fill:var(--warn)}
+    .t6p-line{stroke:var(--tx);stroke-width:3}
+  </style>
+  <rect class="t6p-tile" x="138" y="320" width="84" height="50" rx="10"/>
+  <rect class="t6p-tile" x="238" y="320" width="84" height="50" rx="10"/>
+  <rect class="t6p-tile" x="338" y="320" width="84" height="50" rx="10"/>
+  <rect class="t6p-tile" x="438" y="320" width="84" height="50" rx="10"/>
+  <rect class="t6p-tile" x="538" y="320" width="84" height="50" rx="10"/>
+  <rect class="t6p-tile" x="638" y="320" width="84" height="50" rx="10"/>
+  <rect class="t6p-tile" x="738" y="320" width="84" height="50" rx="10"/>
+  <g id="t6p-pa" class="t6p-pa">
+    <ellipse class="t6p-core" cx="380" cy="334" rx="34" ry="12"/>
+    <ellipse class="t6p-ring" cx="380" cy="334" rx="34" ry="12"/>
+  </g>
+  <g>
+    <ellipse class="t6p-core" cx="780" cy="334" rx="34" ry="12"/>
+    <ellipse class="t6p-ring" cx="780" cy="334" rx="34" ry="12"/>
+  </g>
+  <text class="t6p-lbl" x="380" y="400">포털 A</text>
+  <text class="t6p-lbl" x="780" y="400">포털 B</text>
+  <g id="t6p-ca" class="t6p-card">
+    <rect x="310" y="150" width="140" height="50" rx="10"/>
+    <text id="t6p-st" class="t6p-ctxt" x="380" y="184">켜짐: 예</text>
+  </g>
+  <g class="t6p-card">
+    <rect x="710" y="150" width="140" height="50" rx="10"/>
+    <text class="t6p-ctxt" x="780" y="184">켜짐: 예</text>
+  </g>
+  <g id="t6p-gem"><path class="t6p-gem" d="M580 300 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="t6p-bot" style="transform:translate(180px,322px)">
+    <line class="t6p-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="t6p-tip" cx="0" cy="-88" r="6"/>
+    <rect class="t6p-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="t6p-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+</svg>

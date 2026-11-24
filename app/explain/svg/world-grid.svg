@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="wg-t wg-d">
+  <title id="wg-t">열과 줄 번호로 빈칸에 블록 놓기</title>
+  <desc id="wg-d">열 0부터 4, 줄 0과 1로 된 칸판이에요. 줄 0의 열 2와 열 3이 비어 있다가 (2, 0)과 (3, 0)에 블록이 하나씩 놓여요. 길이 이어지면 Byte가 한 칸씩 걸어 열 4의 보석을 주워요.</desc>
+  <style>
+    .wg-lab{fill:var(--dim);font-size:20px;font-weight:700;text-anchor:middle}
+    .wg-rowlab{fill:var(--dim);font-size:18px;font-weight:700;text-anchor:end}
+    .wg-cell{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .wg-gap{fill:none;stroke:var(--dim);stroke-width:3;stroke-dasharray:10 8}
+    .wg-blk{fill:var(--panel2);stroke:var(--warn);stroke-width:4}
+    .wg-xy{fill:var(--warn);font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;text-anchor:middle}
+    .wg-new{transition:opacity .5s}
+    .wg-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .wg-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .wg-eye{fill:var(--acc)}
+    .wg-tip{fill:var(--warn)}
+    .wg-line{stroke:var(--tx);stroke-width:3}
+    #wg-bot{transition:transform 1.4s ease}
+    @media (prefers-reduced-motion:reduce){#wg-bot,.wg-new{transition:none}}
+  </style>
+  <g transform="translate(-210 30)">
+
+  <text class="wg-lab" x="542" y="124">열 0</text><text class="wg-lab" x="630" y="124">열 1</text><text class="wg-lab" x="718" y="124">열 2</text>
+  <text class="wg-lab" x="806" y="124">열 3</text><text class="wg-lab" x="894" y="124">열 4</text>
+  <text class="wg-rowlab" x="496" y="226">줄 0</text><text class="wg-rowlab" x="496" y="310">줄 1</text>
+  <g>
+    <rect class="wg-cell" x="502" y="180" width="80" height="76" rx="8"/>
+    <rect class="wg-cell" x="590" y="180" width="80" height="76" rx="8"/>
+    <rect class="wg-gap" x="678" y="180" width="80" height="76" rx="8"/>
+    <rect class="wg-gap" x="766" y="180" width="80" height="76" rx="8"/>
+    <rect class="wg-cell" x="854" y="180" width="80" height="76" rx="8"/>
+    <rect class="wg-cell" x="502" y="264" width="80" height="76" rx="8"/>
+    <rect class="wg-cell" x="590" y="264" width="80" height="76" rx="8"/>
+    <rect class="wg-cell" x="678" y="264" width="80" height="76" rx="8"/>
+    <rect class="wg-cell" x="766" y="264" width="80" height="76" rx="8"/>
+    <rect class="wg-cell" x="854" y="264" width="80" height="76" rx="8"/>
+  </g>
+  <g id="wg-b2" class="wg-new"><rect class="wg-blk" x="678" y="180" width="80" height="76" rx="8"/><text class="wg-xy" x="718" y="226">(2, 0)</text></g>
+  <g id="wg-b3" class="wg-new"><rect class="wg-blk" x="766" y="180" width="80" height="76" rx="8"/><text class="wg-xy" x="806" y="226">(3, 0)</text></g>
+  <g id="wg-gem"><path class="wg-gem" d="M894 236 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="wg-bot" style="transform:translate(542px,246px)">
+    <line class="wg-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="wg-tip" cx="0" cy="-88" r="6"/>
+    <rect class="wg-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="wg-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+</g>
+</svg>

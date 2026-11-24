@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t3u-t t3u-d">
+  <title id="t3u-t">비가 오는 날에만 우산을 챙겨요</title>
+  <desc id="t3u-d">왼쪽 창문으로 하늘이 보이고, 오른쪽에 우산꽂이와 가방이 있어요. 맑은 날은 우산이 꽂이에 그대로 있고, 비 오는 날에는 우산이 가방으로 옮겨 가요.</desc>
+  <style>
+    .t3u-frame{fill:var(--panel);stroke:var(--line);stroke-width:4}
+    .t3u-bar{stroke:var(--line);stroke-width:4}
+    .t3u-sun{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .t3u-ray{stroke:var(--warn);stroke-width:4;stroke-linecap:round}
+    .t3u-cloud{fill:var(--panel2);stroke:var(--dim);stroke-width:3}
+    .t3u-drop{stroke:var(--acc);stroke-width:4;stroke-linecap:round}
+    .t3u-day{fill:var(--tx);font-size:30px;font-weight:800;text-anchor:middle}
+    .t3u-lbl{fill:var(--dim);font-size:20px;font-weight:700;text-anchor:middle}
+    .t3u-stand{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .t3u-bag{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .t3u-bagx.on .t3u-bag{stroke:var(--ok)}
+    .t3u-canopy{fill:var(--acc);stroke:var(--tx);stroke-width:3}
+    .t3u-stick{fill:none;stroke:var(--tx);stroke-width:4;stroke-linecap:round}
+  </style>
+  <rect class="t3u-frame" x="90" y="110" width="320" height="260" rx="10"/>
+  <line class="t3u-bar" x1="250" y1="110" x2="250" y2="370"/>
+  <line class="t3u-bar" x1="90" y1="240" x2="410" y2="240"/>
+  <g id="t3u-sun">
+    <circle class="t3u-sun" cx="250" cy="240" r="44"/>
+    <path class="t3u-ray" d="M250 172 V156 M250 308 V324 M182 240 H166 M318 240 H334 M202 192 L190 180 M298 288 L310 300 M298 192 L310 180 M202 288 L190 300"/>
+  </g>
+  <g id="t3u-rain">
+    <path class="t3u-cloud" d="M160 230 C160 190 210 180 225 200 C240 160 310 170 310 210 C350 210 350 260 310 260 H170 C135 260 135 230 160 230 Z"/>
+    <path class="t3u-drop" d="M180 285 l-8 22 M230 285 l-8 22 M280 285 l-8 22 M205 320 l-8 22 M255 320 l-8 22"/>
+  </g>
+  <text id="t3u-day" class="t3u-day" x="250" y="90">창밖을 봐요</text>
+  <rect class="t3u-stand" x="520" y="290" width="70" height="110" rx="8"/>
+  <text class="t3u-lbl" x="555" y="430">우산꽂이</text>
+  <g id="t3u-bagx" class="t3u-bagx">
+    <path class="t3u-bag" d="M700 300 H860 L850 410 H710 Z"/>
+    <path class="t3u-stick" d="M740 300 C740 260 820 260 820 300"/>
+    <text class="t3u-lbl" x="780" y="440">가방</text>
+  </g>
+  <g id="t3u-umb" style="transform:translate(555px,250px)">
+    <path class="t3u-canopy" d="M-50 0 C-50 -50 50 -50 50 0 Z"/>
+    <path class="t3u-stick" d="M0 0 V70 C0 84 -16 84 -16 72"/>
+  </g>
+</svg>

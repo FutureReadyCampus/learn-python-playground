@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="wc-t wc-d">
+  <title id="wc-t">컵이 찰 때까지 물 따르기</title>
+  <desc id="wc-d">주전자가 빈 컵에 물을 조금씩 따라요. 따를 때마다 옆 말풍선이 찼는지 알려 주고, 물이 가득 선까지 오르면 멈춰요.</desc>
+  <style>
+    .wc-kettle{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .wc-handle{fill:none;stroke:var(--tx);stroke-width:3}
+    .wc-cup{fill:none;stroke:var(--tx);stroke-width:3}
+    .wc-water{fill:var(--acc);transition:opacity .6s}
+    .wc-pour{stroke:var(--acc);stroke-width:8;stroke-linecap:round;transition:opacity .5s}
+    .wc-full{stroke:var(--dim);stroke-width:3;stroke-dasharray:10 8}
+    .wc-small{fill:var(--dim);font-size:20px;font-weight:700}
+    .wc-bub{fill:var(--panel);stroke:var(--line);stroke-width:3;transition:stroke .5s}
+    #wc-ask{fill:var(--tx);font-size:26px;font-weight:800;text-anchor:middle;transition:fill .5s}
+    #wc-askbox.on .wc-bub{stroke:var(--ok)}
+    #wc-askbox.on #wc-ask{fill:var(--ok)}
+    #wc-cup,#wc-kettle,#wc-askbox{transition:opacity .5s}
+    @media (prefers-reduced-motion:reduce){.wc-water,.wc-pour,.wc-bub,#wc-ask,#wc-cup,#wc-kettle,#wc-askbox{transition:none}}
+  </style>
+  <g id="wc-kettle">
+    <ellipse class="wc-kettle" cx="300" cy="200" rx="72" ry="48"/>
+    <path class="wc-kettle" d="M360 186 L452 160 L456 174 L366 214 Z"/>
+    <path class="wc-handle" d="M232 182 C190 170 190 236 236 222"/>
+    <rect class="wc-kettle" x="282" y="140" width="36" height="16" rx="6"/>
+  </g>
+  <line id="wc-pour" class="wc-pour" x1="458" y1="172" x2="470" y2="420"/>
+  <g id="wc-w1"><rect class="wc-water" x="414" y="370" width="132" height="60"/></g>
+  <g id="wc-w2"><rect class="wc-water" x="414" y="310" width="132" height="62"/></g>
+  <g id="wc-w3"><rect class="wc-water" x="414" y="258" width="132" height="54"/></g>
+  <g id="wc-cup">
+    <path class="wc-cup" d="M410 250 V432 H550 V250"/>
+    <line class="wc-full" x1="396" y1="258" x2="564" y2="258"/>
+    <text class="wc-small" x="572" y="265">가득</text>
+  </g>
+  <g id="wc-askbox">
+    <rect class="wc-bub" x="650" y="320" width="250" height="70" rx="18"/>
+    <text id="wc-ask" x="775" y="364">아직이에요</text>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="bl-t bl-d">
+  <title id="bl-t">continue로 건너뛰고 break로 끝내기</title>
+  <desc id="bl-d">Byte가 한 칸씩 걸으며 보석이 있는지 살펴요. 빈 칸 두 곳은 건너뛰고 표시가 남아요. 세 번째 칸에서 보석을 줍고 반복을 끝내서, 네 번째 칸에는 가지 않아요.</desc>
+  <style>
+    .bl-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .bl-tk.on{stroke:var(--dim);stroke-dasharray:8 6}
+    .bl-num{fill:var(--dim);font-size:18px;text-anchor:middle}
+    .bl-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    #bl-gem{transition:opacity .6s}
+    .bl-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .bl-eye{fill:var(--acc)}
+    .bl-tip{fill:var(--warn)}
+    .bl-line{stroke:var(--tx);stroke-width:3}
+    #bl-bot{transition:transform 1s ease}
+    #bl-stop{fill:var(--bad);font-size:32px;font-weight:800;text-anchor:middle;transition:opacity .5s}
+    @media (prefers-reduced-motion:reduce){#bl-bot,#bl-gem,#bl-stop{transition:none}}
+  </style>
+  <g transform="translate(-220 0)">
+
+  <g>
+    <rect class="bl-tile" x="470" y="330" width="84" height="44" rx="10"/>
+    <rect id="bl-k1" class="bl-tile bl-tk" x="562" y="330" width="84" height="44" rx="10"/>
+    <rect id="bl-k2" class="bl-tile bl-tk" x="654" y="330" width="84" height="44" rx="10"/>
+    <rect class="bl-tile" x="746" y="330" width="84" height="44" rx="10"/>
+    <rect class="bl-tile" x="838" y="330" width="84" height="44" rx="10"/>
+    <text class="bl-num" x="604" y="400">1</text><text class="bl-num" x="696" y="400">2</text>
+    <text class="bl-num" x="788" y="400">3</text><text class="bl-num" x="880" y="400">4</text>
+  </g>
+  <g id="bl-gem"><path class="bl-gem" d="M788 300 l16 -18 -16 -18 -16 18z"/></g>
+  <text id="bl-stop" x="880" y="250">안 가요</text>
+  <g id="bl-bot" style="transform:translate(512px,332px)">
+    <line class="bl-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="bl-tip" cx="0" cy="-88" r="6"/>
+    <rect class="bl-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="bl-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+</g>
+</svg>

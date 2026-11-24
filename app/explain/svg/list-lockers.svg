@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="llock-t llock-d">
+  <title id="llock-t">번호 붙은 사물함에 색연필 넣기</title>
+  <desc id="llock-d">번호 0, 1, 2가 붙은 사물함 세 칸이 한 줄로 있어요. 0번 칸부터 차례로 빨강, 파랑, 노랑 색연필이 하나씩 들어가고, 마지막 2번 칸에 마지막 칸 표시가 떠요.</desc>
+  <style>
+    .llock-box{fill:var(--panel2);stroke:var(--line);stroke-width:3;transition:stroke .5s}
+    .llock-g.on .llock-box{stroke:var(--warn)}
+    .llock-num{fill:var(--tx);font-size:30px;font-weight:800;text-anchor:middle}
+    .llock-tagbg{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .llock-name{fill:var(--dim);font-size:24px;font-weight:700;text-anchor:middle}
+    .llock-body{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    #llock-p0 .llock-body{fill:var(--bad)}
+    #llock-p1 .llock-body{fill:var(--acc)}
+    .llock-tip{fill:var(--panel);stroke:var(--tx);stroke-width:3}
+    .llock-pen{transition:opacity .5s}
+    #llock-last{fill:var(--warn);font-size:24px;font-weight:800;text-anchor:middle;transition:opacity .5s}
+    #llock-row{transition:opacity .5s}
+    @media (prefers-reduced-motion:reduce){#llock-row,#llock-last,.llock-pen,.llock-box{transition:none}}
+  </style>
+  <g id="llock-row">
+    <g id="llock-b0" class="llock-g" transform="translate(280 0)">
+      <rect class="llock-box" x="-80" y="140" width="160" height="240" rx="12"/>
+      <rect class="llock-tagbg" x="-28" y="154" width="56" height="44" rx="8"/>
+      <text class="llock-num" y="187">0</text>
+    </g>
+    <g id="llock-b1" class="llock-g" transform="translate(480 0)">
+      <rect class="llock-box" x="-80" y="140" width="160" height="240" rx="12"/>
+      <rect class="llock-tagbg" x="-28" y="154" width="56" height="44" rx="8"/>
+      <text class="llock-num" y="187">1</text>
+    </g>
+    <g id="llock-b2" class="llock-g" transform="translate(680 0)">
+      <rect class="llock-box" x="-80" y="140" width="160" height="240" rx="12"/>
+      <rect class="llock-tagbg" x="-28" y="154" width="56" height="44" rx="8"/>
+      <text class="llock-num" y="187">2</text>
+    </g>
+    <text class="llock-name" x="480" y="424">색연필 사물함</text>
+  </g>
+  <g id="llock-p0" class="llock-pen" transform="translate(280 0)">
+    <rect class="llock-body" x="-14" y="230" width="28" height="110" rx="4"/>
+    <path class="llock-tip" d="M-14 230 L0 204 L14 230 Z"/>
+  </g>
+  <g id="llock-p1" class="llock-pen" transform="translate(480 0)">
+    <rect class="llock-body" x="-14" y="230" width="28" height="110" rx="4"/>
+    <path class="llock-tip" d="M-14 230 L0 204 L14 230 Z"/>
+  </g>
+  <g id="llock-p2" class="llock-pen" transform="translate(680 0)">
+    <rect class="llock-body" x="-14" y="230" width="28" height="110" rx="4"/>
+    <path class="llock-tip" d="M-14 230 L0 204 L14 230 Z"/>
+  </g>
+  <text id="llock-last" x="820" y="268">마지막</text>
+</svg>

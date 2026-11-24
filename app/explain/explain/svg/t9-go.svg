@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t9g-t t9g-d">
+  <title id="t9g-t">빈칸에 칸 수를 넣어 걷기</title>
+  <desc id="t9g-d">ㄱ자 길이에요. 빈칸에 3을 넣어 부르면 Byte가 동쪽으로 세 칸, 오른쪽으로 돈 뒤 빈칸에 1을 넣어 부르면 한 칸 내려가 보석을 주워요. 위의 카드에 지금 빈칸의 숫자가 보여요.</desc>
+  <style>
+    .t9g-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .t9g-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .t9g-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .t9g-eye{fill:var(--acc)}
+    .t9g-tip{fill:var(--warn)}
+    .t9g-line{stroke:var(--tx);stroke-width:3}
+    .t9g-dir{fill:var(--acc)}
+    .t9g-card rect{fill:var(--panel2);stroke:var(--warn);stroke-width:3;stroke-dasharray:8 6}
+    #t9g-num{fill:var(--tx);font-size:26px;font-weight:800;text-anchor:middle}
+  </style>
+  <g class="t9g-card"><rect x="370" y="70" width="220" height="54" rx="12"/><text id="t9g-num" x="480" y="106">빈칸: ?</text></g>
+  <rect class="t9g-tile" x="286" y="156" width="88" height="88" rx="12"/>
+  <rect class="t9g-tile" x="386" y="156" width="88" height="88" rx="12"/>
+  <rect class="t9g-tile" x="486" y="156" width="88" height="88" rx="12"/>
+  <rect class="t9g-tile" x="586" y="156" width="88" height="88" rx="12"/>
+  <rect class="t9g-tile" x="586" y="256" width="88" height="88" rx="12"/>
+  <g id="t9g-gem"><path class="t9g-gem" d="M630 318 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="t9g-bot" style="transform:translate(330px,226px)">
+    <g transform="scale(.75)">
+      <line class="t9g-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="t9g-tip" cx="0" cy="-88" r="6"/>
+      <rect class="t9g-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+      <rect class="t9g-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+      <path id="t9g-e" class="t9g-dir" d="M30 -46 L46 -37 L30 -28 Z"/>
+      <path id="t9g-s" class="t9g-dir" d="M-10 2 L0 18 L10 2 Z"/>
+    </g>
+  </g>
+</svg>

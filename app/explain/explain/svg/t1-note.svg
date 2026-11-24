@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t1n-t t1n-d">
+  <title id="t1n-t">명령대로 두 칸 걷고 보석을 줍는 Byte</title>
+  <desc id="t1n-d">칸 세 개가 한 줄로 있고 마지막 칸에 보석이 있어요. Byte가 한 칸씩 두 번 걸어간 뒤 보석을 주워요.</desc>
+  <style>
+    .t1n-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .t1n-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .t1n-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .t1n-eye{fill:var(--acc)}
+    .t1n-tip{fill:var(--warn)}
+    .t1n-line{stroke:var(--tx);stroke-width:3}
+    #t1n-say{fill:var(--tx);font-size:28px;font-weight:800;text-anchor:middle}
+  </style>
+  <g transform="translate(-205 0)">
+  <text id="t1n-say" x="685" y="200">명령을 기다려요</text>
+  <rect class="t1n-tile" x="500" y="340" width="110" height="50" rx="10"/>
+  <rect class="t1n-tile" x="630" y="340" width="110" height="50" rx="10"/>
+  <rect class="t1n-tile" x="760" y="340" width="110" height="50" rx="10"/>
+  <g id="t1n-gem"><path class="t1n-gem" d="M815 320 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="t1n-bot" style="transform:translate(555px,342px)">
+    <line class="t1n-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="t1n-tip" cx="0" cy="-88" r="6"/>
+    <rect class="t1n-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="t1n-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+  </g>
+</svg>

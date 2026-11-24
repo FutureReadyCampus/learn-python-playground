@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t2p-t t2p-d">
+  <title id="t2p-t">화분 세 개에 물 주기</title>
+  <desc id="t2p-d">화분 세 개가 한 줄로 놓여 있고, 물뿌리개가 왼쪽부터 화분 위로 옮겨 가며 물을 줘요. 물을 받은 화분에는 싹이 나요.</desc>
+  <style>
+    .t2p-pot{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .t2p-soil{fill:var(--line)}
+    .t2p-sprout{opacity:0}
+    .t2p-stem{stroke:var(--ok);stroke-width:4;fill:none;stroke-linecap:round}
+    .t2p-leaf{fill:var(--ok)}
+    .t2p-g.on .t2p-sprout{opacity:1}
+    .t2p-g.on .t2p-pot{stroke:var(--ok)}
+    .t2p-num{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:middle}
+    .t2p-can{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .t2p-handle{fill:none;stroke:var(--tx);stroke-width:3}
+    .t2p-drop{fill:var(--acc)}
+    #t2p-count{fill:var(--tx);font-size:44px;font-weight:800;text-anchor:middle}
+  </style>
+  <g id="t2p-pots">
+    <g id="t2p-pot1" class="t2p-g" transform="translate(240 360)">
+      <path class="t2p-pot" d="M-46 0 H46 L34 72 H-34 Z"/>
+      <ellipse class="t2p-soil" cx="0" cy="0" rx="46" ry="9"/>
+      <g class="t2p-sprout">
+        <path class="t2p-stem" d="M0 0 V-46"/>
+        <ellipse class="t2p-leaf" cx="-16" cy="-40" rx="16" ry="8" transform="rotate(-25 -16 -40)"/>
+        <ellipse class="t2p-leaf" cx="16" cy="-50" rx="16" ry="8" transform="rotate(25 16 -50)"/>
+      </g>
+      <text class="t2p-num" y="112">1</text>
+    </g>
+    <g id="t2p-pot2" class="t2p-g" transform="translate(480 360)">
+      <path class="t2p-pot" d="M-46 0 H46 L34 72 H-34 Z"/>
+      <ellipse class="t2p-soil" cx="0" cy="0" rx="46" ry="9"/>
+      <g class="t2p-sprout">
+        <path class="t2p-stem" d="M0 0 V-46"/>
+        <ellipse class="t2p-leaf" cx="-16" cy="-40" rx="16" ry="8" transform="rotate(-25 -16 -40)"/>
+        <ellipse class="t2p-leaf" cx="16" cy="-50" rx="16" ry="8" transform="rotate(25 16 -50)"/>
+      </g>
+      <text class="t2p-num" y="112">2</text>
+    </g>
+    <g id="t2p-pot3" class="t2p-g" transform="translate(720 360)">
+      <path class="t2p-pot" d="M-46 0 H46 L34 72 H-34 Z"/>
+      <ellipse class="t2p-soil" cx="0" cy="0" rx="46" ry="9"/>
+      <g class="t2p-sprout">
+        <path class="t2p-stem" d="M0 0 V-46"/>
+        <ellipse class="t2p-leaf" cx="-16" cy="-40" rx="16" ry="8" transform="rotate(-25 -16 -40)"/>
+        <ellipse class="t2p-leaf" cx="16" cy="-50" rx="16" ry="8" transform="rotate(25 16 -50)"/>
+      </g>
+      <text class="t2p-num" y="112">3</text>
+    </g>
+  </g>
+  <g id="t2p-can" style="transform:translate(80px,190px)">
+    <rect class="t2p-can" x="-34" y="-26" width="68" height="52" rx="10"/>
+    <path class="t2p-can" d="M34 -10 L72 -36 L78 -26 L40 8 Z"/>
+    <path class="t2p-handle" d="M-34 -10 C-62 -10 -62 20 -34 20"/>
+    <circle class="t2p-drop" cx="86" cy="2" r="6"/><circle class="t2p-drop" cx="90" cy="30" r="6"/><circle class="t2p-drop" cx="84" cy="58" r="6"/>
+  </g>
+  <text id="t2p-count" x="480" y="190">3번</text>
+</svg>

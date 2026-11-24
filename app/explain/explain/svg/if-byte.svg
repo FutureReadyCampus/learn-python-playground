@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="ib-t ib-d">
+  <title id="ib-t">Byte가 칸마다 보석이 있는지 확인하기</title>
+  <desc id="ib-d">Byte가 세 칸을 걸으며 칸마다 발밑에 보석이 있는지 물어요. 위의 판이 참인지 거짓인지 알려 주고, 참일 때만 보석을 주워요.</desc>
+  <style>
+    .ib-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .ib-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .ib-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .ib-eye{fill:var(--acc)}
+    .ib-tip{fill:var(--warn)}
+    .ib-line{stroke:var(--tx);stroke-width:3}
+    .ib-ask{fill:var(--panel2);stroke:var(--warn);stroke-width:3}
+    .ib-q{fill:var(--tx);font-size:24px;font-weight:700;text-anchor:middle}
+    #ib-ans{fill:var(--warn);font-size:28px;font-weight:800;text-anchor:middle}
+    .ib-num{fill:var(--dim);font-size:18px;text-anchor:middle}
+  </style>
+  <g transform="translate(-174 0)">
+  <rect class="ib-ask" x="489" y="120" width="330" height="120" rx="18"/>
+  <text class="ib-q" x="654" y="166">발밑에 보석이 있나요?</text>
+  <text id="ib-ans" x="654" y="212">?</text>
+  <rect class="ib-tile" x="462" y="320" width="84" height="50" rx="10"/>
+  <rect class="ib-tile" x="562" y="320" width="84" height="50" rx="10"/>
+  <rect class="ib-tile" x="662" y="320" width="84" height="50" rx="10"/>
+  <rect class="ib-tile" x="762" y="320" width="84" height="50" rx="10"/>
+  <text class="ib-num" x="604" y="398">1</text><text class="ib-num" x="704" y="398">2</text><text class="ib-num" x="804" y="398">3</text>
+  <g id="ib-bot" style="transform:translate(504px,320px)">
+    <line class="ib-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="ib-tip" cx="0" cy="-88" r="6"/>
+    <rect class="ib-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="ib-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+  <path id="ib-g1" class="ib-gem" d="M604 361 l16 -16 -16 -16 -16 16z"/>
+  <path id="ib-g3" class="ib-gem" d="M804 361 l16 -16 -16 -16 -16 16z"/>
+  </g>
+</svg>

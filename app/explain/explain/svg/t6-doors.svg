@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t6d-t t6d-d">
+  <title id="t6d-t">문마다 붙은 상태 카드</title>
+  <desc id="t6d-d">열린 문 두 개에 "열림: 예" 카드가 하나씩 걸려 있어요. 문 1을 닫고 그 카드만 "열림: 아니요"로 바꿔요. 문 2의 카드는 그대로예요.</desc>
+  <style>
+    .t6d-frame{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .t6d-hole{fill:var(--code)}
+    .t6d-open{fill:var(--panel2);stroke:var(--tx);stroke-width:3;transition:opacity .6s}
+    .t6d-shut{fill:var(--panel2);stroke:var(--tx);stroke-width:3;opacity:0;transition:opacity .6s}
+    .t6d-knob{fill:var(--warn);opacity:0;transition:opacity .6s}
+    .t6d-door.on .t6d-shut,.t6d-door.on .t6d-knob{opacity:1}
+    .t6d-door.on .t6d-open{opacity:0}
+    .t6d-card rect{fill:var(--panel2);stroke:var(--acc);stroke-width:3;transition:stroke .5s,stroke-width .5s}
+    .t6d-card.on rect{stroke:var(--ok);stroke-width:6}
+    .t6d-string{stroke:var(--tx);stroke-width:3;fill:none}
+    .t6d-ctxt{fill:var(--tx);font-size:24px;font-weight:800;text-anchor:middle}
+    .t6d-lbl{fill:var(--dim);font-size:24px;font-weight:700;text-anchor:middle}
+    .t6d-floor{stroke:var(--line);stroke-width:3}
+    #t6d-tip{fill:var(--tx);font-size:28px;font-weight:800;text-anchor:middle;transition:opacity .5s}
+    @media (prefers-reduced-motion:reduce){.t6d-open,.t6d-shut,.t6d-knob,.t6d-card rect,#t6d-tip{transition:none}}
+  </style>
+  <text id="t6d-tip" x="480" y="92">카드 두 장, 문도 두 개</text>
+  <line class="t6d-floor" x1="120" y1="412" x2="840" y2="412"/>
+  <g id="t6d-d1" class="t6d-door">
+    <rect class="t6d-frame" x="210" y="130" width="180" height="282" rx="6"/>
+    <rect class="t6d-hole" x="224" y="144" width="152" height="268"/>
+    <path class="t6d-open" d="M224 144 L262 158 L262 398 L224 412 Z"/>
+    <rect class="t6d-shut" x="224" y="144" width="152" height="268"/>
+    <circle class="t6d-knob" cx="356" cy="290" r="8"/>
+  </g>
+  <g id="t6d-c1" class="t6d-card">
+    <path class="t6d-string" d="M260 136 L300 112 L340 136"/>
+    <rect x="210" y="136" width="180" height="56" rx="10"/>
+    <text id="t6d-c1txt" class="t6d-ctxt" x="300" y="173">열림: 예</text>
+  </g>
+  <text class="t6d-lbl" x="300" y="440">문 1</text>
+  <g id="t6d-d2" class="t6d-door">
+    <rect class="t6d-frame" x="570" y="130" width="180" height="282" rx="6"/>
+    <rect class="t6d-hole" x="584" y="144" width="152" height="268"/>
+    <path class="t6d-open" d="M584 144 L622 158 L622 398 L584 412 Z"/>
+    <rect class="t6d-shut" x="584" y="144" width="152" height="268"/>
+    <circle class="t6d-knob" cx="716" cy="290" r="8"/>
+  </g>
+  <g id="t6d-c2" class="t6d-card">
+    <path class="t6d-string" d="M620 136 L660 112 L700 136"/>
+    <rect x="570" y="136" width="180" height="56" rx="10"/>
+    <text class="t6d-ctxt" x="660" y="173">열림: 예</text>
+  </g>
+  <text class="t6d-lbl" x="660" y="440">문 2</text>
+</svg>

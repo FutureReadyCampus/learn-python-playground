@@ -1,0 +1,349 @@
+{
+  "unit": "P3",
+  "title": "객체 만들기",
+  "term": "객체 만들기(instance) · 틀에서 하나 새로 만들기",
+  "takeaway": "Expert()는 도우미 하나를 새로 만들어요. 이름을 붙여야 시킬 수 있어요.",
+  "slides": [
+    {
+      "text": "붕어빵은 어떻게 모두 똑같은 모양일까요?",
+      "scene": {
+        "svg": "svg/obj-mold.svg",
+        "alt": "붕어빵 틀에서 붕어빵이 하나씩 두 번 찍혀 나와 '하나', '둘' 이름표가 붙고, '하나'만 접시로 옮겨 가는 장면",
+        "steps": [
+          {
+            "cap": "붕어빵 틀만 있고 빵은 아직 없어요",
+            "show": [
+              "om-moldg"
+            ]
+          },
+          {
+            "cap": "틀에서 붕어빵 하나를 찍어 내요",
+            "show": [
+              "om-bread"
+            ]
+          },
+          {
+            "cap": "찍은 빵에 '하나' 이름표를 붙여요",
+            "show": [
+              "om-tag"
+            ]
+          },
+          {
+            "cap": "또 찍어서 '둘' 이름표를 붙여요",
+            "show": [
+              "om-bread2"
+            ]
+          },
+          {
+            "cap": "'하나'를 부르면 그 빵만 접시로 가요",
+            "move": {
+              "om-bread": [
+                790,
+                200
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "text": "틀은 하나지만 빵은 몇 개든 **새로** 찍어 내요. 이름표를 붙인 빵만 불러서 옮길 수 있어요."
+    },
+    {
+      "text": "방금 한 일을 코드처럼 써 볼까요?",
+      "scene": {
+        "svg": "svg/obj-mold.svg",
+        "alt": "왼쪽 일상 코드가 한 줄씩 강조되면서 틀에서 붕어빵 '하나'와 '둘'이 생기고, '하나'만 접시로 옮겨 가는 장면",
+        "code": [
+          "하나 = 붕어빵틀()",
+          "둘 = 붕어빵틀()",
+          "접시로_옮기기(하나)"
+        ],
+        "steps": [
+          {
+            "cap": "틀만 있고 빵은 아직 없어요"
+          },
+          {
+            "cap": "틀로 하나 찍고 '하나'라고 불러요",
+            "line": 1,
+            "show": [
+              "om-bread"
+            ]
+          },
+          {
+            "cap": "또 하나 찍고 '둘'이라고 불러요",
+            "line": 2,
+            "show": [
+              "om-bread2"
+            ]
+          },
+          {
+            "cap": "'하나'만 접시로 옮겨요",
+            "line": 3,
+            "move": {
+              "om-bread": [
+                790,
+                200
+              ]
+            }
+          },
+          {
+            "cap": "'둘'은 그대로 있어요"
+          }
+        ]
+      }
+    },
+    {
+      "text": "틀에서 하나를 새로 만드는 것을 **객체 만들기**라고 해요.",
+      "bubble": "객체 만들기(instance) · 틀에서 하나 새로 만들기",
+      "code": [
+        "expert = Expert()",
+        "expert.move_forward()"
+      ],
+      "note": "`expert =`로 새 도우미에 이름표를 붙이고, 점(.)을 찍어 일을 시켜요."
+    },
+    {
+      "text": "이제 진짜 코드로 도우미를 둘 만들어 봐요.",
+      "scene": {
+        "svg": "svg/obj-cards.svg",
+        "alt": "Expert()를 두 번 불러 first와 second 카드와 도우미가 생기고, first만 한 칸 걸어 카드의 column이 1로 바뀌는 장면",
+        "code": [
+          "first = Expert()",
+          "second = Expert()",
+          "first.move_forward()"
+        ],
+        "world": {
+          "H": [
+            "11111",
+            "1...."
+          ],
+          "O": [
+            ".....",
+            "^...."
+          ],
+          "slots": [
+            [
+              0,
+              0,
+              ">",
+              "expert"
+            ],
+            [
+              3,
+              0,
+              ">",
+              "expert"
+            ]
+          ]
+        },
+        "steps": [
+          {
+            "cap": "틀은 있지만 도우미는 아직 없어요"
+          },
+          {
+            "cap": "Expert()로 만들고 first라고 불러요",
+            "line": 1,
+            "show": [
+              "oc-card1",
+              "oc-h1"
+            ]
+          },
+          {
+            "cap": "또 만들고 second라고 불러요",
+            "line": 2,
+            "show": [
+              "oc-card2",
+              "oc-h2"
+            ]
+          },
+          {
+            "cap": "first만 한 칸 걸어요",
+            "line": 3,
+            "move": {
+              "oc-h1": [
+                604,
+                372
+              ]
+            },
+            "text": {
+              "oc-col1": "column: 1"
+            }
+          },
+          {
+            "cap": "second는 그대로예요"
+          }
+        ]
+      }
+    },
+    {
+      "text": "같은 틀에서 나와도 하나하나 **따로** 움직여요.",
+      "code": [
+        "helper = Expert    # 틀만 가리켜요",
+        "helper = Expert()  # 새로 만들어요"
+      ],
+      "note": "괄호를 빼면 만들어지지 않아요. `Character()`는 자물쇠를 못 돌려요."
+    },
+    {
+      "quiz": {
+        "q": "이 코드로 도우미가 몇 명 생길까요?",
+        "code": [
+          "a = Expert()",
+          "b = Expert()",
+          "a.move_forward()"
+        ],
+        "choices": [
+          "1명",
+          "2명",
+          "3명"
+        ],
+        "answer": 1,
+        "why": "`Expert()`를 두 번 불렀으니 두 명이에요. 움직인 건 a뿐이에요."
+      }
+    },
+    {
+      "quiz": {
+        "q": "`Gem()`을 두 번 불러 놓았어요. 보석은 몇 개 놓일까요?",
+        "code": [
+          "a = Gem()",
+          "b = Gem()",
+          "world.place(a, at_column=1, row=0)",
+          "world.place(b, at_column=2, row=0)"
+        ],
+        "choices": [
+          "1개",
+          "2개",
+          "3개"
+        ],
+        "answer": 1,
+        "why": "`Gem()`도 틀이에요. 두 번 부르면 보석이 두 개 따로 생겨요.",
+        "verify": {
+          "H": [
+            "111"
+          ],
+          "O": [
+            ">.."
+          ],
+          "measure": "collected",
+          "code": [
+            "a = Gem()",
+            "b = Gem()",
+            "world.place(a, at_column=1, row=0)",
+            "world.place(b, at_column=2, row=0)",
+            "for _ in range(2):",
+            "    move_forward()",
+            "    collect_gem()"
+          ]
+        }
+      }
+    },
+    {
+      "quiz": {
+        "q": "틀에서 새 도우미를 하나 찍어 내는 일을 뭐라고 할까요?",
+        "code": "helper = Expert()",
+        "choices": [
+          "이름 바꾸기",
+          "반복하기",
+          "객체 만들기"
+        ],
+        "answer": 2,
+        "why": "`Expert()`처럼 틀에서 새로 하나를 만드는 일이 객체 만들기예요."
+      }
+    },
+    {
+      "text": "이제 도우미를 만들어 함께 보석을 모아 봐요!"
+    }
+  ],
+  "outro": {
+    "title": "정리",
+    "slides": [
+      {
+        "text": "이 유닛에서 배운 것: **클래스**는 틀, **객체**는 그 틀로 만든 것.",
+        "bubble": "클래스 = 틀, 객체(인스턴스) = 결과물",
+        "code": [
+          "expert = Expert()",
+          "expert.move_forward()"
+        ],
+        "note": "붕어빵 틀 하나로 빵을 여러 개 찍어요."
+      },
+      {
+        "text": "이 유닛에서 배운 것: 같은 틀로 만든 객체는 서로 **독립**이에요.",
+        "bubble": "a를 움직여도 b는 그대로예요",
+        "code": [
+          "a = Expert()",
+          "b = Expert()",
+          "a.move_forward()"
+        ],
+        "note": "괄호 `()`를 붙여야 새 객체가 만들어져요."
+      },
+      {
+        "text": "면접 질문: 클래스와 객체는 어떻게 다른가요?",
+        "bubble": "클래스는 설계도(틀), 객체는 그 틀로 만든 실제 대상이에요.",
+        "note": "예: Expert는 틀, expert = Expert()는 객체. 같은 것을 여러 개 만들 때 써요.",
+        "code": "expert = Expert()"
+      },
+      {
+        "text": "면접 질문: 메서드란 무엇인가요?",
+        "bubble": "클래스에 속한 함수예요. 객체.메서드() 로 불러요.",
+        "note": "예: expert.move_forward(). 객체에게 일을 시킬 때 써요.",
+        "code": "expert.move_forward()"
+      },
+      {
+        "quiz": {
+          "q": "`Expert`와 `Expert()`의 차이는?",
+          "choices": [
+            "같은 뜻이다",
+            "앞은 틀, 뒤는 새 객체 만들기",
+            "앞은 객체, 뒤는 틀"
+          ],
+          "answer": 1,
+          "why": "괄호를 붙여 부르면 틀에서 새 객체가 만들어져요."
+        }
+      },
+      {
+        "quiz": {
+          "q": "`a = Expert()`, `b = Expert()` 뒤 `a.move_forward()`. 움직인 도우미는?",
+          "choices": [
+            "a만",
+            "b만",
+            "둘 다"
+          ],
+          "answer": 0,
+          "why": "a와 b는 서로 다른 객체예요. 시킨 a만 움직여요."
+        }
+      },
+      {
+        "quiz": {
+          "q": "`Gem()`을 두 번 불러 월드에 둘 다 놓으면 보석은?",
+          "choices": [
+            "1개",
+            "2개",
+            "3개"
+          ],
+          "answer": 1,
+          "why": "부를 때마다 새 객체가 만들어져요.",
+          "code": [
+            "a = Gem()",
+            "b = Gem()",
+            "world.place(a, at_column=1, row=0)",
+            "world.place(b, at_column=2, row=0)"
+          ]
+        }
+      },
+      {
+        "quiz": {
+          "q": "`expert.move_forward()`에서 `move_forward`는?",
+          "choices": [
+            "객체",
+            "메서드",
+            "변수"
+          ],
+          "answer": 1,
+          "why": "점 뒤에서 객체에게 일을 시키는 함수가 메서드예요."
+        }
+      },
+      {
+        "text": "틀 하나로 객체를 여럿 만들었어요. 정리를 마쳤어요!"
+      }
+    ]
+  }
+}

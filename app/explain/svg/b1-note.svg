@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="b1n-t b1n-d">
+  <title id="b1n-t">심부름 쪽지대로 하기</title>
+  <desc id="b1n-d">왼쪽에 그림으로 적힌 세 줄짜리 심부름 쪽지가 있고, 오른쪽에 길 세 칸과 가게가 있어요. 장바구니가 쪽지를 위에서부터 한 줄씩 따라 두 칸을 가서 가게에서 우유를 담아요.</desc>
+  <style>
+    .b1n-paper{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .b1n-head{fill:var(--tx);font-size:28px;font-weight:800;text-anchor:middle}
+    .b1n-mark{fill:var(--warn);opacity:0}
+    .b1n-line.on .b1n-mark{opacity:.35}
+    .b1n-num{fill:var(--dim);font-size:24px;font-weight:800}
+    .b1n-txt{fill:var(--tx);font-size:24px;font-weight:700}
+    .b1n-arrow{fill:none;stroke:var(--acc);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .b1n-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .b1n-step{fill:var(--dim);font-size:20px;font-weight:700;text-anchor:middle}
+    .b1n-roof{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .b1n-shop{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .b1n-milkbox{fill:var(--panel);stroke:var(--acc);stroke-width:3}
+    .b1n-cart{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .b1n-wheel{fill:var(--tx)}
+    .b1n-carry{opacity:0}
+    .b1n-who.on .b1n-carry{opacity:1}
+  </style>
+  <g id="b1n-note">
+    <rect class="b1n-paper" x="70" y="110" width="330" height="300" rx="14"/>
+    <text class="b1n-head" x="235" y="158">심부름 쪽지</text>
+    <g id="b1n-l1" class="b1n-line">
+      <rect class="b1n-mark" x="90" y="184" width="290" height="50" rx="10"/>
+      <text class="b1n-num" x="108" y="218">1</text>
+      <path class="b1n-arrow" d="M146 209 H196 M182 197 L196 209 L182 221"/>
+      <text class="b1n-txt" x="214" y="218">한 칸</text>
+    </g>
+    <g id="b1n-l2" class="b1n-line">
+      <rect class="b1n-mark" x="90" y="260" width="290" height="50" rx="10"/>
+      <text class="b1n-num" x="108" y="294">2</text>
+      <path class="b1n-arrow" d="M146 285 H196 M182 273 L196 285 L182 297"/>
+      <text class="b1n-txt" x="214" y="294">한 칸</text>
+    </g>
+    <g id="b1n-l3" class="b1n-line">
+      <rect class="b1n-mark" x="90" y="336" width="290" height="50" rx="10"/>
+      <text class="b1n-num" x="108" y="370">3</text>
+      <rect class="b1n-milkbox" x="156" y="348" width="22" height="30" rx="3"/>
+      <text class="b1n-txt" x="214" y="370">우유 담기</text>
+    </g>
+  </g>
+  <g id="b1n-road">
+    <rect class="b1n-tile" x="500" y="350" width="120" height="50" rx="10"/>
+    <rect class="b1n-tile" x="640" y="350" width="120" height="50" rx="10"/>
+    <rect class="b1n-tile" x="780" y="350" width="120" height="50" rx="10"/>
+    <text class="b1n-step" x="560" y="430">출발</text>
+    <text class="b1n-step" x="840" y="430">가게</text>
+    <path class="b1n-roof" d="M780 170 H900 L880 136 H800 Z"/>
+    <rect class="b1n-shop" x="790" y="170" width="100" height="110" rx="6"/>
+  </g>
+  <g id="b1n-milk">
+    <rect class="b1n-milkbox" x="822" y="214" width="36" height="56" rx="4"/>
+    <path class="b1n-milkbox" d="M822 214 L840 196 L858 214 Z"/>
+  </g>
+  <g id="b1n-who" class="b1n-who" style="transform:translate(560px,344px)">
+    <path class="b1n-cart" d="M-40 -56 H40 L30 -14 H-30 Z"/>
+    <path class="b1n-cart" d="M40 -56 L52 -70"/>
+    <circle class="b1n-wheel" cx="-20" cy="-4" r="7"/><circle class="b1n-wheel" cx="20" cy="-4" r="7"/>
+    <g class="b1n-carry"><rect class="b1n-milkbox" x="-12" y="-84" width="24" height="36" rx="3"/></g>
+  </g>
+</svg>

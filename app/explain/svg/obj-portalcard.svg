@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="pc-t pc-d">
+  <title id="pc-t">포털마다 붙은 상태 카드</title>
+  <desc id="pc-d">위에 portal_a와 portal_b의 카드가 한 장씩 있어요. portal_a 카드의 is_active만 False로 바뀌면 그 포털이 꺼지고, Byte는 꺼진 포털을 지나 보석을 주워요. portal_b 카드는 그대로 True예요.</desc>
+  <style>
+    .pc-card{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .pc-name{fill:var(--tx);font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:800}
+    .pc-val{fill:var(--tx);font-family:'JetBrains Mono',monospace;font-size:22px}
+    .pc-ring{fill:none;stroke:var(--acc);stroke-width:6}
+    .pc-a.on .pc-card{stroke:var(--bad)}
+    .pc-a.on .pc-val{fill:var(--bad)}
+    .pc-a.on .pc-ring{stroke:var(--dim);opacity:.5;stroke-dasharray:8 8}
+    .pc-b.on .pc-card{stroke:var(--ok)}
+    .pc-b.on .pc-val{fill:var(--ok)}
+    .pc-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .pc-lbl{fill:var(--dim);font-family:'JetBrains Mono',monospace;font-size:18px;text-anchor:middle}
+    .pc-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .pc-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .pc-eye{fill:var(--acc)}
+    .pc-tip{fill:var(--warn)}
+    .pc-line{stroke:var(--tx);stroke-width:3}
+  </style>
+  <rect class="pc-tile" x="40" y="340" width="100" height="50" rx="10"/>
+  <rect class="pc-tile" x="150" y="340" width="100" height="50" rx="10"/>
+  <rect class="pc-tile" x="260" y="340" width="100" height="50" rx="10"/>
+  <rect class="pc-tile" x="370" y="340" width="100" height="50" rx="10"/>
+  <rect class="pc-tile" x="480" y="340" width="100" height="50" rx="10"/>
+  <rect class="pc-tile" x="590" y="340" width="100" height="50" rx="10"/>
+  <rect class="pc-tile" x="700" y="340" width="100" height="50" rx="10"/>
+  <rect class="pc-tile" x="810" y="340" width="100" height="50" rx="10"/>
+  <g id="pc-a" class="pc-a">
+    <rect class="pc-card" x="290" y="74" width="380" height="60" rx="10"/>
+    <text class="pc-name" x="306" y="112">portal_a</text>
+    <text id="pc-va" class="pc-val" x="440" y="112">is_active: True</text>
+    <ellipse class="pc-ring" cx="420" cy="365" rx="38" ry="15"/>
+    <text class="pc-lbl" x="420" y="425">portal_a</text>
+  </g>
+  <g id="pc-b" class="pc-b">
+    <rect class="pc-card" x="290" y="150" width="380" height="60" rx="10"/>
+    <text class="pc-name" x="306" y="188">portal_b</text>
+    <text class="pc-val" x="440" y="188">is_active: True</text>
+    <ellipse class="pc-ring" cx="860" cy="365" rx="38" ry="15"/>
+    <text class="pc-lbl" x="860" y="425">portal_b</text>
+  </g>
+  <g id="pc-gem"><path class="pc-gem" d="M640 320 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="pc-bot" style="transform:translate(90px,342px)">
+    <line class="pc-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="pc-tip" cx="0" cy="-88" r="6"/>
+    <rect class="pc-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="pc-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+</svg>

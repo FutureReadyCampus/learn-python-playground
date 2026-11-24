@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="cmo-t cmo-d">
+  <title id="cmo-t">우리만의 별빵 틀 만들기</title>
+  <desc id="cmo-d">왼쪽에 우리가 만든 별 모양 틀이 있어요. 틀에는 속 재료를 적는 칸과 상자로 가는 일이 정해져 있어요. 틀로 별빵 두 개를 찍고 하나는 팥, 하나는 슈크림을 넣어요. 팥빵만 오른쪽 상자로 들어가요.</desc>
+  <style>
+    .cmo-mold{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .cmo-hole{fill:var(--panel);stroke:var(--line);stroke-width:3;stroke-dasharray:8 6}
+    .cmo-lbl{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:middle}
+    .cmo-chip{fill:var(--panel);stroke:var(--acc);stroke-width:3}
+    .cmo-chiptx{fill:var(--tx);font-size:22px;font-weight:700;text-anchor:middle}
+    .cmo-star{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .cmo-tagbox{fill:var(--panel2);stroke:var(--warn);stroke-width:4}
+    .cmo-tagtx{fill:var(--tx);font-size:22px;font-weight:800;text-anchor:middle}
+    .cmo-string{stroke:var(--warn);stroke-width:3;fill:none}
+    .cmo-boxbody{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .cmo-lid{fill:var(--panel);stroke:var(--line);stroke-width:3}
+  </style>
+  <g id="cmo-mold">
+    <rect class="cmo-mold" x="70" y="140" width="260" height="220" rx="24"/>
+    <path class="cmo-hole" d="M200 175 L220 230 L278 232 L232 266 L248 322 L200 290 L152 322 L168 266 L122 232 L180 230 Z"/>
+    <text class="cmo-lbl" x="200" y="400">우리만의 틀</text>
+  </g>
+  <g id="cmo-slot"><rect class="cmo-chip" x="70" y="80" width="125" height="44" rx="10"/><text class="cmo-chiptx" x="132" y="110">속: ___</text></g>
+  <g id="cmo-skill"><rect class="cmo-chip" x="205" y="80" width="125" height="44" rx="10"/><text class="cmo-chiptx" x="267" y="110">할 일: 상자로</text></g>
+  <g>
+    <rect class="cmo-boxbody" x="740" y="330" width="170" height="120" rx="10"/>
+    <rect class="cmo-lid" x="726" y="310" width="198" height="30" rx="8"/>
+    <text class="cmo-lbl" x="825" y="485">상자</text>
+  </g>
+  <g id="cmo-b1" style="transform:translate(200px,250px)">
+    <path class="cmo-star" d="M0 -62 L18 -18 L64 -16 L28 12 L40 58 L0 32 L-40 58 L-28 12 L-64 -16 L-18 -18 Z"/>
+    <path class="cmo-string" d="M0 -62 V-80"/>
+    <rect class="cmo-tagbox" x="-48" y="-124" width="96" height="44" rx="10"/>
+    <text class="cmo-tagtx" x="0" y="-94">팥</text>
+  </g>
+  <g id="cmo-b2" style="transform:translate(200px,250px)">
+    <path class="cmo-star" d="M0 -62 L18 -18 L64 -16 L28 12 L40 58 L0 32 L-40 58 L-28 12 L-64 -16 L-18 -18 Z"/>
+    <path class="cmo-string" d="M0 -62 V-80"/>
+    <rect class="cmo-tagbox" x="-58" y="-124" width="116" height="44" rx="10"/>
+    <text class="cmo-tagtx" x="0" y="-94">슈크림</text>
+  </g>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="fyb-t fyb-d">
+  <title id="fyb-t">Byte가 쪽지 파일을 읽고 걷기</title>
+  <desc id="fyb-d">쪽지.txt 파일이 열리면 숫자 2가 보이고, 다 읽으면 저절로 닫혀요. Byte는 쪽지에 적힌 대로 두 칸을 걸어 보석을 주워요.</desc>
+  <style>
+    .fyb-paper{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    #fyb-open.on .fyb-paper{stroke:var(--warn)}
+    .fyb-fold{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .fyb-name{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:middle}
+    .fyb-num{fill:var(--tx);font-size:56px;font-weight:800;text-anchor:middle}
+    .fyb-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .fyb-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .fyb-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .fyb-eye{fill:var(--acc)}
+    .fyb-tip{fill:var(--warn)}
+    .fyb-line{stroke:var(--tx);stroke-width:3}
+    #fyb-count{fill:var(--tx);font-size:30px;font-weight:800;text-anchor:middle}
+  </style>
+  <g id="fyb-shut">
+    <rect class="fyb-fold" x="410" y="90" width="100" height="70" rx="8"/>
+    <line class="fyb-line" x1="410" y1="125" x2="510" y2="125"/>
+    <text class="fyb-name" x="460" y="190">쪽지.txt</text>
+  </g>
+  <g id="fyb-open">
+    <rect class="fyb-paper" x="380" y="70" width="160" height="120" rx="10"/>
+    <text class="fyb-num" x="460" y="150">2</text>
+    <text class="fyb-name" x="460" y="220">쪽지.txt</text>
+  </g>
+  <text id="fyb-count" x="460" y="270">0걸음</text>
+  <rect class="fyb-tile" x="290" y="330" width="100" height="50" rx="10"/>
+  <rect class="fyb-tile" x="410" y="330" width="100" height="50" rx="10"/>
+  <rect class="fyb-tile" x="530" y="330" width="100" height="50" rx="10"/>
+  <g id="fyb-gem"><path class="fyb-gem" d="M580 312 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="fyb-bot" style="transform:translate(340px,332px)">
+    <line class="fyb-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="fyb-tip" cx="0" cy="-88" r="6"/>
+    <rect class="fyb-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="fyb-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+</svg>

@@ -1,0 +1,930 @@
+{
+  "unit": "P5",
+  "title": "세상 만들기",
+  "term": "좌표(coordinate) · 열과 줄로 정한 자리",
+  "takeaway": "열과 줄 두 숫자로 자리 하나를 정해요.",
+  "slides": [
+    {
+      "text": "영화관에서 내 자리는 어떻게 찾을까요?",
+      "scene": {
+        "svg": "svg/world-seats.svg",
+        "alt": "스크린 앞에 열 0부터 열 4까지 의자가 한 줄로 있고, 비어 있던 열 2와 열 3에 의자를 놓은 뒤 표시가 끝 자리 별까지 옮겨 가는 장면",
+        "steps": [
+          {
+            "cap": "자리 두 곳이 비어 있어요",
+            "show": [
+              "wseat-board",
+              "wseat-token"
+            ]
+          },
+          {
+            "cap": "열 2, 줄 0 자리에 의자를 놓아요",
+            "show": [
+              "wseat-s2"
+            ],
+            "on": [
+              "wseat-c2"
+            ]
+          },
+          {
+            "cap": "열 3, 줄 0 자리에도 놓아요",
+            "show": [
+              "wseat-s3"
+            ],
+            "on": [
+              "wseat-c3"
+            ]
+          },
+          {
+            "cap": "줄이 이어져 끝 자리까지 가요",
+            "move": {
+              "wseat-token": [
+                800,
+                330
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "text": "**열** 번호와 **줄** 번호, 두 숫자만 알면 자리 하나가 딱 정해져요."
+    },
+    {
+      "text": "방금 한 일을 컴퓨터가 읽는 코드처럼 써 볼까요?",
+      "scene": {
+        "svg": "svg/world-seats.svg",
+        "alt": "왼쪽 일상 코드가 한 줄씩 강조되면서 열 2, 열 3에 의자가 놓이고 표시가 끝 자리까지 가는 장면",
+        "code": [
+          "의자_놓기(열=2, 줄=0)",
+          "의자_놓기(열=3, 줄=0)",
+          "끝_자리로_가기()"
+        ],
+        "steps": [
+          {
+            "cap": "컴퓨터처럼 한 줄씩 읽어 볼까요?",
+            "show": [
+              "wseat-board",
+              "wseat-token"
+            ]
+          },
+          {
+            "cap": "열 2, 줄 0 자리에 의자를 놓아요",
+            "line": 1,
+            "show": [
+              "wseat-s2"
+            ],
+            "on": [
+              "wseat-c2"
+            ]
+          },
+          {
+            "cap": "열 3, 줄 0 자리에 의자를 놓아요",
+            "line": 2,
+            "show": [
+              "wseat-s3"
+            ],
+            "on": [
+              "wseat-c3"
+            ]
+          },
+          {
+            "cap": "이어진 줄을 따라 끝 자리로 가요",
+            "line": 3,
+            "move": {
+              "wseat-token": [
+                800,
+                330
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "text": "Byte의 세상도 칸마다 열과 줄 번호가 있어요. 이 두 숫자가 **좌표**예요.",
+      "bubble": "좌표(coordinate) · 열과 줄로 정한 자리",
+      "code": [
+        "world.place(Block(), at_column=2, row=0)",
+        "spot = Coordinate(2, 0)"
+      ],
+      "note": "무엇을, 어느 칸에 놓을지 말해요. 앞이 열, 뒤가 줄이에요."
+    },
+    {
+      "text": "이제 진짜 코드로 길을 지어 봐요.",
+      "scene": {
+        "svg": "svg/world-grid.svg",
+        "alt": "왼쪽 코드가 한 줄씩 강조되면서 (2, 0)과 (3, 0)에 블록이 놓이고 Byte가 이어진 길을 걸어 보석을 줍는 장면",
+        "code": [
+          "world.place(Block(), at_column=2, row=0)",
+          "world.place(Block(), at_column=3, row=0)",
+          "for _ in range(4):",
+          "    move_forward()",
+          "collect_gem()"
+        ],
+        "world": {
+          "H": [
+            "11..1",
+            "11111"
+          ],
+          "O": [
+            ">...g",
+            "....."
+          ]
+        },
+        "steps": [
+          {
+            "cap": "줄 0의 두 칸이 비어 있어요"
+          },
+          {
+            "cap": "열 2, 줄 0에 블록을 놓아요",
+            "line": 1,
+            "show": [
+              "wg-b2"
+            ]
+          },
+          {
+            "cap": "열 3, 줄 0에도 블록을 놓아요",
+            "line": 2,
+            "show": [
+              "wg-b3"
+            ]
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 3
+          },
+          {
+            "cap": "1칸 앞으로 가요",
+            "line": 4,
+            "move": {
+              "wg-bot": [
+                630,
+                246
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 3
+          },
+          {
+            "cap": "2칸 앞으로 가요",
+            "line": 4,
+            "move": {
+              "wg-bot": [
+                718,
+                246
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 3
+          },
+          {
+            "cap": "3칸 앞으로 가요",
+            "line": 4,
+            "move": {
+              "wg-bot": [
+                806,
+                246
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 3
+          },
+          {
+            "cap": "4칸 앞으로 가요",
+            "line": 4,
+            "move": {
+              "wg-bot": [
+                894,
+                246
+              ]
+            }
+          },
+          {
+            "cap": "네 번 다 걸었어요",
+            "line": 3
+          },
+          {
+            "cap": "끝 칸의 보석을 주워요",
+            "line": 5,
+            "hide": [
+              "wg-gem"
+            ]
+          }
+        ],
+        "part": [
+          0,
+          7
+        ]
+      }
+    },
+    {
+      "text": "이어서 한 줄씩 봐요 (2/2)",
+      "scene": {
+        "svg": "svg/world-grid.svg",
+        "alt": "왼쪽 코드가 한 줄씩 강조되면서 (2, 0)과 (3, 0)에 블록이 놓이고 Byte가 이어진 길을 걸어 보석을 줍는 장면",
+        "code": [
+          "world.place(Block(), at_column=2, row=0)",
+          "world.place(Block(), at_column=3, row=0)",
+          "for _ in range(4):",
+          "    move_forward()",
+          "collect_gem()"
+        ],
+        "world": {
+          "H": [
+            "11..1",
+            "11111"
+          ],
+          "O": [
+            ">...g",
+            "....."
+          ]
+        },
+        "steps": [
+          {
+            "cap": "줄 0의 두 칸이 비어 있어요"
+          },
+          {
+            "cap": "열 2, 줄 0에 블록을 놓아요",
+            "line": 1,
+            "show": [
+              "wg-b2"
+            ]
+          },
+          {
+            "cap": "열 3, 줄 0에도 블록을 놓아요",
+            "line": 2,
+            "show": [
+              "wg-b3"
+            ]
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 3
+          },
+          {
+            "cap": "1칸 앞으로 가요",
+            "line": 4,
+            "move": {
+              "wg-bot": [
+                630,
+                246
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 3
+          },
+          {
+            "cap": "2칸 앞으로 가요",
+            "line": 4,
+            "move": {
+              "wg-bot": [
+                718,
+                246
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 3
+          },
+          {
+            "cap": "3칸 앞으로 가요",
+            "line": 4,
+            "move": {
+              "wg-bot": [
+                806,
+                246
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 3
+          },
+          {
+            "cap": "4칸 앞으로 가요",
+            "line": 4,
+            "move": {
+              "wg-bot": [
+                894,
+                246
+              ]
+            }
+          },
+          {
+            "cap": "네 번 다 걸었어요",
+            "line": 3
+          },
+          {
+            "cap": "끝 칸의 보석을 주워요",
+            "line": 5,
+            "hide": [
+              "wg-gem"
+            ]
+          }
+        ],
+        "part": [
+          7,
+          13
+        ]
+      }
+    },
+    {
+      "text": "번호는 **0부터** 세요. 놓는 순서가 중요할 때도 있어요.",
+      "code": [
+        "world.place(Block(), at_column=1, row=0)",
+        "world.place(Gem(), at_column=1, row=0)"
+      ],
+      "note": "빈칸에는 보석을 못 놓아요. 블록을 먼저 놓아요."
+    },
+    {
+      "text": "블록 말고도 포털과 계단을 놓을 수 있어요.",
+      "code": [
+        "world.place(Portal('blue'), at_column=1, row=0)",
+        "world.place(Stair(), at_column=3, row=0, facing=EAST)"
+      ],
+      "note": "같은 색 포털 두 개는 서로 이어져요. 계단은 놓을 때마다 높아져요."
+    },
+    {
+      "quiz": {
+        "q": "`Coordinate(3, 1)`에서 열 번호는 몇일까요?",
+        "code": "spot = Coordinate(3, 1)",
+        "choices": [
+          "3",
+          "1"
+        ],
+        "answer": 0,
+        "why": "앞 숫자가 열, 뒤 숫자가 줄이에요. 열 3, 줄 1이에요."
+      }
+    },
+    {
+      "quiz": {
+        "q": "보석을 몇 개 주울까요?",
+        "code": [
+          "world.place(Gem(), at_column=1, row=0)",
+          "world.place(Gem(), at_column=3, row=0)",
+          "for _ in range(3):",
+          "    move_forward()",
+          "    if is_on_gem():",
+          "        collect_gem()"
+        ],
+        "choices": [
+          "1개",
+          "2개",
+          "3개"
+        ],
+        "answer": 1,
+        "why": "열 1과 열 3에 보석을 하나씩 놓았어요. 걸으며 둘 다 주워요.",
+        "verify": {
+          "H": [
+            "1111"
+          ],
+          "O": [
+            ">..."
+          ],
+          "measure": "collected"
+        }
+      }
+    },
+    {
+      "quiz": {
+        "q": "세상의 열과 줄 번호는 몇부터 셀까요?",
+        "choices": [
+          "1부터",
+          "0부터",
+          "2부터"
+        ],
+        "answer": 1,
+        "why": "번호는 0부터 세요. 첫 열이 0번이에요."
+      }
+    },
+    {
+      "text": "이제 직접 세상을 지어 길을 만들어 봐요!"
+    }
+  ],
+  "mids": [
+    {
+      "before": "P5-4",
+      "title": "반복으로 짓기",
+      "slides": [
+        {
+          "text": "빈칸이 여섯 개라면 place를 여섯 번 써야 할까요?",
+          "bubble": "반복문으로 칸 번호만 바꿔 가며 놓아요."
+        },
+        {
+          "text": "자리 번호가 하나씩 바뀌며 의자를 놓아요.",
+          "scene": {
+            "svg": "svg/world-seats.svg",
+            "alt": "반복하는 일상 코드에서 열이 2, 3으로 바뀌며 의자가 놓이고 표시가 끝 자리까지 가는 장면",
+            "code": [
+              "for 열 in range(2, 4):",
+              "    의자_놓기(열, 0)",
+              "끝_자리로_가기()"
+            ],
+            "steps": [
+              {
+                "cap": "컴퓨터처럼 한 줄씩 읽어 볼까요?",
+                "show": [
+                  "wseat-board",
+                  "wseat-token"
+                ]
+              },
+              {
+                "cap": "for 줄: 열은 2예요",
+                "line": 1,
+                "vars": {
+                  "열": 2
+                }
+              },
+              {
+                "cap": "열 2 자리에 의자를 놓아요",
+                "line": 2,
+                "show": [
+                  "wseat-s2"
+                ],
+                "on": [
+                  "wseat-c2"
+                ]
+              },
+              {
+                "cap": "for 줄: 열은 3이에요",
+                "line": 1,
+                "vars": {
+                  "열": 3
+                }
+              },
+              {
+                "cap": "열 3 자리에 의자를 놓아요",
+                "line": 2,
+                "show": [
+                  "wseat-s3"
+                ],
+                "on": [
+                  "wseat-c3"
+                ]
+              },
+              {
+                "cap": "for 줄: 다 했으니 끝나요",
+                "line": 1
+              },
+              {
+                "cap": "끝 자리로 가요",
+                "line": 3,
+                "move": {
+                  "wseat-token": [
+                    800,
+                    330
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "text": "Byte의 세상에서도 똑같이 해요.",
+          "scene": {
+            "svg": "svg/world-grid.svg",
+            "alt": "반복 코드가 한 줄씩 강조되면서 column이 2, 3으로 바뀌어 블록이 놓이고 Byte가 보석까지 걷는 장면",
+            "code": [
+              "for column in range(2, 4):",
+              "    world.place(Block(), at_column=column, row=0)",
+              "for _ in range(4):",
+              "    move_forward()",
+              "collect_gem()"
+            ],
+            "world": {
+              "H": [
+                "11..1",
+                "11111"
+              ],
+              "O": [
+                ">...g",
+                "....."
+              ]
+            },
+            "steps": [
+              {
+                "cap": "이번엔 반복문으로 블록을 놓아요"
+              },
+              {
+                "cap": "for 줄: column은 2예요",
+                "line": 1,
+                "vars": {
+                  "column": 2
+                }
+              },
+              {
+                "cap": "(2, 0)에 블록을 놓아요",
+                "line": 2,
+                "show": [
+                  "wg-b2"
+                ]
+              },
+              {
+                "cap": "for 줄: column은 3이에요",
+                "line": 1,
+                "vars": {
+                  "column": 3
+                }
+              },
+              {
+                "cap": "(3, 0)에 블록을 놓아요",
+                "line": 2,
+                "show": [
+                  "wg-b3"
+                ]
+              },
+              {
+                "cap": "range(2, 4)는 3까지라 끝나요",
+                "line": 1
+              },
+              {
+                "cap": "for 줄: 아직 남았나 확인해요",
+                "line": 3
+              },
+              {
+                "cap": "1칸 앞으로 가요",
+                "line": 4,
+                "move": {
+                  "wg-bot": [
+                    630,
+                    246
+                  ]
+                }
+              },
+              {
+                "cap": "for 줄: 아직 남았나 확인해요",
+                "line": 3
+              },
+              {
+                "cap": "2칸 앞으로 가요",
+                "line": 4,
+                "move": {
+                  "wg-bot": [
+                    718,
+                    246
+                  ]
+                }
+              },
+              {
+                "cap": "for 줄: 아직 남았나 확인해요",
+                "line": 3
+              },
+              {
+                "cap": "3칸 앞으로 가요",
+                "line": 4,
+                "move": {
+                  "wg-bot": [
+                    806,
+                    246
+                  ]
+                }
+              },
+              {
+                "cap": "for 줄: 아직 남았나 확인해요",
+                "line": 3
+              },
+              {
+                "cap": "4칸 앞으로 가요",
+                "line": 4,
+                "move": {
+                  "wg-bot": [
+                    894,
+                    246
+                  ]
+                }
+              },
+              {
+                "cap": "네 번 다 걸었어요",
+                "line": 3
+              },
+              {
+                "cap": "끝 칸의 보석을 주워요",
+                "line": 5,
+                "hide": [
+                  "wg-gem"
+                ]
+              }
+            ],
+            "part": [
+              0,
+              8
+            ]
+          }
+        },
+        {
+          "text": "이어서 한 줄씩 봐요 (2/2)",
+          "scene": {
+            "svg": "svg/world-grid.svg",
+            "alt": "반복 코드가 한 줄씩 강조되면서 column이 2, 3으로 바뀌어 블록이 놓이고 Byte가 보석까지 걷는 장면",
+            "code": [
+              "for column in range(2, 4):",
+              "    world.place(Block(), at_column=column, row=0)",
+              "for _ in range(4):",
+              "    move_forward()",
+              "collect_gem()"
+            ],
+            "world": {
+              "H": [
+                "11..1",
+                "11111"
+              ],
+              "O": [
+                ">...g",
+                "....."
+              ]
+            },
+            "steps": [
+              {
+                "cap": "이번엔 반복문으로 블록을 놓아요"
+              },
+              {
+                "cap": "for 줄: column은 2예요",
+                "line": 1,
+                "vars": {
+                  "column": 2
+                }
+              },
+              {
+                "cap": "(2, 0)에 블록을 놓아요",
+                "line": 2,
+                "show": [
+                  "wg-b2"
+                ]
+              },
+              {
+                "cap": "for 줄: column은 3이에요",
+                "line": 1,
+                "vars": {
+                  "column": 3
+                }
+              },
+              {
+                "cap": "(3, 0)에 블록을 놓아요",
+                "line": 2,
+                "show": [
+                  "wg-b3"
+                ]
+              },
+              {
+                "cap": "range(2, 4)는 3까지라 끝나요",
+                "line": 1
+              },
+              {
+                "cap": "for 줄: 아직 남았나 확인해요",
+                "line": 3
+              },
+              {
+                "cap": "1칸 앞으로 가요",
+                "line": 4,
+                "move": {
+                  "wg-bot": [
+                    630,
+                    246
+                  ]
+                }
+              },
+              {
+                "cap": "for 줄: 아직 남았나 확인해요",
+                "line": 3
+              },
+              {
+                "cap": "2칸 앞으로 가요",
+                "line": 4,
+                "move": {
+                  "wg-bot": [
+                    718,
+                    246
+                  ]
+                }
+              },
+              {
+                "cap": "for 줄: 아직 남았나 확인해요",
+                "line": 3
+              },
+              {
+                "cap": "3칸 앞으로 가요",
+                "line": 4,
+                "move": {
+                  "wg-bot": [
+                    806,
+                    246
+                  ]
+                }
+              },
+              {
+                "cap": "for 줄: 아직 남았나 확인해요",
+                "line": 3
+              },
+              {
+                "cap": "4칸 앞으로 가요",
+                "line": 4,
+                "move": {
+                  "wg-bot": [
+                    894,
+                    246
+                  ]
+                }
+              },
+              {
+                "cap": "네 번 다 걸었어요",
+                "line": 3
+              },
+              {
+                "cap": "끝 칸의 보석을 주워요",
+                "line": 5,
+                "hide": [
+                  "wg-gem"
+                ]
+              }
+            ],
+            "part": [
+              8,
+              16
+            ]
+          }
+        },
+        {
+          "text": "`range(1, 7)`은 1부터 6까지예요. 끝 숫자는 들어가지 않아요.",
+          "code": "for column in range(1, 7):"
+        },
+        {
+          "quiz": {
+            "q": "반복이 끝났을 때 column은 몇일까요?",
+            "code": [
+              "for column in range(1, 4):",
+              "    world.place(Block(), at_column=column, row=0)"
+            ],
+            "choices": [
+              "3",
+              "4",
+              "5"
+            ],
+            "answer": 0,
+            "why": "`range(1, 4)`는 1, 2, 3만 만들어요. 끝 숫자 4는 들어가지 않아요.",
+            "verify": {
+              "H": [
+                "1...1"
+              ],
+              "O": [
+                ">...g"
+              ],
+              "measure": "var:column"
+            }
+          }
+        },
+        {
+          "quiz": {
+            "q": "`range(2, 5)`는 어떤 숫자들을 만들까요?",
+            "choices": [
+              "2, 3, 4",
+              "2, 3, 4, 5"
+            ],
+            "answer": 0,
+            "why": "끝 숫자 5는 들어가지 않아요. 2, 3, 4예요."
+          }
+        },
+        {
+          "quiz": {
+            "q": "반복이 끝났을 때 column은 몇일까요?",
+            "code": [
+              "for column in range(2, 5):",
+              "    world.place(Block(), at_column=column, row=0)"
+            ],
+            "choices": [
+              "4",
+              "5",
+              "6"
+            ],
+            "answer": 0,
+            "why": "`range(2, 5)`는 2, 3, 4만 만들어요. 마지막 값은 4예요.",
+            "verify": {
+              "H": [
+                "1....1"
+              ],
+              "O": [
+                ">....g"
+              ],
+              "measure": "var:column"
+            }
+          }
+        },
+        {
+          "text": "반복문으로 다리를 지어 건너 봐요!"
+        }
+      ]
+    }
+  ],
+  "outro": {
+    "title": "정리",
+    "slides": [
+      {
+        "text": "이 유닛에서 배운 것: 좌표는 **열**과 **줄** 두 숫자예요.",
+        "bubble": "좌표 · 열과 줄로 정한 자리",
+        "code": [
+          "Coordinate(2, 0)",
+          "world.place(Block(), at_column=2, row=0)"
+        ],
+        "note": "번호는 0부터 세요. 앞이 열, 뒤가 줄이에요."
+      },
+      {
+        "text": "면접 질문: 좌표는 왜 0부터 시작하나요?",
+        "bubble": "0은 기준(출발점)으로부터 떨어진 거리라서 첫 칸이 0이에요.",
+        "note": "예: 첫 열은 0칸 떨어져 있어요. 배열 번호도 0부터 해요."
+      },
+      {
+        "text": "면접 질문: 하드코딩과 일반화의 차이는?",
+        "bubble": "하드코딩은 값을 직접 박아 쓰고, 일반화는 규칙으로 만들어요.",
+        "note": "예: place를 줄마다 쓰기 vs 반복으로 놓기. 바꿀 일이 많을 때 일반화해요.",
+        "code": [
+          "world.place(Block(), at_column=0, row=0)",
+          "world.place(Block(), at_column=1, row=0)"
+        ]
+      },
+      {
+        "quiz": {
+          "q": "`Coordinate(3, 1)`의 줄 번호는?",
+          "choices": [
+            "3",
+            "1"
+          ],
+          "answer": 1,
+          "why": "앞이 열, 뒤가 줄이에요. 줄 1이에요."
+        }
+      },
+      {
+        "quiz": {
+          "q": "번호는 몇부터 셀까요?",
+          "choices": [
+            "0부터",
+            "1부터",
+            "2부터"
+          ],
+          "answer": 0,
+          "why": "첫 열과 첫 줄이 0번이에요."
+        }
+      },
+      {
+        "quiz": {
+          "q": "줄 번호가 가로 위치, 열 번호가 세로 위치다. 맞을까요?",
+          "choices": [
+            "맞다",
+            "틀리다"
+          ],
+          "answer": 1,
+          "why": "열이 가로(왼쪽에서 몇 번째), 줄이 앞으로 몇 칸이에요."
+        }
+      },
+      {
+        "quiz": {
+          "q": "보석을 몇 개 주울까요?",
+          "choices": [
+            "1개",
+            "2개",
+            "3개"
+          ],
+          "answer": 1,
+          "why": "보석이 1열과 3열에 있어서, 걸으며 두 개를 주워요.",
+          "code": [
+            "world.place(Gem(), at_column=1, row=0)",
+            "world.place(Gem(), at_column=3, row=0)",
+            "for _ in range(3):",
+            "    move_forward()",
+            "    if is_on_gem():",
+            "        collect_gem()"
+          ],
+          "verify": {
+            "H": [
+              "1111"
+            ],
+            "O": [
+              ">g.g"
+            ],
+            "measure": "collected"
+          }
+        }
+      },
+      {
+        "text": "이 유닛에서 배운 것: 같은 일은 규칙으로 만들어요.",
+        "bubble": "데이터로 만들면 바꾸기 쉬워요",
+        "code": [
+          "for i in range(4):",
+          "    world.place(Block(), at_column=i, row=0)"
+        ],
+        "note": "반복으로 놓으면 칸 수만 바꿔도 돼요."
+      },
+      {
+        "text": "열과 줄만 알면 어디든 놓을 수 있어요. 정리를 마쳤어요!"
+      }
+    ]
+  }
+}

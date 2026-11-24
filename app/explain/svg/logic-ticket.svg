@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="lg-t lg-d">
+  <title id="lg-t">표도 있고 문도 열려야 들어가기</title>
+  <desc id="lg-d">입구 위에 표와 문을 확인하는 등 두 개가 있어요. 표 등이 켜지고, 문이 열리며 문 등도 켜지면 표를 든 동그라미가 문을 지나 들어가요.</desc>
+  <style>
+    .lg-board{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .lg-lamp{fill:var(--panel2);stroke:var(--line);stroke-width:3;transition:fill .5s,stroke .5s}
+    .lg-mark{fill:none;stroke:var(--panel);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity .5s}
+    .lg-chk.on .lg-lamp{fill:var(--ok);stroke:var(--ok)}
+    .lg-chk.on .lg-mark{opacity:1}
+    .lg-lbl{fill:var(--tx);font-size:24px;font-weight:700}
+    .lg-and{fill:var(--warn);font-size:24px;font-weight:800;text-anchor:middle}
+    .lg-post{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .lg-ground{stroke:var(--line);stroke-width:3}
+    .lg-doorp{fill:var(--warn);stroke:var(--tx);stroke-width:3;transition:opacity .7s}
+    .lg-frame{fill:none;stroke:var(--dim);stroke-width:3;stroke-dasharray:8 8}
+    #lg-door.on .lg-doorp{opacity:0}
+    .lg-body{fill:var(--acc);stroke:var(--tx);stroke-width:3}
+    .lg-ticket{fill:var(--panel);stroke:var(--warn);stroke-width:3}
+    .lg-tk{fill:var(--warn);font-size:20px;font-weight:800;text-anchor:middle}
+    #lg-walker{transition:transform 1.2s ease,opacity .5s}
+    #lg-board,#lg-gate{transition:opacity .5s}
+    @media (prefers-reduced-motion:reduce){#lg-walker,#lg-board,#lg-gate,.lg-lamp,.lg-mark,.lg-doorp{transition:none}}
+  </style>
+  <g id="lg-board">
+    <rect class="lg-board" x="250" y="125" width="460" height="80" rx="16"/>
+    <g id="lg-chk1" class="lg-chk" transform="translate(300 165)">
+      <circle class="lg-lamp" r="22"/>
+      <path class="lg-mark" d="M-10 0 L-3 8 L11 -8"/>
+      <text class="lg-lbl" x="36" y="9">표 있음</text>
+    </g>
+    <text class="lg-and" x="480" y="174">그리고</text>
+    <g id="lg-chk2" class="lg-chk" transform="translate(560 165)">
+      <circle class="lg-lamp" r="22"/>
+      <path class="lg-mark" d="M-10 0 L-3 8 L11 -8"/>
+      <text class="lg-lbl" x="36" y="9">문 열림</text>
+    </g>
+  </g>
+  <g id="lg-gate">
+    <line class="lg-ground" x1="60" y1="440" x2="900" y2="440"/>
+    <rect class="lg-post" x="580" y="240" width="24" height="200" rx="4"/>
+    <rect class="lg-post" x="736" y="240" width="24" height="200" rx="4"/>
+    <rect class="lg-post" x="580" y="228" width="180" height="24" rx="6"/>
+    <rect class="lg-frame" x="610" y="258" width="120" height="176"/>
+    <g id="lg-door"><rect class="lg-doorp" x="610" y="258" width="120" height="176" rx="4"/></g>
+  </g>
+  <g id="lg-walker" style="transform:translate(170px,380px)">
+    <circle class="lg-body" r="34"/>
+    <rect class="lg-ticket" x="20" y="-62" width="56" height="36" rx="6"/>
+    <text class="lg-tk" x="48" y="-36">표</text>
+  </g>
+</svg>

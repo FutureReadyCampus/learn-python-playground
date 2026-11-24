@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t4w-t t4w-d">
+  <title id="t4w-t">비가 안 오면 산책을 가요</title>
+  <desc id="t4w-d">왼쪽 창문으로 날씨가 보여요. 가운데 카드 두 장은 '비가 와요?'와 그 반대인 '비가 안 와요?'의 답이에요. 답이 '네'이면 오른쪽 신발이 문밖으로 나가요.</desc>
+  <style>
+    .t4w-frame{fill:var(--panel);stroke:var(--line);stroke-width:4}
+    .t4w-bar{stroke:var(--line);stroke-width:4}
+    .t4w-sun{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .t4w-cloud{fill:var(--panel2);stroke:var(--dim);stroke-width:3}
+    .t4w-drop{stroke:var(--acc);stroke-width:4;stroke-linecap:round}
+    .t4w-card{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .t4w-card2{fill:var(--panel2);stroke:var(--acc);stroke-width:3}
+    .t4w-q{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:middle}
+    .t4w-val{fill:var(--acc);font-size:32px;font-weight:800;text-anchor:middle}
+    .t4w-arr{fill:none;stroke:var(--dim);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+    .t4w-lbl{fill:var(--dim);font-size:18px;font-weight:700;text-anchor:middle}
+    .t4w-door{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .t4w-shoe{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .t4w-day{fill:var(--tx);font-size:28px;font-weight:800;text-anchor:middle}
+  </style>
+  <text id="t4w-day" class="t4w-day" x="170" y="100">창밖을 봐요</text>
+  <rect class="t4w-frame" x="60" y="120" width="220" height="200" rx="10"/>
+  <line class="t4w-bar" x1="170" y1="120" x2="170" y2="320"/>
+  <g id="t4w-sun"><circle class="t4w-sun" cx="170" cy="220" r="46"/></g>
+  <g id="t4w-rain">
+    <path class="t4w-cloud" d="M100 210 C100 175 145 168 158 186 C172 150 235 160 235 196 C270 196 270 240 235 240 H110 C80 240 80 210 100 210 Z"/>
+    <path class="t4w-drop" d="M120 262 l-8 22 M165 262 l-8 22 M210 262 l-8 22"/>
+  </g>
+  <rect class="t4w-card" x="320" y="110" width="200" height="110" rx="16"/>
+  <text class="t4w-q" x="420" y="150">비가 와요?</text>
+  <text id="t4w-v1" class="t4w-val" x="420" y="198">?</text>
+  <path class="t4w-arr" d="M420 228 V262 M408 250 L420 264 L432 250"/>
+  <text class="t4w-lbl" x="480" y="252">뒤집기</text>
+  <rect class="t4w-card2" x="320" y="272" width="200" height="110" rx="16"/>
+  <text class="t4w-q" x="420" y="312">비가 안 와요?</text>
+  <text id="t4w-v2" class="t4w-val" x="420" y="360">?</text>
+  <rect class="t4w-door" x="740" y="170" width="130" height="240" rx="8"/>
+  <text class="t4w-lbl" x="805" y="440">문밖 산책길</text>
+  <g id="t4w-shoes" style="transform:translate(630px,390px)">
+    <path class="t4w-shoe" d="M-50 0 V-30 H-20 C-10 -10 10 -10 12 0 Z"/>
+    <path class="t4w-shoe" d="M8 0 V-30 H38 C48 -10 68 -10 70 0 Z"/>
+  </g>
+</svg>

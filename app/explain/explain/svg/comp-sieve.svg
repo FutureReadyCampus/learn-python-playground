@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="cs-t cs-d">
+  <title id="cs-t">체로 큰 돌만 거르기</title>
+  <desc id="cs-d">크기 1, 5, 2, 6인 돌을 하나씩 체에 올려요. 3보다 작은 돌은 체 구멍으로 빠지고, 큰 돌 5와 6만 아래 새 줄에 남아요.</desc>
+  <style>
+    .cs-stone{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .cs-n{fill:var(--tx);font-size:24px;font-weight:800;text-anchor:middle}
+    .cs-bowl{fill:none;stroke:var(--tx);stroke-width:3}
+    .cs-mesh{stroke:var(--line);stroke-width:2}
+    .cs-tray{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    #cs-tray.on .cs-tray{stroke:var(--ok)}
+    .cs-lab{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:middle}
+  </style>
+  <text class="cs-lab" x="160" y="128">돌들</text>
+  <path class="cs-bowl" d="M330 250 Q480 360 630 250 Z"/>
+  <line class="cs-mesh" x1="380" y1="250" x2="390" y2="290"/><line class="cs-mesh" x1="430" y1="250" x2="434" y2="300"/>
+  <line class="cs-mesh" x1="480" y1="250" x2="480" y2="304"/><line class="cs-mesh" x1="530" y1="250" x2="526" y2="300"/>
+  <line class="cs-mesh" x1="580" y1="250" x2="570" y2="290"/><line class="cs-mesh" x1="350" y1="270" x2="610" y2="270"/>
+  <text class="cs-lab" x="680" y="262">체</text>
+  <g id="cs-tray"><rect class="cs-tray" x="330" y="390" width="300" height="90" rx="14"/></g>
+  <text class="cs-lab" x="680" y="444">큰 돌</text>
+  <g id="cs-s1" style="transform:translate(270px,120px)"><circle class="cs-stone" r="16"/><text class="cs-n" y="8">1</text></g>
+  <g id="cs-s5" style="transform:translate(390px,120px)"><circle class="cs-stone" r="30"/><text class="cs-n" y="8">5</text></g>
+  <g id="cs-s2" style="transform:translate(510px,120px)"><circle class="cs-stone" r="19"/><text class="cs-n" y="8">2</text></g>
+  <g id="cs-s6" style="transform:translate(630px,120px)"><circle class="cs-stone" r="34"/><text class="cs-n" y="8">6</text></g>
+</svg>

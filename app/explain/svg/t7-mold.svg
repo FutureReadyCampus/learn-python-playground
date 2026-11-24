@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t7m-t t7m-d">
+  <title id="t7m-t">붕어빵 틀에서 하나씩 찍어 내기</title>
+  <desc id="t7m-d">왼쪽에 붕어빵 틀이 있어요. 틀에서 붕어빵 하나가 나와 오른쪽으로 가고 붕어빵1이라는 이름표가 붙어요. 하나를 더 찍으면 붕어빵2가 따로 생겨요.</desc>
+  <style>
+    .t7m-mold{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .t7m-hole{fill:var(--code);stroke:var(--line);stroke-width:3}
+    .t7m-lbl{fill:var(--dim);font-size:24px;font-weight:700;text-anchor:middle}
+    .t7m-fish{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .t7m-eye{fill:var(--tx)}
+    .t7m-tag rect{fill:var(--panel);stroke:var(--acc);stroke-width:3}
+    .t7m-tag.on rect{stroke-width:6}
+    .t7m-tag text{fill:var(--tx);font-size:24px;font-weight:800;text-anchor:middle}
+    .t7m-tag line{stroke:var(--acc);stroke-width:3}
+  </style>
+  <g id="t7m-mold">
+    <rect class="t7m-mold" x="70" y="200" width="240" height="140" rx="20"/>
+    <ellipse class="t7m-hole" cx="175" cy="270" rx="70" ry="40"/>
+    <path class="t7m-hole" d="M240 270 L280 240 L280 300 Z"/>
+    <rect class="t7m-mold" x="310" y="258" width="60" height="24" rx="8"/>
+    <text class="t7m-lbl" x="190" y="380">붕어빵 틀</text>
+  </g>
+  <g id="t7m-f1" style="transform:translate(175px,270px)">
+    <ellipse class="t7m-fish" cx="0" cy="0" rx="70" ry="40"/>
+    <path class="t7m-fish" d="M65 0 L105 -30 L105 30 Z"/>
+    <circle class="t7m-eye" cx="-38" cy="-8" r="6"/>
+  </g>
+  <g id="t7m-tag1" class="t7m-tag">
+    <line x1="560" y1="240" x2="560" y2="196"/>
+    <rect x="480" y="150" width="160" height="46" rx="10"/>
+    <text x="560" y="182">붕어빵1</text>
+  </g>
+  <g id="t7m-f2" style="transform:translate(175px,270px)">
+    <ellipse class="t7m-fish" cx="0" cy="0" rx="70" ry="40"/>
+    <path class="t7m-fish" d="M65 0 L105 -30 L105 30 Z"/>
+    <circle class="t7m-eye" cx="-38" cy="-8" r="6"/>
+  </g>
+  <g id="t7m-tag2" class="t7m-tag">
+    <line x1="800" y1="240" x2="800" y2="196"/>
+    <rect x="720" y="150" width="160" height="46" rx="10"/>
+    <text x="800" y="182">붕어빵2</text>
+  </g>
+  <text id="t7m-own" class="t7m-lbl" x="680" y="400">같은 틀, 따로따로</text>
+</svg>

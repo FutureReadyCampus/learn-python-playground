@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="fn-t fn-d">
+  <title id="fn-t">장보기 공책을 펴서 읽고 다시 덮기</title>
+  <desc id="fn-d">덮여 있던 장보기 공책이 펼쳐지고, 적힌 줄 우유, 빵, 달걀을 위에서부터 한 줄씩 읽을 때마다 그 물건이 바구니에 담겨요. 다 읽으면 공책이 다시 덮여요.</desc>
+  <style>
+    .fn-paper{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .fn-cov{fill:var(--acc);stroke:var(--tx);stroke-width:3}
+    .fn-spine{stroke:var(--tx);stroke-width:3}
+    .fn-title{fill:var(--tx);font-size:26px;font-weight:800;text-anchor:middle}
+    .fn-hl{fill:var(--warn);opacity:0}
+    .fn-row.on .fn-hl{opacity:.35}
+    .fn-word{fill:var(--tx);font-size:28px;font-weight:700}
+    .fn-rule{stroke:var(--line);stroke-width:2}
+    .fn-bask{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .fn-milk{fill:var(--panel);stroke:var(--tx);stroke-width:3}
+    .fn-bread{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .fn-egg{fill:var(--tx);stroke:var(--line);stroke-width:3}
+    .fn-lab{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:middle}
+  </style>
+  <g id="fn-cover">
+    <rect class="fn-cov" x="200" y="130" width="220" height="290" rx="14"/>
+    <line class="fn-spine" x1="222" y1="130" x2="222" y2="420"/>
+    <rect class="fn-paper" x="250" y="200" width="140" height="56" rx="8"/>
+    <text class="fn-title" x="320" y="238">장보기</text>
+  </g>
+  <g id="fn-open">
+    <rect class="fn-paper" x="110" y="130" width="400" height="290" rx="14"/>
+    <line class="fn-spine" x1="310" y1="130" x2="310" y2="420"/>
+    <text class="fn-title" x="210" y="180">장보기</text>
+    <g id="fn-r1" class="fn-row"><rect class="fn-hl" x="326" y="196" width="170" height="52" rx="8"/><text class="fn-word" x="346" y="232">우유</text></g>
+    <g id="fn-r2" class="fn-row"><rect class="fn-hl" x="326" y="266" width="170" height="52" rx="8"/><text class="fn-word" x="346" y="302">빵</text></g>
+    <g id="fn-r3" class="fn-row"><rect class="fn-hl" x="326" y="336" width="170" height="52" rx="8"/><text class="fn-word" x="346" y="372">달걀</text></g>
+    <line class="fn-rule" x1="326" y1="252" x2="496" y2="252"/><line class="fn-rule" x1="326" y1="322" x2="496" y2="322"/><line class="fn-rule" x1="326" y1="392" x2="496" y2="392"/>
+    <line class="fn-rule" x1="130" y1="252" x2="290" y2="252"/><line class="fn-rule" x1="130" y1="322" x2="290" y2="322"/><line class="fn-rule" x1="130" y1="392" x2="290" y2="392"/>
+  </g>
+  <g id="fn-i1"><rect class="fn-milk" x="618" y="236" width="50" height="84" rx="6"/><path class="fn-milk" d="M618 236 L643 212 L668 236 Z"/></g>
+  <g id="fn-i2"><ellipse class="fn-bread" cx="723" cy="290" rx="44" ry="30"/></g>
+  <g id="fn-i3"><ellipse class="fn-egg" cx="800" cy="292" rx="24" ry="30"/></g>
+  <path class="fn-bask" d="M590 310 L850 310 L820 450 L620 450 Z"/>
+  <text class="fn-lab" x="720" y="490">바구니</text>
+</svg>

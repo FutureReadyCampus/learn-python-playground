@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="b8g-t b8g-d">
+  <title id="b8g-t">Byte가 보석을 세고 출력 창에 보여 주기</title>
+  <desc id="b8g-d">Byte가 세 칸을 걸으며 보석을 하나씩 주워요. 주울 때마다 보석 수가 늘고, 다 걸으면 아래 출력 창에 보석이 몇 개인지 글이 나타나요.</desc>
+  <style>
+    .b8g-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .b8g-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .b8g-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .b8g-eye{fill:var(--acc)}
+    .b8g-tip{fill:var(--warn)}
+    .b8g-line{stroke:var(--tx);stroke-width:3}
+    #b8g-count{fill:var(--tx);font-size:30px;font-weight:800}
+    .b8g-num{fill:var(--dim);font-size:18px;text-anchor:middle}
+    .b8g-out{fill:var(--code);stroke:var(--line);stroke-width:3}
+    #b8g-outbox.on .b8g-out{stroke:var(--acc)}
+    .b8g-label{fill:var(--dim);font-size:20px}
+    #b8g-out{fill:var(--ok);font-size:32px;font-weight:800}
+  </style>
+  <path class="b8g-gem" d="M420 182 l14 -16 -14 -16 -14 16z"/>
+  <text id="b8g-count" x="446" y="178">× 0</text>
+  <g>
+    <rect class="b8g-tile" x="258" y="320" width="84" height="50" rx="10"/>
+    <rect class="b8g-tile" x="358" y="320" width="84" height="50" rx="10"/>
+    <rect class="b8g-tile" x="458" y="320" width="84" height="50" rx="10"/>
+    <rect class="b8g-tile" x="558" y="320" width="84" height="50" rx="10"/>
+    <text class="b8g-num" x="400" y="398">1</text><text class="b8g-num" x="500" y="398">2</text><text class="b8g-num" x="600" y="398">3</text>
+  </g>
+  <g id="b8g-g1"><path class="b8g-gem" d="M400 300 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="b8g-g2"><path class="b8g-gem" d="M500 300 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="b8g-g3"><path class="b8g-gem" d="M600 300 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="b8g-bot" style="transform:translate(300px,322px)">
+    <line class="b8g-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="b8g-tip" cx="0" cy="-88" r="6"/>
+    <rect class="b8g-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="b8g-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+  <g id="b8g-outbox">
+    <rect class="b8g-out" x="250" y="420" width="400" height="70" rx="10"/>
+    <text class="b8g-label" x="266" y="412">출력</text>
+    <text id="b8g-out" x="276" y="467"> </text>
+  </g>
+</svg>

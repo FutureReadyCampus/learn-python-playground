@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t8r-t t8r-d">
+  <title id="t8r-t">이름 붙인 요리법</title>
+  <desc id="t8r-d">왼쪽에 달걀말이라는 이름이 붙은 요리법 카드가 있고, 깨기·휘젓기·말기 세 그림이 차례로 있어요. 이름을 부르면 손가락 표시가 세 줄을 차례로 짚고 프라이팬에 달걀말이가 하나 생겨요. 또 부르면 하나 더 생겨요.</desc>
+  <style>
+    .t8r-paper{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .t8r-head{fill:var(--acc);font-size:30px;font-weight:800;text-anchor:middle}
+    .t8r-row{fill:var(--tx);font-size:24px;font-weight:700}
+    .t8r-num{fill:var(--dim);font-size:22px;font-weight:800}
+    .t8r-icon{fill:var(--panel);stroke:var(--tx);stroke-width:3}
+    .t8r-yolk{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .t8r-stroke{fill:none;stroke:var(--tx);stroke-width:3;stroke-linecap:round}
+    .t8r-ptr{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .t8r-say rect{fill:var(--panel);stroke:var(--acc);stroke-width:3}
+    .t8r-say text{fill:var(--tx);font-size:28px;font-weight:800;text-anchor:middle}
+    .t8r-pan{fill:var(--panel);stroke:var(--tx);stroke-width:3}
+    .t8r-egg{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .t8r-swirl{fill:none;stroke:var(--tx);stroke-width:3}
+    #t8r-cnt{fill:var(--dim);font-size:24px;font-weight:700;text-anchor:middle}
+  </style>
+  <g id="t8r-card">
+    <rect class="t8r-paper" x="80" y="100" width="320" height="320" rx="14"/>
+    <text class="t8r-head" x="240" y="150">달걀말이</text>
+    <text class="t8r-num" x="130" y="222">1</text>
+    <ellipse class="t8r-icon" cx="186" cy="214" rx="18" ry="24"/>
+    <path class="t8r-stroke" d="M170 210 L180 218 L190 206 L202 216"/>
+    <text class="t8r-row" x="230" y="222">깨기</text>
+    <text class="t8r-num" x="130" y="302">2</text>
+    <path class="t8r-icon" d="M162 286 H210 Q210 314 186 314 Q162 314 162 286 Z"/>
+    <path class="t8r-stroke" d="M200 266 L184 296"/>
+    <text class="t8r-row" x="230" y="302">휘젓기</text>
+    <text class="t8r-num" x="130" y="382">3</text>
+    <rect class="t8r-yolk" x="162" y="360" width="48" height="26" rx="12"/>
+    <path class="t8r-stroke" d="M172 373 a7 7 0 1 1 7 7"/>
+    <text class="t8r-row" x="230" y="382">말기</text>
+  </g>
+  <path id="t8r-ptr" class="t8r-ptr" style="transform:translate(96px,140px)" d="M0 -12 L20 0 L0 12 Z"/>
+  <g id="t8r-say" class="t8r-say">
+    <rect x="510" y="96" width="300" height="70" rx="20"/>
+    <path class="t8r-paper" d="M580 166 L560 196 L610 166 Z"/>
+    <text x="660" y="142">“달걀말이!”</text>
+  </g>
+  <rect class="t8r-pan" x="520" y="330" width="320" height="34" rx="16"/>
+  <rect class="t8r-pan" x="840" y="338" width="80" height="16" rx="8"/>
+  <g id="t8r-egg1">
+    <rect class="t8r-egg" x="550" y="276" width="120" height="54" rx="22"/>
+    <path class="t8r-swirl" d="M568 303 a14 14 0 1 1 14 14"/>
+  </g>
+  <g id="t8r-egg2">
+    <rect class="t8r-egg" x="690" y="276" width="120" height="54" rx="22"/>
+    <path class="t8r-swirl" d="M708 303 a14 14 0 1 1 14 14"/>
+  </g>
+  <text id="t8r-cnt" x="680" y="410">달걀말이 0개</text>
+</svg>

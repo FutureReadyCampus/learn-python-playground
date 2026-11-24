@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="b9l-t b9l-d">
+  <title id="b9l-t">빈 칸은 지나치고 보석을 찾으면 멈추는 Byte</title>
+  <desc id="b9l-d">Byte가 한 칸씩 걸으며 보석이 있는지 살펴요. 빈 칸 두 곳은 건너뛰고 표시가 남아요. 세 번째 칸에서 보석을 줍고 반복을 끝내서, 네 번째 칸에는 가지 않아요.</desc>
+  <style>
+    .b9l-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .b9l-tk.on{stroke:var(--dim);stroke-dasharray:8 6}
+    .b9l-num{fill:var(--dim);font-size:18px;text-anchor:middle}
+    .b9l-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    #b9l-gem{transition:opacity .6s}
+    .b9l-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .b9l-eye{fill:var(--acc)}
+    .b9l-tip{fill:var(--warn)}
+    .b9l-line{stroke:var(--tx);stroke-width:3}
+    #b9l-bot{transition:transform 1s ease}
+    #b9l-stop{fill:var(--bad);font-size:32px;font-weight:800;text-anchor:middle;transition:opacity .5s}
+    @media (prefers-reduced-motion:reduce){#b9l-bot,#b9l-gem,#b9l-stop{transition:none}}
+  </style>
+  <g transform="translate(-220 0)">
+
+  <g>
+    <rect class="b9l-tile" x="470" y="330" width="84" height="44" rx="10"/>
+    <rect id="b9l-k1" class="b9l-tile b9l-tk" x="562" y="330" width="84" height="44" rx="10"/>
+    <rect id="b9l-k2" class="b9l-tile b9l-tk" x="654" y="330" width="84" height="44" rx="10"/>
+    <rect class="b9l-tile" x="746" y="330" width="84" height="44" rx="10"/>
+    <rect class="b9l-tile" x="838" y="330" width="84" height="44" rx="10"/>
+    <text class="b9l-num" x="604" y="400">1</text><text class="b9l-num" x="696" y="400">2</text>
+    <text class="b9l-num" x="788" y="400">3</text><text class="b9l-num" x="880" y="400">4</text>
+  </g>
+  <g id="b9l-gem"><path class="b9l-gem" d="M788 300 l16 -18 -16 -18 -16 18z"/></g>
+  <text id="b9l-stop" x="880" y="250">안 가요</text>
+  <g id="b9l-bot" style="transform:translate(512px,332px)">
+    <line class="b9l-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="b9l-tip" cx="0" cy="-88" r="6"/>
+    <rect class="b9l-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="b9l-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+</g>
+</svg>

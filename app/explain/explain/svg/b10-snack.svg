@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="b10s-t b10s-d">
+  <title id="b10s-t">간식 상자에서 꺼내 주다가 비면 사과 주기</title>
+  <desc id="b10s-d">간식 상자에 쿠키가 두 개 있어요. 접시 세 개에 하나씩 꺼내 놓다가, 세 번째에는 상자가 비어서 꺼낼 수 없어요. 그때는 사과를 대신 놓아요.</desc>
+  <style>
+    .b10s-box{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .b10s-lid{fill:var(--panel);stroke:var(--tx);stroke-width:3}
+    .b10s-label{fill:var(--dim);font-size:20px;text-anchor:middle}
+    .b10s-cookie{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .b10s-chip{fill:var(--tx)}
+    .b10s-plate{fill:var(--panel);stroke:var(--line);stroke-width:4}
+    .b10s-p.on .b10s-plate{stroke:var(--ok)}
+    .b10s-num{fill:var(--dim);font-size:20px;text-anchor:middle}
+    #b10s-oops{fill:var(--bad);font-size:36px;font-weight:800;text-anchor:middle}
+    .b10s-apple{fill:var(--bad);stroke:var(--tx);stroke-width:3}
+    .b10s-leaf{fill:var(--ok);stroke:var(--tx);stroke-width:2}
+  </style>
+  <g id="b10s-p1" class="b10s-p"><ellipse class="b10s-plate" cx="480" cy="400" rx="62" ry="20"/><text class="b10s-num" x="480" y="450">1</text></g>
+  <g id="b10s-p2" class="b10s-p"><ellipse class="b10s-plate" cx="630" cy="400" rx="62" ry="20"/><text class="b10s-num" x="630" y="450">2</text></g>
+  <g id="b10s-p3" class="b10s-p"><ellipse class="b10s-plate" cx="780" cy="400" rx="62" ry="20"/><text class="b10s-num" x="780" y="450">3</text></g>
+  <rect class="b10s-box" x="100" y="260" width="200" height="130" rx="10"/>
+  <rect class="b10s-lid" x="90" y="244" width="220" height="22" rx="6"/>
+  <text class="b10s-label" x="200" y="420">간식 상자</text>
+  <text id="b10s-oops" x="200" y="200">텅!</text>
+  <g id="b10s-c1" style="transform:translate(165px,320px)">
+    <circle class="b10s-cookie" r="26"/><circle class="b10s-chip" cx="-8" cy="-6" r="4"/><circle class="b10s-chip" cx="9" cy="4" r="4"/><circle class="b10s-chip" cx="-2" cy="12" r="3"/>
+  </g>
+  <g id="b10s-c2" style="transform:translate(235px,320px)">
+    <circle class="b10s-cookie" r="26"/><circle class="b10s-chip" cx="-8" cy="-6" r="4"/><circle class="b10s-chip" cx="9" cy="4" r="4"/><circle class="b10s-chip" cx="-2" cy="12" r="3"/>
+  </g>
+  <g id="b10s-apple" transform="translate(780 372)">
+    <circle class="b10s-apple" r="26"/><path class="b10s-leaf" d="M0 -26 q10 -16 22 -10 q-8 12 -22 10z"/>
+  </g>
+</svg>

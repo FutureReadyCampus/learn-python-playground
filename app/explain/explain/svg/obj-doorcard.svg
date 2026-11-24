@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="od-t od-d">
+  <title id="od-t">문마다 붙은 상태 카드</title>
+  <desc id="od-d">복도에 문 두 개가 있고 문마다 '열림: 예' 카드가 따로 붙어 있어요. 첫 문의 카드만 '아니요'로 바꾸면 그 문만 닫히고, 말은 닫힌 문을 지나 가운데 열쇠를 주워요.</desc>
+  <style>
+    .od-floor{stroke:var(--line);stroke-width:3}
+    .od-frame{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .od-open{fill:var(--panel);stroke:var(--line);stroke-width:3;transition:fill .5s}
+    .od-bar{stroke:var(--bad);stroke-width:8;stroke-linecap:round;opacity:0;transition:opacity .5s}
+    .od-card{fill:var(--panel);stroke:var(--warn);stroke-width:3;transition:stroke .5s}
+    .od-ctx{fill:var(--tx);font-size:22px;font-weight:800;text-anchor:middle}
+    .od-door.on .od-bar{opacity:1}
+    .od-door.on .od-card{stroke:var(--bad)}
+    .od-door.on .od-open{fill:var(--panel2)}
+    .od-piece{fill:var(--warn);stroke:var(--tx);stroke-width:3}
+    .od-keyp{fill:none;stroke:var(--warn);stroke-width:5;stroke-linecap:round;transition:stroke .5s,opacity .5s}
+    #od-key.on .od-keyp{stroke:var(--ok)}
+    #od-walk{transition:transform 1s ease,opacity .5s}
+    #od-hall{transition:opacity .5s}
+    @media (prefers-reduced-motion:reduce){#od-walk,#od-hall,.od-bar,.od-card,.od-open,.od-keyp{transition:none}}
+  </style>
+  <g id="od-hall">
+    <line class="od-floor" x1="40" y1="430" x2="920" y2="430"/>
+    <g id="od-door1" class="od-door">
+      <rect class="od-frame" x="190" y="200" width="140" height="230" rx="8"/>
+      <rect class="od-open" x="210" y="270" width="100" height="160"/>
+      <line class="od-bar" x1="200" y1="350" x2="320" y2="350"/>
+      <rect class="od-card" x="185" y="140" width="150" height="46" rx="8"/>
+      <text id="od-c1" class="od-ctx" x="260" y="171">열림: 예</text>
+    </g>
+    <g id="od-door2" class="od-door">
+      <rect class="od-frame" x="690" y="200" width="140" height="230" rx="8"/>
+      <rect class="od-open" x="710" y="270" width="100" height="160"/>
+      <line class="od-bar" x1="700" y1="350" x2="820" y2="350"/>
+      <rect class="od-card" x="685" y="140" width="150" height="46" rx="8"/>
+      <text id="od-c2" class="od-ctx" x="760" y="171">열림: 예</text>
+    </g>
+    <g id="od-key">
+      <circle class="od-keyp" cx="490" cy="400" r="14"/>
+      <path class="od-keyp" d="M504 400 H548 M532 400 V414 M544 400 V412"/>
+    </g>
+  </g>
+  <g id="od-walk" style="transform:translate(90px,396px)">
+    <path class="od-piece" d="M-22 32 H22 L12 -2 H-12 Z"/>
+    <circle class="od-piece" cx="0" cy="-16" r="16"/>
+  </g>
+</svg>

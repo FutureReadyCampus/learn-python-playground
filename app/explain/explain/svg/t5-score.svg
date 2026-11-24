@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t5b-t t5b-d">
+  <title id="t5b-t">골이 들어갈 때마다 점수판 숫자가 바뀌어요</title>
+  <desc id="t5b-d">위에 '점수'라고 적힌 점수판이 있고, 아래에 골대와 공 세 개가 있어요. 공이 골대에 하나씩 들어갈 때마다 점수판의 숫자가 1씩 늘어나요. 이름은 그대로예요.</desc>
+  <style>
+    .t5b-board{fill:var(--code);stroke:var(--line);stroke-width:4}
+    .t5b-name{fill:var(--acc);font-size:30px;font-weight:800;text-anchor:middle}
+    .t5b-numbox{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    #t5b-num{fill:var(--tx);font-size:64px;font-weight:800;text-anchor:middle}
+    .t5b-net{fill:none;stroke:var(--line);stroke-width:2}
+    .t5b-post{fill:none;stroke:var(--tx);stroke-width:5;stroke-linejoin:round}
+    .t5b-ball{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .t5b-patch{fill:var(--tx)}
+    .t5b-grass{stroke:var(--ok);stroke-width:4}
+  </style>
+  <rect class="t5b-board" x="330" y="70" width="300" height="160" rx="16"/>
+  <text class="t5b-name" x="420" y="168">점수</text>
+  <rect class="t5b-numbox" x="490" y="96" width="110" height="108" rx="10"/>
+  <text id="t5b-num" x="545" y="174">0</text>
+  <line class="t5b-grass" x1="60" y1="450" x2="900" y2="450"/>
+  <path class="t5b-net" d="M700 290 V450 M740 290 V450 M780 290 V450 M820 290 V450 M680 330 H860 M680 370 H860 M680 410 H860"/>
+  <path class="t5b-post" d="M680 450 V290 H860 V450"/>
+  <g id="t5b-b1" style="transform:translate(140px,420px)"><circle class="t5b-ball" r="26"/><circle class="t5b-patch" r="8"/></g>
+  <g id="t5b-b2" style="transform:translate(220px,420px)"><circle class="t5b-ball" r="26"/><circle class="t5b-patch" r="8"/></g>
+  <g id="t5b-b3" style="transform:translate(300px,420px)"><circle class="t5b-ball" r="26"/><circle class="t5b-patch" r="8"/></g>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="ls-t ls-d">
+  <title id="ls-t">리스트 칸을 하나씩 꺼내 걷는 Byte</title>
+  <desc id="ls-d">위에 steps 이름표가 붙은 리스트 칸이 있어요. 칸마다 번호 0, 1, 2와 걸음 수가 적혀 있고, 화살표가 지금 꺼낸 칸을 가리켜요. 아래 길에서 Byte가 꺼낸 숫자만큼 한 칸씩 걸어 끝 칸의 보석을 주워요.</desc>
+  <style>
+    .ls-tag{fill:var(--panel);stroke:var(--warn);stroke-width:3}
+    .ls-hole{fill:var(--warn)}
+    .ls-tagtx{fill:var(--tx);font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700}
+    .ls-slot{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .ls-s.on .ls-slot{stroke:var(--warn);stroke-width:5}
+    .ls-new .ls-slot{stroke:var(--ok)}
+    .ls-new{opacity:0}
+    .ls-val{fill:var(--tx);font-size:38px;font-weight:800;text-anchor:middle}
+    .ls-idx{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:middle}
+    .ls-arrow{stroke:var(--warn);stroke-width:4;fill:none}
+    .ls-head{fill:var(--warn)}
+    .ls-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .ls-num{fill:var(--dim);font-size:18px;text-anchor:middle}
+    .ls-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .ls-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .ls-eye{fill:var(--acc)}
+    .ls-tip{fill:var(--warn)}
+    .ls-line{stroke:var(--tx);stroke-width:3}
+  </style>
+  <rect class="ls-tag" x="166" y="116" width="110" height="44" rx="10"/>
+  <circle class="ls-hole" cx="183" cy="138" r="6"/>
+  <text class="ls-tagtx" x="196" y="147">steps</text>
+  <path class="ls-arrow" d="M276 138 H290"/>
+  <g id="ls-s0" class="ls-s"><rect class="ls-slot" x="300" y="94" width="90" height="90" rx="12"/><text id="ls-v0" class="ls-val" x="345" y="153">2</text><text class="ls-idx" x="345" y="214">0</text></g>
+  <g id="ls-s1" class="ls-s"><rect class="ls-slot" x="400" y="94" width="90" height="90" rx="12"/><text id="ls-v1" class="ls-val" x="445" y="153">1</text><text class="ls-idx" x="445" y="214">1</text></g>
+  <g id="ls-s2" class="ls-s"><rect class="ls-slot" x="500" y="94" width="90" height="90" rx="12"/><text id="ls-v2" class="ls-val" x="545" y="153">2</text><text class="ls-idx" x="545" y="214">2</text></g>
+  <g id="ls-s3" class="ls-s ls-new"><rect class="ls-slot" x="600" y="94" width="90" height="90" rx="12"/><text id="ls-v3" class="ls-val" x="645" y="153">3</text><text class="ls-idx" x="645" y="214">3</text></g>
+  <g id="ls-ptr" style="transform:translate(345px,226px)"><path class="ls-head" d="M0 0 l-14 22 h28 z"/><path class="ls-arrow" d="M0 20 V40"/></g>
+
+  <g>
+    <rect class="ls-tile" x="222" y="420" width="80" height="44" rx="10"/>
+    <rect class="ls-tile" x="308" y="420" width="80" height="44" rx="10"/>
+    <rect class="ls-tile" x="394" y="420" width="80" height="44" rx="10"/>
+    <rect class="ls-tile" x="480" y="420" width="80" height="44" rx="10"/>
+    <rect class="ls-tile" x="566" y="420" width="80" height="44" rx="10"/>
+    <rect class="ls-tile" x="652" y="420" width="80" height="44" rx="10"/>
+    <text class="ls-num" x="348" y="488">1</text><text class="ls-num" x="434" y="488">2</text><text class="ls-num" x="520" y="488">3</text>
+    <text class="ls-num" x="606" y="488">4</text><text class="ls-num" x="692" y="488">5</text>
+  </g>
+  <g id="ls-gem5"><path class="ls-gem" d="M692 404 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="ls-gem2" class="ls-new"><path class="ls-gem" d="M434 404 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="ls-bot" style="transform:translate(262px,422px)">
+    <line class="ls-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="ls-tip" cx="0" cy="-88" r="6"/>
+    <rect class="ls-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="ls-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+</svg>

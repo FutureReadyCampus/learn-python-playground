@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t4n-t t4n-d">
+  <title id="t4n-t">안 막혔을 때만 걷다가 벽 앞에서 멈추는 Byte</title>
+  <desc id="t4n-d">위에 카드 두 장이 있어요. 왼쪽은 '앞이 막혔나?', 오른쪽은 그 반대인 '안 막혔나?'의 답이에요. 아래에서 Byte가 길을 걷다가 벽 앞에서 멈추고 보석을 주워요.</desc>
+  <style>
+    .t4n-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .t4n-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .t4n-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .t4n-eye{fill:var(--acc)}
+    .t4n-tip{fill:var(--warn)}
+    .t4n-line{stroke:var(--tx);stroke-width:3}
+    .t4n-card{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .t4n-card2{fill:var(--panel2);stroke:var(--acc);stroke-width:3}
+    .t4n-q{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:middle}
+    .t4n-val{fill:var(--acc);font-size:32px;font-weight:800;text-anchor:middle}
+    .t4n-arr{fill:none;stroke:var(--dim);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+    .t4n-lbl{fill:var(--dim);font-size:18px;font-weight:700;text-anchor:middle}
+    .t4n-wall{fill:var(--bad);stroke:var(--tx);stroke-width:3}
+  </style>
+  <rect class="t4n-card" x="130" y="90" width="300" height="120" rx="16"/>
+  <text class="t4n-q" x="280" y="132">앞이 막혔나?</text>
+  <text id="t4n-v1" class="t4n-val" x="280" y="184">?</text>
+  <path class="t4n-arr" d="M446 150 H520 M506 138 L520 150 L506 162"/>
+  <text class="t4n-lbl" x="483" y="132">뒤집기</text>
+  <rect class="t4n-card2" x="536" y="90" width="300" height="120" rx="16"/>
+  <text class="t4n-q" x="686" y="132">안 막혔나?</text>
+  <text id="t4n-v2" class="t4n-val" x="686" y="184">?</text>
+  <rect class="t4n-tile" x="200" y="380" width="120" height="50" rx="10"/>
+  <rect class="t4n-tile" x="330" y="380" width="120" height="50" rx="10"/>
+  <rect class="t4n-tile" x="460" y="380" width="120" height="50" rx="10"/>
+  <rect class="t4n-tile" x="590" y="380" width="120" height="50" rx="10"/>
+  <rect class="t4n-wall" x="722" y="300" width="36" height="130" rx="6"/>
+  <g id="t4n-gem"><path class="t4n-gem" d="M650 360 l16 -18 -16 -18 -16 18z"/></g>
+  <g id="t4n-bot" style="transform:translate(260px,382px)">
+    <line class="t4n-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="t4n-tip" cx="0" cy="-88" r="6"/>
+    <rect class="t4n-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="t4n-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+</svg>

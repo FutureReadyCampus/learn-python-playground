@@ -1,0 +1,1112 @@
+{
+  "unit": "P4",
+  "title": "매개변수",
+  "term": "매개변수(parameter) · 함수의 빈칸",
+  "takeaway": "빈칸을 두면 함수 하나를 여러 경우에 써요.",
+  "slides": [
+    {
+      "text": "요리법에 빈칸이 있으면 어떻게 쓸까요?",
+      "scene": {
+        "svg": "svg/param-recipe.svg",
+        "alt": "요리법 카드의 '물 □컵' 빈칸에 3이 들어가 컵 세 개에 물이 차고, 다음에 2가 들어가 두 컵이 더 차는 장면",
+        "steps": [
+          {
+            "cap": "요리법에 '물 □컵' 빈칸이 있어요",
+            "show": [
+              "pr-card",
+              "pr-cups"
+            ]
+          },
+          {
+            "cap": "빈칸에 3을 넣어 읽어요",
+            "text": {
+              "pr-blank": "3"
+            },
+            "on": [
+              "pr-blankbox"
+            ]
+          },
+          {
+            "cap": "물을 세 컵 부어요",
+            "on": [
+              "pr-c1",
+              "pr-c2",
+              "pr-c3"
+            ]
+          },
+          {
+            "cap": "이번엔 빈칸에 2를 넣어 읽어요",
+            "text": {
+              "pr-blank": "2"
+            }
+          },
+          {
+            "cap": "물을 두 컵 더 부어요",
+            "on": [
+              "pr-c4",
+              "pr-c5"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "text": "요리법은 하나예요. 빈칸 숫자만 바꾸면 **여러 번** 쓸 수 있어요."
+    },
+    {
+      "text": "방금 한 일을 컴퓨터가 읽는 코드처럼 써 볼까요?",
+      "scene": {
+        "svg": "svg/param-recipe.svg",
+        "alt": "왼쪽 일상 코드가 한 줄씩 강조되면서 요리법 빈칸에 3, 2가 들어가고 컵에 물이 차례로 차는 장면",
+        "code": [
+          "def 물_붓기(컵):",
+          "    for _ in range(컵):",
+          "        한_컵_붓기()",
+          "물_붓기(3)",
+          "물_붓기(2)"
+        ],
+        "steps": [
+          {
+            "cap": "컴퓨터처럼 한 줄씩 읽어 볼까요?",
+            "show": [
+              "pr-card",
+              "pr-cups"
+            ]
+          },
+          {
+            "cap": "def 줄: 물 붓는 법을 적어 둬요",
+            "line": 1
+          },
+          {
+            "cap": "빈칸 컵에 3을 넣어 불러요",
+            "line": 4,
+            "vars": {
+              "컵": 3
+            },
+            "text": {
+              "pr-blank": "3"
+            },
+            "on": [
+              "pr-blankbox"
+            ]
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "1번 컵에 물을 부어요",
+            "line": 3,
+            "on": [
+              "pr-c1"
+            ]
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "2번 컵에 물을 부어요",
+            "line": 3,
+            "on": [
+              "pr-c2"
+            ]
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "3번 컵에 물을 부어요",
+            "line": 3,
+            "on": [
+              "pr-c3"
+            ]
+          },
+          {
+            "cap": "세 번 다 했어요. 함수가 끝나요",
+            "line": 2,
+            "vars": {
+              "컵": null
+            }
+          },
+          {
+            "cap": "이번엔 빈칸 컵에 2를 넣어 불러요",
+            "line": 5,
+            "vars": {
+              "컵": 2
+            },
+            "text": {
+              "pr-blank": "2"
+            }
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "4번 컵에 물을 부어요",
+            "line": 3,
+            "on": [
+              "pr-c4"
+            ]
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "5번 컵에 물을 부어요",
+            "line": 3,
+            "on": [
+              "pr-c5"
+            ]
+          },
+          {
+            "cap": "두 번 다 했어요. 함수가 끝나요",
+            "line": 2,
+            "vars": {
+              "컵": null
+            }
+          }
+        ],
+        "part": [
+          0,
+          7
+        ]
+      }
+    },
+    {
+      "text": "이어서 한 줄씩 봐요 (2/2)",
+      "scene": {
+        "svg": "svg/param-recipe.svg",
+        "alt": "왼쪽 일상 코드가 한 줄씩 강조되면서 요리법 빈칸에 3, 2가 들어가고 컵에 물이 차례로 차는 장면",
+        "code": [
+          "def 물_붓기(컵):",
+          "    for _ in range(컵):",
+          "        한_컵_붓기()",
+          "물_붓기(3)",
+          "물_붓기(2)"
+        ],
+        "steps": [
+          {
+            "cap": "컴퓨터처럼 한 줄씩 읽어 볼까요?",
+            "show": [
+              "pr-card",
+              "pr-cups"
+            ]
+          },
+          {
+            "cap": "def 줄: 물 붓는 법을 적어 둬요",
+            "line": 1
+          },
+          {
+            "cap": "빈칸 컵에 3을 넣어 불러요",
+            "line": 4,
+            "vars": {
+              "컵": 3
+            },
+            "text": {
+              "pr-blank": "3"
+            },
+            "on": [
+              "pr-blankbox"
+            ]
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "1번 컵에 물을 부어요",
+            "line": 3,
+            "on": [
+              "pr-c1"
+            ]
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "2번 컵에 물을 부어요",
+            "line": 3,
+            "on": [
+              "pr-c2"
+            ]
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "3번 컵에 물을 부어요",
+            "line": 3,
+            "on": [
+              "pr-c3"
+            ]
+          },
+          {
+            "cap": "세 번 다 했어요. 함수가 끝나요",
+            "line": 2,
+            "vars": {
+              "컵": null
+            }
+          },
+          {
+            "cap": "이번엔 빈칸 컵에 2를 넣어 불러요",
+            "line": 5,
+            "vars": {
+              "컵": 2
+            },
+            "text": {
+              "pr-blank": "2"
+            }
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "4번 컵에 물을 부어요",
+            "line": 3,
+            "on": [
+              "pr-c4"
+            ]
+          },
+          {
+            "cap": "for 줄: 아직 남았나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "5번 컵에 물을 부어요",
+            "line": 3,
+            "on": [
+              "pr-c5"
+            ]
+          },
+          {
+            "cap": "두 번 다 했어요. 함수가 끝나요",
+            "line": 2,
+            "vars": {
+              "컵": null
+            }
+          }
+        ],
+        "part": [
+          7,
+          16
+        ]
+      }
+    },
+    {
+      "text": "함수에 둔 빈칸을 **매개변수**라고 해요.",
+      "bubble": "매개변수(parameter) · 함수의 빈칸",
+      "code": [
+        "def move(distance):",
+        "    for _ in range(distance):",
+        "        move_forward()"
+      ],
+      "note": "`move(3)`처럼 부르면 빈칸 distance에 3이 들어가요."
+    },
+    {
+      "text": "이제 진짜 코드로 Byte를 움직여 봐요.",
+      "scene": {
+        "svg": "svg/param-tags.svg",
+        "alt": "왼쪽 코드가 한 줄씩 강조되면서 distance 값이 3, 2로 바뀌고 Byte가 세 칸, 두 칸을 걸어 보석을 줍는 장면",
+        "code": [
+          "def move(distance):",
+          "    for _ in range(distance):",
+          "        move_forward()",
+          "move(3)",
+          "move(2)",
+          "collect_gem()"
+        ],
+        "world": {
+          "H": [
+            "111111"
+          ],
+          "O": [
+            ">....g"
+          ]
+        },
+        "steps": [
+          {
+            "cap": "이번엔 진짜 코드로 Byte를 움직여요"
+          },
+          {
+            "cap": "def 줄: move 함수를 만들어 둬요",
+            "line": 1
+          },
+          {
+            "cap": "move(3): distance에 3이 들어가요",
+            "line": 4,
+            "vars": {
+              "distance": 3
+            },
+            "text": {
+              "pt-val": "3"
+            },
+            "on": [
+              "pt-tag"
+            ]
+          },
+          {
+            "cap": "for 줄: distance번 다 걸었나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "1칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pt-bot": [
+                601,
+                362
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: distance번 다 걸었나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "2칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pt-bot": [
+                677,
+                362
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: distance번 다 걸었나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "3칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pt-bot": [
+                753,
+                362
+              ]
+            }
+          },
+          {
+            "cap": "세 칸 다 걸었어요. 함수가 끝나요",
+            "line": 2,
+            "vars": {
+              "distance": null
+            }
+          },
+          {
+            "cap": "move(2): 이번엔 distance가 2예요",
+            "line": 5,
+            "vars": {
+              "distance": 2
+            },
+            "text": {
+              "pt-val": "2"
+            }
+          },
+          {
+            "cap": "for 줄: distance번 다 걸었나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "4칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pt-bot": [
+                829,
+                362
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: distance번 다 걸었나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "5칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pt-bot": [
+                905,
+                362
+              ]
+            }
+          },
+          {
+            "cap": "두 칸 다 걸었어요. 함수가 끝나요",
+            "line": 2,
+            "vars": {
+              "distance": null
+            }
+          },
+          {
+            "cap": "발밑의 보석을 주워요",
+            "line": 6,
+            "hide": [
+              "pt-gem"
+            ]
+          }
+        ],
+        "part": [
+          0,
+          9
+        ]
+      }
+    },
+    {
+      "text": "이어서 한 줄씩 봐요 (2/2)",
+      "scene": {
+        "svg": "svg/param-tags.svg",
+        "alt": "왼쪽 코드가 한 줄씩 강조되면서 distance 값이 3, 2로 바뀌고 Byte가 세 칸, 두 칸을 걸어 보석을 줍는 장면",
+        "code": [
+          "def move(distance):",
+          "    for _ in range(distance):",
+          "        move_forward()",
+          "move(3)",
+          "move(2)",
+          "collect_gem()"
+        ],
+        "world": {
+          "H": [
+            "111111"
+          ],
+          "O": [
+            ">....g"
+          ]
+        },
+        "steps": [
+          {
+            "cap": "이번엔 진짜 코드로 Byte를 움직여요"
+          },
+          {
+            "cap": "def 줄: move 함수를 만들어 둬요",
+            "line": 1
+          },
+          {
+            "cap": "move(3): distance에 3이 들어가요",
+            "line": 4,
+            "vars": {
+              "distance": 3
+            },
+            "text": {
+              "pt-val": "3"
+            },
+            "on": [
+              "pt-tag"
+            ]
+          },
+          {
+            "cap": "for 줄: distance번 다 걸었나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "1칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pt-bot": [
+                601,
+                362
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: distance번 다 걸었나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "2칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pt-bot": [
+                677,
+                362
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: distance번 다 걸었나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "3칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pt-bot": [
+                753,
+                362
+              ]
+            }
+          },
+          {
+            "cap": "세 칸 다 걸었어요. 함수가 끝나요",
+            "line": 2,
+            "vars": {
+              "distance": null
+            }
+          },
+          {
+            "cap": "move(2): 이번엔 distance가 2예요",
+            "line": 5,
+            "vars": {
+              "distance": 2
+            },
+            "text": {
+              "pt-val": "2"
+            }
+          },
+          {
+            "cap": "for 줄: distance번 다 걸었나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "4칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pt-bot": [
+                829,
+                362
+              ]
+            }
+          },
+          {
+            "cap": "for 줄: distance번 다 걸었나 확인해요",
+            "line": 2
+          },
+          {
+            "cap": "5칸 앞으로 가요",
+            "line": 3,
+            "move": {
+              "pt-bot": [
+                905,
+                362
+              ]
+            }
+          },
+          {
+            "cap": "두 칸 다 걸었어요. 함수가 끝나요",
+            "line": 2,
+            "vars": {
+              "distance": null
+            }
+          },
+          {
+            "cap": "발밑의 보석을 주워요",
+            "line": 6,
+            "hide": [
+              "pt-gem"
+            ]
+          }
+        ],
+        "part": [
+          9,
+          17
+        ]
+      }
+    },
+    {
+      "text": "함수 하나로 세 칸도, 두 칸도 걸었어요.",
+      "code": "move(4)",
+      "note": "distance는 함수 안에서만 써요. 함수가 끝나면 이름표도 떼어져요."
+    },
+    {
+      "quiz": {
+        "q": "`move(4)`를 부르면 distance는 몇일까요?",
+        "code": [
+          "def move(distance):",
+          "    for _ in range(distance):",
+          "        move_forward()",
+          "",
+          "move(4)"
+        ],
+        "choices": [
+          "1",
+          "4"
+        ],
+        "answer": 1,
+        "why": "부를 때 괄호 안에 넣은 4가 빈칸 distance에 들어가요."
+      }
+    },
+    {
+      "quiz": {
+        "q": "보석을 몇 개 주울까요?",
+        "code": [
+          "def hop(distance):",
+          "    for _ in range(distance):",
+          "        move_forward()",
+          "    collect_gem()",
+          "",
+          "hop(2)",
+          "hop(1)"
+        ],
+        "choices": [
+          "1개",
+          "2개",
+          "3개"
+        ],
+        "answer": 1,
+        "why": "hop을 두 번 불렀어요. 부를 때마다 걷고 나서 보석을 하나씩 주워요.",
+        "verify": {
+          "H": [
+            "1111"
+          ],
+          "O": [
+            ">.gg"
+          ],
+          "measure": "collected"
+        }
+      }
+    },
+    {
+      "quiz": {
+        "q": "보석을 몇 개 주울까요?",
+        "code": [
+          "def hop(distance):",
+          "    for _ in range(distance):",
+          "        move_forward()",
+          "    collect_gem()",
+          "",
+          "hop(1)",
+          "hop(1)",
+          "hop(1)"
+        ],
+        "choices": [
+          "1개",
+          "2개",
+          "3개"
+        ],
+        "answer": 2,
+        "why": "hop을 세 번 불렀어요. 한 칸 걷고 보석을 하나씩 주워요. 그래서 3개예요.",
+        "verify": {
+          "H": [
+            "1111"
+          ],
+          "O": [
+            ">ggg"
+          ],
+          "measure": "collected"
+        }
+      }
+    },
+    {
+      "text": "이제 빈칸이 있는 함수로 퍼즐을 풀어 봐요!"
+    }
+  ],
+  "mids": [
+    {
+      "before": "P4-3",
+      "title": "이름 붙여 넘기기",
+      "slides": [
+        {
+          "text": "택배 송장처럼 빈칸 **이름**을 보고 채울 수도 있어요.",
+          "bubble": "키워드 인자(keyword argument) · 이름 붙여 넘기기"
+        },
+        {
+          "text": "이름을 붙여 넣거나, 비워 두면 정해 둔 값을 써요.",
+          "scene": {
+            "svg": "svg/param-recipe.svg",
+            "alt": "이름을 붙여 컵=2로 부르면 두 컵, 빈칸을 비워 부르면 기본값 1로 한 컵에 물이 차는 장면",
+            "code": [
+              "def 물_붓기(컵=1):",
+              "    for _ in range(컵):",
+              "        한_컵_붓기()",
+              "물_붓기(컵=2)",
+              "물_붓기()"
+            ],
+            "steps": [
+              {
+                "cap": "컴퓨터처럼 한 줄씩 읽어 볼까요?",
+                "show": [
+                  "pr-card",
+                  "pr-cups"
+                ]
+              },
+              {
+                "cap": "def 줄: 컵을 안 주면 1이라고 정해요",
+                "line": 1
+              },
+              {
+                "cap": "컵=2: 이름을 붙여 2를 넣어요",
+                "line": 4,
+                "vars": {
+                  "컵": 2
+                },
+                "text": {
+                  "pr-blank": "2"
+                },
+                "on": [
+                  "pr-blankbox"
+                ]
+              },
+              {
+                "cap": "for 줄: 아직 남았나 확인해요",
+                "line": 2
+              },
+              {
+                "cap": "1번 컵에 물을 부어요",
+                "line": 3,
+                "on": [
+                  "pr-c1"
+                ]
+              },
+              {
+                "cap": "for 줄: 아직 남았나 확인해요",
+                "line": 2
+              },
+              {
+                "cap": "2번 컵에 물을 부어요",
+                "line": 3,
+                "on": [
+                  "pr-c2"
+                ]
+              },
+              {
+                "cap": "두 번 다 했어요. 함수가 끝나요",
+                "line": 2,
+                "vars": {
+                  "컵": null
+                }
+              },
+              {
+                "cap": "빈칸을 비우면 정해 둔 1을 써요",
+                "line": 5,
+                "vars": {
+                  "컵": 1
+                },
+                "text": {
+                  "pr-blank": "1"
+                }
+              },
+              {
+                "cap": "for 줄: 아직 남았나 확인해요",
+                "line": 2
+              },
+              {
+                "cap": "3번 컵에 물을 부어요",
+                "line": 3,
+                "on": [
+                  "pr-c3"
+                ]
+              },
+              {
+                "cap": "한 번 다 했어요. 함수가 끝나요",
+                "line": 2,
+                "vars": {
+                  "컵": null
+                }
+              }
+            ],
+            "part": [
+              0,
+              5
+            ]
+          }
+        },
+        {
+          "text": "이어서 한 줄씩 봐요 (2/2)",
+          "scene": {
+            "svg": "svg/param-recipe.svg",
+            "alt": "이름을 붙여 컵=2로 부르면 두 컵, 빈칸을 비워 부르면 기본값 1로 한 컵에 물이 차는 장면",
+            "code": [
+              "def 물_붓기(컵=1):",
+              "    for _ in range(컵):",
+              "        한_컵_붓기()",
+              "물_붓기(컵=2)",
+              "물_붓기()"
+            ],
+            "steps": [
+              {
+                "cap": "컴퓨터처럼 한 줄씩 읽어 볼까요?",
+                "show": [
+                  "pr-card",
+                  "pr-cups"
+                ]
+              },
+              {
+                "cap": "def 줄: 컵을 안 주면 1이라고 정해요",
+                "line": 1
+              },
+              {
+                "cap": "컵=2: 이름을 붙여 2를 넣어요",
+                "line": 4,
+                "vars": {
+                  "컵": 2
+                },
+                "text": {
+                  "pr-blank": "2"
+                },
+                "on": [
+                  "pr-blankbox"
+                ]
+              },
+              {
+                "cap": "for 줄: 아직 남았나 확인해요",
+                "line": 2
+              },
+              {
+                "cap": "1번 컵에 물을 부어요",
+                "line": 3,
+                "on": [
+                  "pr-c1"
+                ]
+              },
+              {
+                "cap": "for 줄: 아직 남았나 확인해요",
+                "line": 2
+              },
+              {
+                "cap": "2번 컵에 물을 부어요",
+                "line": 3,
+                "on": [
+                  "pr-c2"
+                ]
+              },
+              {
+                "cap": "두 번 다 했어요. 함수가 끝나요",
+                "line": 2,
+                "vars": {
+                  "컵": null
+                }
+              },
+              {
+                "cap": "빈칸을 비우면 정해 둔 1을 써요",
+                "line": 5,
+                "vars": {
+                  "컵": 1
+                },
+                "text": {
+                  "pr-blank": "1"
+                }
+              },
+              {
+                "cap": "for 줄: 아직 남았나 확인해요",
+                "line": 2
+              },
+              {
+                "cap": "3번 컵에 물을 부어요",
+                "line": 3,
+                "on": [
+                  "pr-c3"
+                ]
+              },
+              {
+                "cap": "한 번 다 했어요. 함수가 끝나요",
+                "line": 2,
+                "vars": {
+                  "컵": null
+                }
+              }
+            ],
+            "part": [
+              5,
+              12
+            ]
+          }
+        },
+        {
+          "text": "`world.place()`도 이름을 붙여 칸을 정해요.",
+          "bubble": "기본값(default) · 안 넘기면 쓰는 값",
+          "code": [
+            "world.place(Gem(), at_column=2, row=0)",
+            "def move(distance=1):",
+            "    ..."
+          ],
+          "note": "이름은 함수가 정한 그대로 써요. 기본값이 있는 빈칸은 뒤에 둬요."
+        },
+        {
+          "quiz": {
+            "q": "`hop()`처럼 빈칸을 비우면 몇 칸 걸을까요?",
+            "code": [
+              "def hop(distance=1):",
+              "    for _ in range(distance):",
+              "        move_forward()",
+              "    collect_gem()",
+              "",
+              "hop()"
+            ],
+            "choices": [
+              "0칸",
+              "1칸",
+              "2칸"
+            ],
+            "answer": 1,
+            "why": "안 넘기면 미리 정한 1을 써요. 한 칸 가서 보석을 주워요.",
+            "verify": {
+              "H": [
+                "111"
+              ],
+              "O": [
+                ">g."
+              ],
+              "measure": "collected"
+            }
+          }
+        },
+        {
+          "quiz": {
+            "q": "보석을 몇 개 주울까요?",
+            "code": [
+              "def hop(distance=1):",
+              "    for _ in range(distance):",
+              "        move_forward()",
+              "    collect_gem()",
+              "",
+              "hop(distance=2)",
+              "hop()"
+            ],
+            "choices": [
+              "2개",
+              "3개"
+            ],
+            "answer": 0,
+            "why": "`hop(distance=2)`는 두 칸, `hop()`은 정해 둔 한 칸이에요. 두 번 불러서 2개예요.",
+            "verify": {
+              "H": [
+                "1111"
+              ],
+              "O": [
+                ">.gg"
+              ],
+              "measure": "collected"
+            }
+          }
+        },
+        {
+          "quiz": {
+            "q": "`def hop(distance=1)`에서 `=1`은 무슨 뜻일까요?",
+            "choices": [
+              "꼭 1칸만 걸어요",
+              "안 넣으면 1을 써요",
+              "1번만 부를 수 있어요"
+            ],
+            "answer": 1,
+            "why": "빈칸을 비워 두면 미리 정해 둔 1을 써요."
+          }
+        },
+        {
+          "text": "이름을 붙여 칸을 정하고 보석을 놓아 봐요!"
+        }
+      ]
+    }
+  ],
+  "outro": {
+    "title": "정리",
+    "slides": [
+      {
+        "text": "이 유닛에서 배운 것: 함수의 빈칸이 **매개변수**예요.",
+        "bubble": "매개변수는 함수의 빈칸, 인자는 넣는 값",
+        "code": [
+          "def move(distance):",
+          "    for _ in range(distance):",
+          "        move_forward()",
+          "",
+          "move(3)"
+        ],
+        "note": "`move(3)`에서 distance는 매개변수, 3은 인자예요."
+      },
+      {
+        "text": "이 유닛에서 배운 것: 함수 안 변수는 **지역 변수**예요.",
+        "bubble": "지역 변수는 함수 안에서만 써요",
+        "code": [
+          "def move(distance):",
+          "    steps = distance",
+          "# 밖에서 steps는 못 써요"
+        ],
+        "note": "밖에서 만든 전역 변수는 어디서든 읽을 수 있어요."
+      },
+      {
+        "text": "면접 질문: 매개변수와 인자의 차이는?",
+        "bubble": "매개변수는 함수를 만들 때의 빈칸, 인자는 부를 때 넣는 값이에요.",
+        "note": "예: def move(n)의 n이 매개변수, move(3)의 3이 인자예요.",
+        "code": [
+          "def move(n): ...",
+          "move(3)"
+        ]
+      },
+      {
+        "text": "면접 질문: 지역 변수와 전역 변수는?",
+        "bubble": "지역은 함수 안에서 만들어 안에서만 쓰고, 전역은 밖에서 만들어요.",
+        "note": "예: 함수 안 steps는 밖에서 못 써요. 임시 값은 지역으로 둬요."
+      },
+      {
+        "text": "면접 질문: return과 print는 어떻게 다른가요?",
+        "bubble": "return은 값을 돌려줘 쓰게 하고, print는 화면에 보여 줄 뿐이에요.",
+        "note": "맛보기: 값을 이어서 쓰려면 return이에요. 자세히는 뒤에서 배워요."
+      },
+      {
+        "quiz": {
+          "q": "`def hop(distance):`에서 `distance`는?",
+          "choices": [
+            "인자",
+            "매개변수",
+            "반환값"
+          ],
+          "answer": 1,
+          "why": "함수를 만들 때 둔 빈칸이 매개변수예요."
+        }
+      },
+      {
+        "quiz": {
+          "q": "`hop(2)`의 `2`는?",
+          "choices": [
+            "인자",
+            "매개변수",
+            "함수 이름"
+          ],
+          "answer": 0,
+          "why": "부를 때 넣는 실제 값이 인자예요."
+        }
+      },
+      {
+        "quiz": {
+          "q": "함수 안에서 만든 변수를 밖에서 쓰면?",
+          "choices": [
+            "그대로 쓸 수 있다",
+            "오류가 난다",
+            "0이 된다"
+          ],
+          "answer": 1,
+          "why": "지역 변수는 함수가 끝나면 사라져서 밖에서는 이름을 몰라요."
+        }
+      },
+      {
+        "quiz": {
+          "q": "보석을 몇 개 주울까요?",
+          "choices": [
+            "1개",
+            "2개",
+            "3개"
+          ],
+          "answer": 1,
+          "why": "hop을 두 번 부르고 한 번마다 한 개씩 주워요.",
+          "code": [
+            "def hop(distance):",
+            "    for _ in range(distance):",
+            "        move_forward()",
+            "    collect_gem()",
+            "",
+            "hop(2)",
+            "hop(1)"
+          ],
+          "verify": {
+            "H": [
+              "1111"
+            ],
+            "O": [
+              ">.gg"
+            ],
+            "measure": "collected"
+          }
+        }
+      },
+      {
+        "text": "빈칸 하나로 함수를 여러 번 써요. 정리를 마쳤어요!"
+      }
+    ]
+  }
+}

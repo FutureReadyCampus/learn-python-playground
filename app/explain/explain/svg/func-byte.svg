@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="fb-t fb-d">
+  <title id="fb-t">Byte가 함수 turn_right를 불러 오른쪽으로 돌기</title>
+  <desc id="fb-d">Byte가 위를 보고 서 있어요. 함수를 적어 두기만 할 때는 그대로이고, 함수를 부르면 왼쪽으로 세 번 돌아 오른쪽을 본 뒤 한 칸 가서 보석을 주워요. 위의 글이 Byte가 보는 쪽을 알려 줘요.</desc>
+  <style>
+    .fb-tile{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .fb-gem{fill:var(--warn);stroke:var(--tx);stroke-width:2}
+    .fb-body{fill:var(--panel2);stroke:var(--tx);stroke-width:3}
+    .fb-eye{fill:var(--acc)}
+    #fb-bot.on .fb-eye{transform:translateX(8px)}
+    .fb-tip{fill:var(--warn)}
+    .fb-line{stroke:var(--tx);stroke-width:3}
+    .fb-big{fill:var(--tx);font-size:30px;font-weight:800;text-anchor:middle}
+    .fb-small{fill:var(--dim);font-size:22px;font-weight:700;text-anchor:middle}
+    .fb-box{fill:var(--panel2);stroke:var(--warn);stroke-width:3}
+  </style>
+  <g transform="translate(-182 0)">
+  <rect class="fb-box" x="512" y="130" width="300" height="110" rx="18"/>
+  <text id="fb-face" class="fb-big" x="662" y="178">보는 쪽: 위</text>
+  <text id="fb-wait" class="fb-small" x="662" y="216">아직 그대로예요</text>
+  <rect class="fb-tile" x="520" y="320" width="84" height="50" rx="10"/>
+  <rect class="fb-tile" x="620" y="320" width="84" height="50" rx="10"/>
+  <g id="fb-bot" style="transform:translate(562px,320px)">
+    <line class="fb-line" x1="0" y1="-70" x2="0" y2="-84"/><circle class="fb-tip" cx="0" cy="-88" r="6"/>
+    <rect class="fb-body" x="-24" y="-70" width="48" height="66" rx="20"/>
+    <rect class="fb-eye" x="-15" y="-56" width="30" height="12" rx="6"/>
+  </g>
+  <path id="fb-gem" class="fb-gem" d="M662 361 l16 -16 -16 -16 -16 16z"/>
+  </g>
+</svg>

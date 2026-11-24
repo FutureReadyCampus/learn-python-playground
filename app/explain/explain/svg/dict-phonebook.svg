@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="dpb-t dpb-d">
+  <title id="dpb-t">주소록에서 이름으로 번호 찾기</title>
+  <desc id="dpb-d">주소록에 할머니와 민지의 이름과 번호가 적혀 있어요. 돋보기가 민지 줄을 찾으면 전화기 화면에 민지 번호가 떠요. 새 친구 준호 줄이 더해지고, 돋보기가 준호 줄을 찾아 그 번호로 전화를 걸어요.</desc>
+  <style>
+    .dpb-cover{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .dpb-page{fill:var(--panel);stroke:var(--line);stroke-width:3}
+    .dpb-title{fill:var(--tx);font-size:28px;font-weight:800;text-anchor:middle}
+    .dpb-row rect{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    .dpb-row.on rect{stroke:var(--warn);stroke-width:5}
+    .dpb-name{fill:var(--tx);font-size:26px;font-weight:700}
+    .dpb-num{fill:var(--acc);font-size:26px;font-weight:800;font-family:'JetBrains Mono',monospace}
+    .dpb-sep{stroke:var(--line);stroke-width:3}
+    .dpb-lens{fill:none;stroke:var(--warn);stroke-width:6}
+    .dpb-handle{stroke:var(--warn);stroke-width:10;stroke-linecap:round}
+    .dpb-phone{fill:var(--panel2);stroke:var(--line);stroke-width:3}
+    #dpb-phone.on .dpb-phone{stroke:var(--ok);stroke-width:5}
+    .dpb-screenbg{fill:var(--code);stroke:var(--line);stroke-width:2}
+    #dpb-screen{fill:var(--ok);font-size:30px;font-weight:800;text-anchor:middle;font-family:'JetBrains Mono',monospace}
+    .dpb-btn{fill:var(--panel);stroke:var(--line);stroke-width:2}
+  </style>
+  <g id="dpb-book">
+    <rect class="dpb-cover" x="150" y="70" width="460" height="420" rx="18"/>
+    <rect class="dpb-page" x="170" y="90" width="420" height="380" rx="12"/>
+    <text class="dpb-title" x="380" y="135">주소록</text>
+    <g id="dpb-r1" class="dpb-row"><rect x="195" y="160" width="370" height="64" rx="10"/><text class="dpb-name" x="220" y="202">할머니</text><line class="dpb-sep" x1="400" y1="168" x2="400" y2="216"/><text class="dpb-num" x="430" y="202">1234</text></g>
+    <g id="dpb-r2" class="dpb-row"><rect x="195" y="240" width="370" height="64" rx="10"/><text class="dpb-name" x="220" y="282">민지</text><line class="dpb-sep" x1="400" y1="248" x2="400" y2="296"/><text class="dpb-num" x="430" y="282">5678</text></g>
+  </g>
+  <g id="dpb-r3" class="dpb-row"><rect x="195" y="320" width="370" height="64" rx="10"/><text class="dpb-name" x="220" y="362">준호</text><line class="dpb-sep" x1="400" y1="328" x2="400" y2="376"/><text class="dpb-num" x="430" y="362">4321</text></g>
+  <g id="dpb-phone">
+    <rect class="dpb-phone" x="690" y="150" width="170" height="300" rx="24"/>
+    <rect class="dpb-screenbg" x="710" y="180" width="130" height="110" rx="10"/>
+    <text id="dpb-screen" x="775" y="248"> </text>
+    <circle class="dpb-btn" cx="745" cy="340" r="16"/><circle class="dpb-btn" cx="805" cy="340" r="16"/>
+    <circle class="dpb-btn" cx="745" cy="395" r="16"/><circle class="dpb-btn" cx="805" cy="395" r="16"/>
+  </g>
+  <g id="dpb-lens" style="transform:translate(640px,110px)">
+    <circle class="dpb-lens" cx="0" cy="0" r="30"/>
+    <line class="dpb-handle" x1="22" y1="22" x2="50" y2="50"/>
+  </g>
+</svg>
