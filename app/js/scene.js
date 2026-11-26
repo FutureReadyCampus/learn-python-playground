@@ -389,9 +389,8 @@ if(R){
           if(wp[i*3+1]<-3){wp[i*3+1]=9;wp[i*3]=(Math.random()-.5)*14;wp[i*3+2]=(Math.random()-.5)*14}}}
       if(wkind=='fire')wm.size=ws.s*(.8+.3*Math.sin(T*3));
       wg.attributes.position.needsUpdate=true}
-    if(!drag3)userYaw*=1-Math.min(1,dt*.5);
     distC+=(distT-distC)*Math.min(1,dt*3);
-    const a=Math.PI/4+userYaw+(reduce?0:Math.sin(T*.25)*.1),pt=.78,ty=.5;
+    const a=Math.PI/4+userYaw,pt=.78,ty=.5;
     cam.position.set(Math.sin(a)*Math.cos(pt)*distC,ty+Math.sin(pt)*distC,Math.cos(a)*Math.cos(pt)*distC);cam.lookAt(0,ty,0);
     R.render(scene,cam)};
   requestAnimationFrame(loop);
