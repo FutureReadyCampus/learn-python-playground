@@ -163,6 +163,8 @@ body.running #prog,body.running #pal{pointer-events:none}
 .si{display:flex;align-items:center;gap:10px;width:100%;padding:8px 10px;border-radius:10px;text-align:left;font-size:14px;color:var(--tx)}
 .si i{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font:400 13px var(--font-d);font-style:normal;border:1.5px solid var(--line)}
 .si:hover:not(:disabled){background:var(--btn)}
+.si-lock{display:inline-flex;align-items:center;flex:none;color:var(--dim)}
+.si-lock svg{display:block}
 .si.done i{border-color:var(--ok);color:var(--ok)}
 .si.on{background:var(--acc)}
 .si.on i{border-color:#fff;color:#fff}

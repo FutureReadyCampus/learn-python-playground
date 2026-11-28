@@ -73,7 +73,7 @@ function leaveExplain(){exTok++;if(!window.exOn)return;setExUI(false);$('#xv-sce
 
 async function showSlide(p){
   const tok=++exTok,it=exIntro,sl=it.slides[p],N=it.slides.length;exPage=p;
-  {const pgs=pagesOf(it.unit);$('#xv-unit').textContent=`Unit ${UNIT_NO[it.unit]} ${UNITS[it.unit]||it.unit} · ${it.title} (페이지 ${pageNoOf(it.unit,q=>q.t=='intro'&&q.key==it.key)} / ${pgs.length})`}
+  {const pgs=pagesOf(it.unit);$('#xv-unit').textContent=`Unit ${UNIT_NO[it.unit]} ${UNITS[it.unit]||it.unit} · ${it.title} (목차 ${pageNoOf(it.unit,q=>q.t=='intro'&&q.key==it.key)} / ${pgs.length})`}
   $('#xv-text').innerHTML=rich(sl.text);$('#xv-text').hidden=!sl.text;
   // 말풍선 → 코드 → 덧말 (Swift Playgrounds 소개처럼 말풍선이 코드를 가리켜요)
   $('#xv-bubble').innerHTML=rich(sl.bubble);$('#xv-bubble').hidden=!sl.bubble;
@@ -81,7 +81,7 @@ async function showSlide(p){
   $('#xv-note').innerHTML=rich(sl.note);$('#xv-note').hidden=!sl.note;
   $('#xv-call').hidden=!(sl.bubble||sl.code||sl.note);
   const last=p==N-1;$('#xv-prev').disabled=p==0;$('#xv-next').disabled=last;
-  $('#xv-n').innerHTML=last?(it.outro?'다음으로':'코딩 시작'):`${p+1}/${N}`;$('#xv-n').classList.toggle('start',last);
+  $('#xv-n').innerHTML=last?(it.outro?'다음으로':'코딩 시작'):`슬라이드 ${p+1} / ${N}`;$('#xv-n').classList.toggle('start',last);
   renderQuiz(sl.quiz);
   const box=$('#xv-scene'),stage=$('#xv-stage'),sc=sl.scene;box.innerHTML='';stage.hidden=!sc;
   // 이전 장의 재생 흔적(막대 클릭, 단계 표시, 자막, 막대)을 먼저 지워요. 그림을 불러오는 동안 막대를 눌러도 이전 그림이 되살아나지 않게
