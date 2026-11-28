@@ -26,7 +26,7 @@ r = run(LINE, 'for _ in range(3)\n    move_forward()\n')
 assert r['static'] and r['static']['line'] == 1, r
 
 r = run({**LINE, 'tools': ['move', 'gem']}, 'while True:\n    move_forward()\n')
-assert '반복문' in r['static']['msg'], r
+assert acts(r) == ['move'] * 3 + ['bump'] and '반복문' in r['conditions'][0] and not r['ok'], r
 
 r = run(LINE, 'x = 1\nwhile True:\n    x += 1\n')
 assert '무한 반복' in first(r)['error']['msg'], r
@@ -41,7 +41,16 @@ r = run(LINE, 'steps = [1, 2]\nprint(steps[5])\n')
 assert first(r)['error']['line'] == 2 and 'IndexError' in first(r)['error']['msg'], r
 
 r = run({**LINE, 'need': ['def_args']}, 'def go():\n    move_forward()\n')
-assert '꼭 써야' in r['static']['msg'], r
+assert '꼭 써야' in r['conditions'][0], r
+
+# 같은 금지 명령이 반복돼도 한 번 안내하고, 모든 맵의 보석을 모아도 조건 위반이면 미완료
+r = run({**LINE, 'tools': ['gem'], 'need': ['for'], 'max': 3, 'variants': [{}]},
+        'move_forward()\n' * 3 + 'collect_gem()\n')
+assert len(r['conditions']) == 3 and not r['ok'] and not r['static'], r
+assert len(r['runs']) == 2 and all(m['done'] for m in r['runs']), r
+assert acts(r) == ['move'] * 3 + ['gem'], r
+r = run(LINE, 'move_forward()\nbreak\n')
+assert r['static']['line'] == 2 and not r['runs'], r
 
 # 빈 코드는 통과하면 안 된다
 r = run({**LINE, 'gems': [], 'sws': []}, 'pass\n')
@@ -88,6 +97,6 @@ assert r['ok'] and len(r['runs']) == 2, r
 r = run({**LINE, 'need': ['not']}, 'while not is_blocked():\n    move_forward()\ncollect_gem()\n')
 assert r['ok'], r
 r = run({**LINE, 'need': ['kwargs']}, 'move_forward()\n')
-assert '이름을 붙인' in r['static']['msg'], r
+assert '이름을 붙인' in r['conditions'][0], r
 
 print('ok')

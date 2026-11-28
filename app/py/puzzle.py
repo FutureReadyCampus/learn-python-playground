@@ -489,23 +489,23 @@ def kinds_of(n, defined):
     return gated, extra
 
 
-def static_check(tree, spec):
+def unmet_conditions(tree, spec, count):
+    messages = []
     tools, used = set(spec['tools']), set()
     defined = {n.name for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)}
     for n in ast.walk(tree):
         gated, extra = kinds_of(n, defined)
         used.update(extra)
         for kind in gated:
-            if kind in GATED and kind not in tools:
-                return {'msg': f'이 레슨에서는 {LABEL[kind]}을(를) 쓸 수 없어요', 'line': getattr(n, 'lineno', 0)}
+            if kind in GATED and kind not in tools and kind not in used:
+                messages.append(f'{n.lineno}번째 줄: 이 레슨에서는 {LABEL[kind]} 사용이 제한돼요.')
             used.add(kind)
     for k in spec.get('need') or []:
         if k not in used:
-            return {'msg': f'이 레슨에서는 {LABEL[k]}을(를) 꼭 써야 해요', 'line': 0}
-    n = count_stmts(tree)
-    if spec.get('max') and n > spec['max']:
-        return {'msg': f'명령은 {spec["max"]}개까지만 쓸 수 있어요 (지금 {n}개)', 'line': 0}
-    return None
+            messages.append(f'이 레슨에서 꼭 써야 하는 항목: {LABEL[k]}')
+    if spec.get('max') and count > spec['max']:
+        messages.append(f'명령은 {spec["max"]}개까지예요. 지금은 {count}개예요.')
+    return messages
 
 
 HINTS = {
@@ -562,7 +562,7 @@ def snap(v, depth=0):
     return repr(v)[:30]
 
 
-def run_one(spec, tree):
+def run_one(spec, program):
     """맵 하나에서 코드를 실행한다."""
     w = World(spec)
     out = {'actions': w.actions, 'error': None, 'goal_msg': None, 'spec': spec}
@@ -594,7 +594,7 @@ def run_one(spec, tree):
 
     sys.settrace(tracer)
     try:
-        exec(compile(tree, USER, 'exec'), g)
+        exec(program, g)
     except PuzzleError as e:
         out['error'] = {'msg': str(e), 'line': error_line(e)}
     except Exception as e:
@@ -627,24 +627,23 @@ def run_one(spec, tree):
 
 def run(spec, code):
     """실행 전 검사 → 맵마다(variants 가 있으면 여러 번) 실행. 처음 실패한 맵에서 멈춘다."""
-    out = {'static': None, 'n': 0, 'runs': [], 'ok': False}
+    out = {'static': None, 'conditions': [], 'n': 0, 'runs': [], 'ok': False}
     try:
         tree = ast.parse(code, USER)
+        program = compile(tree, USER, 'exec')
     except SyntaxError as e:
         ko = '들여쓰기가 맞지 않아요' if isinstance(e, IndentationError) else '문법이 맞지 않아요'
         out['static'] = {'msg': f'{ko} ({type(e).__name__}: {e.msg})', 'line': e.lineno or 0}
         return out
     out['n'] = count_stmts(tree)
-    out['static'] = static_check(tree, spec)
-    if out['static']:
-        return out
+    out['conditions'] = unmet_conditions(tree, spec, out['n'])
     base = {k: v for k, v in spec.items() if k != 'variants'}
     for v in [{}] + list(spec.get('variants') or []):        # 기본 맵부터, 그다음 변형 맵들 (화면도 이 순서로 보여 줘요)
-        r = run_one({**base, **v}, tree)
+        r = run_one({**base, **v}, program)
         out['runs'].append(r)
         if not r['done']:
             return out
-    out['ok'] = True
+    out['ok'] = not out['conditions']
     return out
 
 

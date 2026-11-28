@@ -268,13 +268,19 @@ async function run(){
         await wait(1600);resetWorld();return;
       }
     }
-    await win();
+    if(res.ok)await win();
   }catch(e){
     if(e instanceof Stop){}
     else if(e instanceof Fail){const b=$('.cl.now');b&&b.classList.add('err');codeErr(e);await wait(1800)}
     else{err=e}
     resetWorld();
-  }finally{running=false;ctlReset();hl(null);runUI()}
+  }finally{
+    if(!ctl.abort && res.conditions.length){
+      outLine('아직 충족하지 못한 풀이 조건이 있어요.',true);
+      for(const message of res.conditions)outLine(message,true);
+    }
+    running=false;ctlReset();hl(null);runUI();
+  }
   if(err)throw err;
 }
 async function win(){
