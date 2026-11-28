@@ -130,6 +130,8 @@ def check_lesson(d, ids):
     r = run(spec, text(d['solution']))
     if r['static']:
         errs.append(f'정답이 검사에서 걸려요: {r["static"]["msg"]} (줄 {r["static"]["line"]})')
+    elif r['conditions']:
+        errs.extend(r['conditions'])
     elif not r['ok']:
         last = r['runs'][-1]
         why = last['error']['msg'] if last['error'] else last['goal_msg'] or '목표를 다 못 채워요'
