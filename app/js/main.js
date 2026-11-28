@@ -66,16 +66,21 @@ function setMode(){
   $('#ta').value=codeStore[lv.id]??starter();edUpdate();
 }
 function setTa(val,pos){const ta=$('#ta');ta.value=val;ta.setSelectionRange(pos,pos);edUpdate()}
-function insertSnippet(k){
+const conditionLabels={
+  is_blocked:"앞이 막혔으면",
+  is_on_closed_switch:"아직 켜지지 않은 스위치 위라면",
+};
+const snippetText=(k,condition)=>condition?`if ${condition}():`:tplDefault(k);
+function insertSnippet(k,condition){
   const ta=$('#ta'),v=ta.value,s=ta.selectionStart,e=ta.selectionEnd;
   const lineStart=v.lastIndexOf('\n',s-1)+1,line=v.slice(lineStart,s),indent=line.match(/^ */)[0];
   const prefix=line.trim()?'\n'+indent:'',body=!!BK[k].body;
-  let text=prefix+tplDefault(k)+(body?'\n'+indent+'    ':'\n'+indent);
+  let text=prefix+snippetText(k,condition)+(body?'\n'+indent+'    ':'\n'+indent);
   const pos=s+text.length;
   if(BK[k].orelse)text+='\n'+indent+'else:\n'+indent+'    pass';
   setTa(v.slice(0,s)+text+v.slice(e),pos);ta.focus();
 }
-$('#pal').addEventListener('click',e=>{const b=e.target.closest('[data-snip]');if(b&&!running)insertSnippet(b.dataset.snip)});
+$('#pal').addEventListener('click',e=>{const b=e.target.closest('[data-snip]');if(b&&!running)insertSnippet(b.dataset.snip,b.dataset.condition)});
 function indentSel(d){
   const ta=$('#ta'),v=ta.value,s=ta.selectionStart,e=ta.selectionEnd,ls=v.lastIndexOf('\n',s-1)+1;let le=v.indexOf('\n',e);if(le<0)le=v.length;
   if(d>0&&s==e){const n=4-((s-ls)%4);setTa(v.slice(0,s)+' '.repeat(n)+v.slice(s),s+n);return}
@@ -158,8 +163,13 @@ function updHud(){
 /* 살펴보기에서 명령 상용구를 보여 줘요. */
 function renderPal(){
   if(lv.course.mode!='blocks'){$('#pal').innerHTML='';return}
-  $('#pal').innerHTML=lv.tools.map(k=>{const b=BK[k];
-    return`<button type="button" class="blk pb ${b.c}" data-snip="${k}" title="${tx(b.k)}"><code>${esc(tplDefault(k))}</code><small>${tx(b.k)}</small></button>`}).join('');
+  const button=(k,condition)=>{
+    const label=tx(condition?conditionLabels[condition]:BK[k].k);
+    const attr=condition?` data-condition="${condition}"`:'';
+    return`<button type="button" class="blk pb ${BK[k].c}" data-snip="${k}"${attr} title="${label}"><code>${esc(snippetText(k,condition))}</code><small>${label}</small></button>`;
+  };
+  const conditions=lv.condition_snippets||[];
+  $('#pal').innerHTML=lv.tools.map(k=>button(k)).concat(conditions.map(condition=>button('if',condition))).join('');
 }
 let tt;function toast(m,k=''){const t=$('#toast');t.textContent=m;t.className='show '+k;clearTimeout(tt);tt=setTimeout(()=>t.className='',2200)}
 function hl(id){$$('.now').forEach(e=>e.classList.remove('now'));if(!id)return;$$(`[data-id="${id}"]`).forEach(e=>{if(e.classList.contains('blk')||e.classList.contains('ln')||e.classList.contains('cl'))e.classList.add('now')});
