@@ -5,7 +5,7 @@
   "gem":   {"c": "gem", "tpl": "collect_gem()", "k": "보석 줍기", "gate": "gem"},
   "sw":    {"c": "sw", "tpl": "toggle_switch()", "k": "스위치 누르기", "gate": "sw"},
 
-  "for":   {"c": "loop", "tpl": "for _ in range({0}):", "chips": [["3", "2", "4", "5", "6", "7", "8", "9"]], "body": 1, "k": "N번 반복", "gate": "for"},
+  "for":   {"c": "loop", "tpl": "for _ in range({0}):", "chips": [["3", "2", "4", "5", "6", "7", "8", "9"]], "body": 1, "k": "숫자를 바꿔 반복 횟수 정하기", "gate": "for"},
   "while": {"c": "loop", "tpl": "while {0}:", "chips": [["not is_blocked()", "is_blocked()"]], "body": 1, "k": "조건이 참인 동안", "gate": "while"},
   "if":    {"c": "cond", "tpl": "if {0}:", "chips": [["is_on_gem()", "is_on_closed_switch()", "is_blocked()", "not is_blocked()"]], "body": 1, "k": "조건이 참이면", "gate": "if"},
   "ifelse": {"c": "cond", "tpl": "if {0}:", "chips": [["is_on_gem()", "is_on_closed_switch()", "is_blocked()", "not is_blocked()"]], "body": 1, "orelse": 1, "k": "참이면 / 아니면", "gate": "if"},
