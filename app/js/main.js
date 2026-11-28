@@ -137,7 +137,7 @@ function renderChips(follow=false){
         for(let x=i;x<j;x++){const L=LEVELS[x],lock=x>U()&&x>unitUnlocked;
           // 이 레슨 앞의 소개 (유닛 맨 앞 소개와, 퍼즐이 많은 유닛의 중간 소개)
           (window.introsBefore?introsBefore(L.id):[]).forEach(it=>{h+=`<button class="si intro${window.exOn&&exKey==it.key?' on':''}${store.get('bp-seen-'+it.key,'')=='1'?' seen':''}" data-u="${it.key}"><i>${++pg}</i><span>${it.title=='소개'?'소개':'소개 · '+esc(it.title)}</span></button>`});
-          h+=`<button class="si${x==li&&!window.exOn?' on':''}${solved.has(L.id)?' done':''}${lock?' lock':''}" data-i="${x}" ${lock?'disabled':''}><i>${lock?lockSvg:++pg}</i><span>${L.tag?`<b class="tg">${esc(L.tag)}</b> - `:''}${tx(L.name)}${KIND_KO[L.kind]?`<em class="kd">${KIND_KO[L.kind]}</em>`:''}</span></button>`;
+          h+=`<button class="si${x==li&&!window.exOn?' on':''}${solved.has(L.id)?' done':''}${lock?' lock':''}" data-i="${x}" ${lock?'disabled':''}><i>${++pg}</i>${lock?`<span class="si-lock">${lockSvg}</span>`:''}<span>${L.tag?`<b class="tg">${esc(L.tag)}</b> - `:''}${tx(L.name)}${KIND_KO[L.kind]?`<em class="kd">${KIND_KO[L.kind]}</em>`:''}</span></button>`;
           (window.introsAfter?introsAfter(L.id):[]).forEach(it=>{h+=`<button class="si intro outro${window.exOn&&exKey==it.key?' on':''}${store.get('bp-seen-'+it.key,'')=='1'?' seen':''}" data-u="${it.key}"><i>${++pg}</i><span>${esc(it.title)}</span></button>`});}
         h+='</div>';
       }
